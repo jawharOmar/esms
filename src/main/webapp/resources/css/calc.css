@@ -1,0 +1,346 @@
+/* --------------------------------- Layout ---------------------------------*/
+
+.calculate {
+    width: 320px;
+    padding: 12px;
+}
+
+
+
+.calculate button {
+    width: 65px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 5px;
+    outline: none !important;
+    position:relative;
+    transition: all 0.1s;
+}
+
+.calculate button.operator-group, button#equal {
+    font-size: 30px !important;
+}
+
+.calculate button.operand-group, button#clear, button#ans {
+    font-size: 20px !important;
+}
+
+#display1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    height: 50px;
+}
+
+.calculate .button-row {
+    margin-top: 12px;
+}
+
+.calculate form {
+    width: 294px;
+    border-radius: .25rem;
+}
+
+.calculate form input {
+    background-color: inherit;
+    border: none;
+    width: 294px;
+    margin: 0 auto;
+    display: block;
+}
+
+/*--------------------------- Light & Dark System ---------------------------*/
+
+/* Light Theme */
+.calculate .container-light {
+    background-color: #cfd8dc;
+    border: 1px solid #cfd8dc;
+}
+
+.calculate .form-light {
+    background-color: #eceff1;
+    box-shadow: 0 0 0 0.1rem rgba(176, 190, 197, .5);
+}
+
+.calculate .form-input-light {
+    color: #263238;
+}
+
+.calculate .operand-group-light {
+    background-color: #90a4ae;
+    border-color: #90a4ae; 
+    color: black;
+    box-shadow: 0px 5px 0px #6b8694; /* 12% darker than bg */
+}
+
+.calculate .operand-group-light:hover {
+    background-color: #78909c;
+    border-color: #607d8b;
+    box-shadow: 0px 5px 0px #576b75; /* 14% darker than bg */
+}
+
+.calculate .operand-group-light:active {
+    background-color: #607d8b;
+    background-color: #607d8b;
+    box-shadow: 0px 2px 0px #495f69; /* 11% darker than bg */
+    top: 3px;
+}
+
+.calculate .operator-group-light {
+    background-color: #546e7a;
+    border-color: #546e7a;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #3f525a; /* 10% darker than bg */
+}
+
+.calculate .operator-group-light:hover {
+    background-color: #455a64;
+    border-color: #37474f;
+    box-shadow: 0px 5px 0px #2a363c; /* 13% darker than bg */
+}
+
+.calculate .operator-group-light:active {
+    background-color: #37474f;
+    border-color: #37474f;
+    box-shadow: 0px 2px 0px #1f292d; /* 11% darker than bg */
+    top: 3px;
+}
+
+.calculate .clear-light {
+    background-color: #f44336;
+    border-color: #f44336;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #c2160a;
+    color: #ffffff;
+}
+
+.calculate .clear-light:hover {
+    background-color: #e53935;
+    border-color: #d32f2f;
+    box-shadow: 0px 5px 0px #b51a17;
+}
+
+.calculate .clear-light:active {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+    box-shadow: 0px 2px 0px #a82424;
+    top: 3px;
+}
+
+.calculate .ans-light, .backspace-light {
+    background-color: #ff9800;
+    border-color: #ff9800;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #cc7a00;
+    color: #ffffff;
+}
+
+.calculate .ans-light:hover, .backspace-light:hover {
+    background-color: #fb8c00;
+    border-color: #f57c00;
+    box-shadow: 0px 5px 0px #b36200;
+}
+
+.calculate .ans-light:active, .backspace-light:active {
+    background-color: #f57c00;
+    border-color: #f57c00;
+    box-shadow: 0px 2px 0px #b35900;
+    top: 3px;
+}
+
+.calculate .equal-light {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #3e8e41;
+    color: #ffffff;
+}
+
+.calculate .equal-light:hover {
+    background-color: #43a047;
+    border-color: #388e3c;
+    box-shadow: 0px 5px 0px #357e38;
+}
+
+.calculate .equal-light:active {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    box-shadow: 0px 2px 0px #245b27;
+    top: 3px;
+}
+
+/* Dark Theme */
+.calculate .container-dark {
+    background-color: #37474f;
+    border: 1px solid #37474f;
+}
+
+.calculate .form-dark {
+    background-color: #263238;
+    box-shadow: 0 0 0 0.1rem rgba(69, 90, 100, .5);
+}
+
+.calculate .form-input-dark {
+    color: #eceff1;
+}
+
+.calculate .operand-group-dark {
+    background-color: #607d8b;
+    border-color: #607d8b;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #495f69;
+}
+
+.calculate .operand-group-dark:hover {
+    background-color: #546e7a;
+    border-color: #455a64;
+    box-shadow: 0px 5px 0px #3f525a;
+}
+
+.calculate .operand-group-dark:active {
+    background-color: #455a64;
+    border-color: #455a64;
+    box-shadow: 0px 2px 0px #2a363c;
+    top: 3px;
+}
+
+.calculate .operator-group-dark {
+    background-color: #b0bec5;
+    border-color: #b0bec5;
+    color: #000000;
+    box-shadow: 0px 5px 0px #8a9ea8;
+}
+
+.calculate .operator-group-dark:hover {
+    background-color: #90a4ae;
+    border-color: #78909c;
+    box-shadow: 0px 5px 0px #6b8694;
+}
+
+.calculate .operator-group-dark:active {
+    background-color: #78909c;
+    border-color: #78909c;
+    box-shadow: 0px 2px 0px #576b75;
+    top: 3px;
+}
+
+.calculate .clear-dark {
+    background-color: #f44336;
+    border-color: #f44336;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #c2160a;
+    color: #000000;
+}
+
+.calculate .clear-dark:hover {
+    background-color: #e53935;
+    border-color: #d32f2f;
+    box-shadow: 0px 5px 0px #b51a17;
+}
+
+.calculate .clear-dark:active {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+    box-shadow: 0px 2px 0px #931f1f;
+    top: 3px;
+}
+
+.calculate .ans-dark, .backspace-dark {
+    background-color: #ff9800;
+    border-color: #ff9800;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #cc7a00;
+    color: #000000;
+}
+
+.calculate .ans-dark:hover, .backspace-dark:hover {
+    background-color: #fb8c00;
+    border-color: #f57c00;
+    box-shadow: 0px 5px 0px #b36200;
+}
+
+.calculate .ans-dark:active, .backspace-dark:active {
+    background-color: #f57c00;
+    border-color: #f57c00;
+    box-shadow: 0px 2px 0px #b35900;
+    top: 3px;
+}
+
+.calculate .equal-dark {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    color: #ffffff;
+    box-shadow: 0px 5px 0px #367c39;
+    color: #000000;
+}
+
+.calculate .equal-dark:hover {
+    background-color: #43a047;
+    border-color: #388e3c;
+    box-shadow: 0px 5px 0px #2d6c30;
+}
+
+.calculate .equal-dark:active {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    box-shadow: 0px 2px 0px #245b27;
+    top: 3px;
+}
+
+/*----------------------------- Rounded switch ------------------------------*/
+
+.calculate .switch input {
+    display: none;
+}
+
+.calculate .switch {
+    position: relative;
+    width: 30px;
+    height: 17px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.calculate .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    transition: .4s;
+    border-radius: 50px;
+    background-color: #263238;
+}
+
+.calculate .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.calculate input:checked + .slider:before {
+    background-color: #263238;
+}
+
+.calculate input:not(:checked) + .slider:before {
+    background-color: #eceff1;
+}
+
+.calculate input:checked + .slider {
+  background-color: #eceff1;
+}
+
+.calculate input:focus + .slider {
+  box-shadow: 0 0 1px #eceff1;
+}
+
+.calculate input:checked + .slider:before {
+  transform: translateX(13px);
+}

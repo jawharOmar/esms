@@ -1,0 +1,8 @@
+th, td {
+	text-align: center;
+}
+
+#general td {
+	text-align: inherit;
+	font-size: 2em;
+}

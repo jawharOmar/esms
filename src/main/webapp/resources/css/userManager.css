@@ -1,0 +1,11 @@
+.cus-hide-panel {
+	display: none;
+}
+
+.user-table td {
+	padding: 5px;
+}
+
+#roles .form-group{
+	margin-bottom: 0;
+}

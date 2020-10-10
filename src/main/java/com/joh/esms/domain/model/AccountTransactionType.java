@@ -1,0 +1,5 @@
+package com.joh.esms.domain.model;
+
+public enum AccountTransactionType {
+    ORDER, CUSTOMER_ORDER, INCOME, EXPENSE, VENDOR_PAYMENT, CUSTOMER_PAYMENT, CUSTOMER_ORDER_RETURN, VENDOR_RETURN, WITHDRAW
+}

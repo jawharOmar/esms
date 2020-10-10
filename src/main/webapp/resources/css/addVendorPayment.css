@@ -1,0 +1,12 @@
+label {
+    margin-bottom: 0.1rem;
+}
+
+/*    card */
+.customCard .card-header {
+    background-color: #01c851;
+}
+
+#refreshBtn {
+    background-color: #45b5ff;
+}

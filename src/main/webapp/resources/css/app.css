@@ -1,0 +1,245 @@
+/*
+jquery ui
+*/
+.ui-dialog-content {
+	font-family: NotoKufiArabic !important;
+}
+
+/*bootstrap*/
+.modal-backdrop {
+	z-index: -1;
+}
+
+/*Fix Cutting Letter inside boostrap input*/
+.form-control {
+	padding: 5px 12px;
+}
+
+/*Test*/
+table {
+	width: 100%;
+}
+
+body {
+	color: black;
+}
+
+body {
+	font-size: 14px;
+}
+
+.cus-avatar {
+	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+#view-port {
+	
+}
+
+#header {
+	color: white;
+	position: fixed;
+	top: 0px;
+	max-height: 40px;
+	z-index: 100;
+	left: 0px;
+	right: 0px;
+	overflow: auto;
+}
+
+#header a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#cus-navbar {
+	background: black;
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	max-height: 36px;
+	padding: 2px;
+	padding-right: 5px;
+	padding-left: 5px;
+	align-items: flex-start;
+}
+
+#cus-navbar table {
+	width: auto;
+}
+
+#toggle-menu {
+	opacity: 0.6;
+}
+
+#toggle-menu:hover {
+	opacity: 1;
+}
+
+#toggle-menu span {
+	display: block;
+	width: 26px;
+	height: 4px;
+	margin: 4px;
+	background: white;
+}
+
+#site-content {
+	padding-top: 40px;
+	padding-bottom: 35px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#footer {
+	position: fixed;
+	z-index: 0;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow: auto;
+	max-height: 35px;
+	z-index: -100;
+	overflow: auto;
+}
+
+#footer nav {
+	padding: 5px;
+	color: white;
+}
+
+#footer nav div:first-child {
+	text-align: right;
+}
+
+#footer nav div:last-child {
+	text-align: left;
+}
+
+#footer div {
+	display: inline-block;
+	width: 49%;
+	padding: 0px;
+}
+
+a {
+	color: inherit;
+}
+
+#section-right li {
+	min-width: 150px;
+}
+
+#app-loading-div {
+	background: white;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	line-height: 50;
+	text-align: center;
+	z-index: 1000;
+}
+
+#app-loading-div  img {
+	max-width: 60px;
+}
+
+/*
+Customize datatable
+*/
+.cus-not-export {
+	color: red;
+}
+
+.cus-note-td {
+	max-width: 40px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.dataTables_filter {
+	padding: 5px;
+}
+
+.dataTables_filter input {
+	width: 250px;
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	outline: none;
+	padding: 6px;
+}
+
+.dataTables_filter input:focus {
+	border: 1px solid #56b4ef;
+	box-shadow: 0px 0px 3px 1px #c8def0;
+}
+
+/*
+Customize datatable
+*/
+.dataTables_filter {
+	padding: 5px;
+}
+
+.dataTables_filter input {
+	width: 250px;
+	border-radius: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	outline: none;
+	padding: 6px;
+}
+
+@media print {
+	@page {
+		size: auto; /* auto is the initial value */
+		margin: 0; /* this affects the margin in the printer settings */
+	}
+	body * {
+		visibility: hidden;
+	}
+	#section-to-print, #section-to-print * {
+		visibility: visible;
+	}
+	#section-to-print {
+		position: absolute;
+		left: 1cm;
+		top: 1cm;
+		bottom: 1cm;
+		right: 1cm;
+	}
+}
+
+/*Custom Classes*/
+.cus-freeze {
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+.cus-inline-block {
+	display: inline-block !important;
+}
+
+.cus-table-borderless th, .cus-table-borderless td {
+	border: none;
+}
+
+.display th, .display tfoot th {
+	font-size: 12px;
+}
+
+.cus-fit-td {
+	padding: 2px;
+	white-space: nowrap;
+}
+
+.cus-rest-td {
+	width: 99%;
+}

@@ -1,0 +1,3095 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="base-definition"
+		template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />
+		<put-attribute name="pageCSS" value=""></put-attribute>
+		<put-attribute name="body" value="" />
+
+		<put-attribute name="footer"
+			value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />
+
+		<put-attribute name="rightToLeftCSS"
+			value="rightToLeftCSS" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+		</put-list-attribute>
+
+
+	</definition>
+
+
+	<!-- Admin page -->
+	<definition name="adminRoot" extends="base-definition">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/notifications.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="toastr.min" />
+
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="buttons.dataTables.min" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="adminStock" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="dashboard-notification" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStock" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Admin Stock page -->
+	<definition name="adminStock" extends="adminRoot">
+		<put-attribute name="title" value="Stock" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/stock.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStock" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStock" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- CustomerOrder page -->
+	<definition name="adminAddCustomerOrder" extends="adminRoot">
+		<put-attribute name="title" value="Sale Point" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/addCustomerOrder.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="toastr.min" />
+
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="addCustomerOrder" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="toastr.min" />
+
+			<add-attribute value="addCustomerOrder" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- AddStockTransfer page -->
+	<definition name="addStockTransfer" extends="adminRoot">
+		<put-attribute name="title" value="AddStockTransfer" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/stockTransfer/addStockTransfer.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+
+			<add-attribute value="addStockTransfer" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addStockTransfer" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- UserManager page -->
+	<definition name="userManager" extends="adminRoot">
+		<put-attribute name="title" value="User manager" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/user/userManager.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="userManager" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="userManager" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+	<!--Online Store page -->
+
+	<definition name="setting" extends="adminRoot">
+		<put-attribute name="title" value="Online Store" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/Onlinestore/setting.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!--Online Store page -->
+
+	<definition name="store" extends="adminRoot">
+		<put-attribute name="title" value="Online Store" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/Onlinestore/store.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!--Online Store page -->
+
+	<definition name="item-add" extends="adminRoot">
+		<put-attribute name="title" value="Online Store" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/Onlinestore/add.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="richtext.min" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.richtext.min" />
+			<add-attribute value="app" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!--Online Store page - edit -->
+
+
+	<definition name="item-edit" extends="adminRoot">
+		<put-attribute name="title" value="Online Store" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/Onlinestore/edit.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="richtext.min" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.richtext.min" />
+			<add-attribute value="app" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!--Online Store page -->
+
+	<definition name="list" extends="adminRoot">
+		<put-attribute name="title" value="Online Store" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/Onlinestore/listing.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+	<!-- EditStockTransfer page -->
+	<definition name="editStockTransfer" extends="adminRoot">
+		<put-attribute name="title" value="AddStockTransfer" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/stockTransfer/editStockTransfer.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="editStockTransfer" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="editStockTransfer" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- EditCustomerOrder page -->
+	<definition name="adminEditCustomerOrder"
+		extends="adminRoot">
+		<put-attribute name="title" value="Edit Customer Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/editCustomerOrder.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="toastr.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="editCustomerOrder" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="app" />
+
+			<add-attribute value="editCustomerOrder" />
+			<add-attribute value="angularjs/ifLoading" />
+
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- AdminCustomerOrders page -->
+	<definition name="adminCustomerOrders" extends="adminRoot">
+		<put-attribute name="title" value="Customer Orders" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/customerOrders.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="adminCustomerOrders" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminCustomerOrders" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- AccountMain page -->
+	<definition name="accountMain" extends="adminRoot">
+		<put-attribute name="title" value="Account" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/account/accountMain.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="accountMain" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="accountMain" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AdminCustomerOrderProductSold page -->
+	<definition name="adminCustomerOrderProductSold"
+		extends="adminRoot">
+		<put-attribute name="title" value="Product Sold" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/customerOrderProductSold.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="adminCustomerOrderProductSold" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminCustomerOrderProductSold" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- adminCustomerOrderProductStepUp page -->
+	<definition name="adminCustomerOrderProductStepUp"
+		extends="adminRoot">
+		<put-attribute name="title" value="Product Sold" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/customerOrderProductStepUp.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="adminCustomerOrders" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminCustomerOrders" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- adminCustomerOrderProduct page -->
+	<definition name="adminCustomerOrderProduct"
+		extends="adminRoot">
+		<put-attribute name="title" value="Product Sold" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrder/customerOrderProduct.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="adminCustomerOrders" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminCustomerOrders" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AdminProductCategories page -->
+	<definition name="adminProductCategories"
+		extends="adminRoot">
+		<put-attribute name="title" value="Product Categories" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/productCategory/adminProductCategories.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+
+			<add-attribute value="adminProductCategories" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminProductCategories" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Add OrderProductStepUp -->
+	<definition name="adminAddOrderProductStepUp"
+		extends="adminRoot">
+		<put-attribute name="title" value="Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderProductStepUp/addOrderProductStepUp.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminAddOrderProductStepUp" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminAddOrderProductStepUp" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Add CustomerOrderReturn -->
+	<definition name="addCustomerOrderReturn"
+		extends="adminRoot">
+		<put-attribute name="title" value="Order Return" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrderReturn/addCustomerOrderReturn.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="addCustomerOrderReturn" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addCustomerOrderReturn" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- Edit CustomerOrderReturn -->
+	<definition name="editCustomerOrderReturn"
+		extends="adminRoot">
+		<put-attribute name="title" value="Edit Order Return" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrderReturn/editCustomerOrderReturn.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="editCustomerOrderReturn" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="editCustomerOrderReturn" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Edit OrderProductStepUp -->
+	<definition name="adminEditOrderProductStepUp"
+		extends="adminRoot">
+		<put-attribute name="title" value="Edit Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderProductStepUp/editOrderProductStepUp.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminEditOrderProductStepUp" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminEditOrderProductStepUp" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- addVendorReturn -->
+	<definition name="addVenderReturn" extends="adminRoot">
+		<put-attribute name="title" value="AddReturn" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/return/addVenderReturn.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addVenderReturn" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<definition name="VendorReturns" extends="adminRoot">
+		<put-attribute name="title" value="Returns" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/return/VendorReturns.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="VendorReturns" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- OrderProductStepUps -->
+	<definition name="orderProductStepUps" extends="adminRoot">
+		<put-attribute name="title" value="Orders" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderProductStepUp/orderProductStepUps.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="orderProductStepUps" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="orderProductStepUps" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerOrderReturns -->
+	<definition name="customerOrderReturns" extends="adminRoot">
+		<put-attribute name="title" value="Order Returns" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrderReturn/customerOrderReturns.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="customerOrderReturns" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="customerOrderReturns" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- OrderProductStepUpsDetail -->
+	<definition name="orderProductStepUpsDetail"
+		extends="adminRoot">
+		<put-attribute name="title" value="Orders" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderProductStepUp/orderProductStepUpsDetail.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="orderProductStepUpsDetail" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="orderProductStepUpsDetail" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- customerOrderReturnsDetail -->
+	<definition name="customerOrderReturnsDetail"
+		extends="adminRoot">
+		<put-attribute name="title" value="Orders" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerOrderReturn/customerOrderReturnsDetail.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="customerOrderReturnsDetail" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="customerOrderReturnsDetail" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- ProductOrderProductStepUps -->
+	<definition name="productOrderProductStepUps"
+		extends="adminRoot">
+		<put-attribute name="title" value="Product Orders" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderProductStepUp/productOrderProductStepUps.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="productOrderProductStepUps" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="productOrderProductStepUps" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AdminVendors page -->
+	<definition name="adminVendors" extends="adminRoot">
+
+		<put-attribute name="title" value="Vendors" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/vendor/adminVendors.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminVendors" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminVendors" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- PriceCategories -->
+	<!-- PriceCategories -->
+	<!-- PriceCategories -->
+	<!-- PriceCategories -->
+	<definition name="priceCategories" extends="adminRoot">
+		<put-attribute name="title" value="PriceCategories" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/priceCategory/priceCategories.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="priceCategories" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="priceCategories" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AdminCustomers page -->
+	<definition name="adminCustomers" extends="adminRoot">
+		<put-attribute name="title" value="Customers" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customer/adminCustomers.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminCustomers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="adminCustomers" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerProjects page -->
+	<definition name="customerProjects" extends="adminRoot">
+		<put-attribute name="title" value="CustomerPorjects" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerProject/customerProjects.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="customerProjects" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="customerProjects" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerPayments page -->
+	<definition name="customerCustomerPayments"
+		extends="adminRoot">
+		<put-attribute name="title" value="CustomerPayments" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerPayment/customerCustomerPayments.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="customerCustomerPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="customerCustomerPayments" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerPayments page -->
+	<definition name="customerInvoiceDetail" extends="adminRoot">
+		<put-attribute name="title" value="CustomerPayments" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customer/customerInvoiceDetail.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="customerInvoiceDetail" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="customerInvoiceDetail" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerPayments page -->
+	<definition name="customerPayments" extends="adminRoot">
+		<put-attribute name="title" value="CustomerPayments" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerPayment/customerPayments.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="customerPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="customerPayments" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- VendorVendorPayments page -->
+	<definition name="vendorVendorPayments" extends="adminRoot">
+		<put-attribute name="title" value="VendorPayments" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/vendorPayment/vendorVendorPayments.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="vendorVendorPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="vendorVendorPayments" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- VendorPayments page -->
+	<definition name="vendorPayments" extends="adminRoot">
+		<put-attribute name="title" value="VendorPayments" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/vendorPayment/vendorPayments.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="vendorPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="vendorPayments" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AdminIncomes page -->
+	<definition name="adminIncomes" extends="adminRoot">
+		<put-attribute name="title" value="Incomes" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/income/incomes.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="adminIncomes" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminIncomes" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- StockTransfers page -->
+	<definition name="report" extends="adminRoot">
+		<put-attribute name="title" value="report" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/report/report_account.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- Project Statement page -->
+	<definition name="projectStatement" extends="adminRoot">
+		<put-attribute name="title" value="Project Statement" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/report/project_statement.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="projectStatement" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<definition name="profit" extends="adminRoot">
+		<put-attribute name="title" value="profit" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/profit_cal/profit.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<definition name="psearch" extends="adminRoot">
+		<put-attribute name="title" value="psaearch" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/psearch/p_search.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+
+	</definition>
+
+	<definition name="setting" extends="adminRoot">
+		<put-attribute name="title" value="Setting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/setting/h_setting.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- StockTransfers page -->
+	<definition name="stockTransfers" extends="adminRoot">
+		<put-attribute name="title" value="StockTransfers" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/stockTransfer/stockTransfers.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="stockTransfers" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AdminExpenses page -->
+	<definition name="adminExpenses" extends="adminRoot">
+		<put-attribute name="title" value="Expenses" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/expense/expenses.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="adminExpenses" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminExpenses" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Stocks page -->
+	<definition name="stocks" extends="adminRoot">
+		<put-attribute name="title" value="Stocks" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/stock/stocks.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="stocks" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="stocks" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- ExpenseCategories page -->
+	<definition name="expenseCategories" extends="adminRoot">
+		<put-attribute name="title" value="ExpenseCategories" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/expenseCategory/expenseCategories.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="expenseCategories" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="expenseCategories" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- IncomeCategories page -->
+	<definition name="incomeCategories" extends="adminRoot">
+		<put-attribute name="title" value="IncomeCategories" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/incomeCategory/incomeCategories.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="incomeCategories" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="incomeCategories" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerInvoice page -->
+	<definition name="customerInvoice" extends="adminRoot">
+		<put-attribute name="title" value="Customer Invoice" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customer/customerInvoice.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="customerInvoice" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="customerInvoice" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- CustomerPrintInvoice page -->
+	<definition name="customerPrintInvoice" extends="adminRoot">
+		<put-attribute name="title"
+			value="Customer Print Invoice" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customer/customerPrintInvoice.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="customerPrintInvoice" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="customerInvoice" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- AddCustomerPayment page -->
+	<definition name="addCustomerPayment" extends="adminRoot">
+		<put-attribute name="title" value="Customer Payment" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerPayment/addCustomerPayment.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="addCustomerPayment" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addCustomerPayment" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- AddVendorPayment page -->
+	<definition name="addVendorPayment" extends="adminRoot">
+		<put-attribute name="title" value="Vendor Payment" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/vendorPayment/addVendorPayment.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="addVendorPayment" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addVendorPayment" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Add OrderPreProduct -->
+	<definition name="addOrderPreProduct" extends="adminRoot">
+		<put-attribute name="title" value="Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderPreProduct/addOrderPreProduct.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="addOrderPreProduct" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jsonToFormData" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addOrderPreProduct" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Edit OrderPreProduct -->
+	<definition name="editOrderPreProduct" extends="adminRoot">
+		<put-attribute name="title" value="Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderPreProduct/editOrderPreProduct.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="editOrderPreProduct" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jsonToFormData" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="editOrderPreProduct" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- orderPreProduct -->
+	<definition name="orderPreProduct" extends="adminRoot">
+		<put-attribute name="title" value="Orders" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/orderPreProduct/orderPreProducts.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="orderPreProducts" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="popper" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="orderPreProducts" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Show Wasted Product page -->
+	<definition name="showWastedProduct" extends="adminRoot">
+		<put-attribute name="title" value="Wasted Products" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerReturnWastedProduct/wastedProducts.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStock" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- customerReturnWastedProduct -->
+	<definition name="customerReturnWastedProduct"
+		extends="adminRoot">
+		<put-attribute name="title" value="Wasted Products" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerReturnWastedProduct/customerReturnWastedProducts.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="orderPreProducts" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="popper" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="customerReturnWastedProducts" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Add CustomerReturnWastedProduct -->
+	<definition name="addCustomerReturnWastedProduct"
+		extends="adminRoot">
+		<put-attribute name="title" value="Add Wasted Product" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerReturnWastedProduct/addCustomerReturnWastedProduct.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="addOrderPreProduct" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jsonToFormData" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="addCustomerReturnWastedProduct" />
+			<add-attribute value="angularjs/ifLoading" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Edit CustomerReturnWastedProduct -->
+	<definition name="editCustomerReturnWastedProduct"
+		extends="adminRoot">
+		<put-attribute name="title" value="Edit Wasted Product" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/customerReturnWastedProduct/editCustomerReturnWastedProduct.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="editOrderPreProduct" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="jsonToFormData" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="editCustomerReturnWastedProduct" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- boxAccounting -->
+	<definition name="boxAccounting" extends="adminRoot">
+		<put-attribute name="title" value="Box Accounting" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/box/boxAccounting.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="boxAccounting" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- netProfit -->
+	<definition name="netProfit" extends="adminRoot">
+		<put-attribute name="title" value="Net Profit" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/net/netProfit.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- AdminWithdraw page -->
+	<definition name="adminWithdraws" extends="adminRoot">
+		<put-attribute name="title" value="Withdraws" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/withdraw/withdraws.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="adminExpenses" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminWithdraws" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- WithdrawCategories page -->
+	<definition name="withdrawCategories" extends="adminRoot">
+		<put-attribute name="title" value="WithdrawCategories" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/withdrawCategory/withdrawCategories.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="fixedHeader.dataTables.min" />
+
+			<add-attribute value="expenseCategories" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="dataTables.fixedHeader.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="angular" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="app" />
+			<add-attribute value="withdrawCategories" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Print Print Print Print Print Print Print Print Print Print -->
+	<!-- Print Print Print Print Print Print Print Print Print Print -->
+	<!-- Print Print Print Print Print Print Print Print Print Print -->
+	<!-- Print Print Print Print Print Print Print Print Print Print -->
+
+	<!-- Print Definition -->
+	<definition name="print-layout"
+		template="/WEB-INF/views/tiles/layouts/printLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/tiles/template/printHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+
+		<put-attribute name="rightToLeftCSS"
+			value="rightToLeftCSS" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jsLang" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- GetCusotmerOrder -->
+	<definition name="getCustomerOrder" extends="print-layout">
+		<put-attribute name="title" value="Print Customer Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/customerOrder/getCustomerOrder.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="getCustomerOrder" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Print CustomerPayment -->
+	<definition name="customerPaymentPrint"
+		extends="print-layout">
+		<put-attribute name="title"
+			value="Print Customer Payment" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/customerPayment/customerPaymentPrint.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="customerPaymentPrint" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Print VendorPayment -->
+	<definition name="vendorPaymentPrint" extends="print-layout">
+		<put-attribute name="title" value="Print Customer Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/vendorPayment/vendorPaymentPrint.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Print OrderProductStepUp -->
+	<definition name="printOrderProductStepUp"
+		extends="print-layout">
+		<put-attribute name="title" value="Print Vendor Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/orderProductStepUp/printOrderProductStepUp.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="printOrderProductStepUp" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+	<!-- Print StockTransfer -->
+	<definition name="printStockTransfer" extends="print-layout">
+		<put-attribute name="title" value="Print StockTransfer" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/stockTransfer/printStockTransfer.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="printStockTransfer" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+	<!-- Print CustomerOrderReturn -->
+	<definition name="printCustomerOrderReturn"
+		extends="print-layout">
+		<put-attribute name="title"
+			value="Print Customer Order Return" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/customerOrderReturn/printCustomerOrderReturn.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<definition name="printVendorReturn" extends="print-layout">
+		<put-attribute name="title"
+			value="Print Vendor Order Return" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/return/printVendorReturn.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+	<!-- Print OrderPreProduct -->
+	<definition name="printOrderPreProduct"
+		extends="print-layout">
+		<put-attribute name="title" value="Print Customer Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/orderPreProduct/printOrderPreProduct.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="printOrderPreProduct" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Print CustomerWastedProduct -->
+	<definition name="printCustomerWastedProduct"
+		extends="print-layout">
+		<put-attribute name="title"
+			value="Print Customer Wasted Product" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/customerReturnWastedProduct/printCustomerReturnWastedProduct.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="printOrderPreProduct" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Print OrderProductStepUp -->
+	<definition name="customerPrintInvoice"
+		extends="print-layout">
+		<put-attribute name="title" value="Print Customer Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/customerPrintInvoice.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="print" />
+			<add-attribute value="customerPrintInvoice" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Print printProductBarcode -->
+	<definition name="printProductBarcode">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/product/printProductBarcode.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="printProductBarcode" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="JsBarcode.all.min" />
+			<add-attribute value="printProductBarcode" />
+		</put-list-attribute>
+	</definition>
+
+
+</tiles-definitions>

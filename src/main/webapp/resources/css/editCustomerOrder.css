@@ -1,0 +1,9 @@
+.cus-disabled-div {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+#totalPriceInput{
+	display: inline-block !important;
+	width: auto;
+}

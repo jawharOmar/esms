@@ -1,0 +1,210 @@
+#admin-body {
+	max-width: 100%;
+	overflow: auto;
+	position: relative;
+}
+
+#section-right {
+	min-height: 0;
+	overflow: auto;
+	width: 100%;
+	position: fixed;
+	top: 35px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 200;
+	background: #F9F9F9;
+	padding: 10px;
+	text-align: center;
+	transition: all 50ms linear;
+}
+
+#section-right table {
+	width: 370px;
+	height: 100px;
+	display: inline-table;
+	margin: 4px;
+}
+
+#section-right table td {
+	padding: 5px;
+	text-align: right;
+}
+
+#section-right.ative-menu {
+	z-index: -200;
+	opacity: 0;
+	width: 0px;
+}
+
+#section-right .cus-navbar {
+	display: block;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#section-right .cus-navbar  li {
+	display: block;
+}
+
+#section-right a {
+	text-decoration: none;
+	color: inherit;
+	display: inline-block;
+	outline: 0;
+}
+
+#section-right li:hover {
+	background: #F9FAFB;
+}
+
+#section-right .cus-navbar  li a {
+	display: inline-block;
+	width: 150px;
+	text-decoration: none;
+	color: inherit;
+	height: 50px;
+	background: gray;
+	margin-bottom: 3px;
+}
+
+#section-right table tr>td:first-child {
+	width: 80px;
+}
+
+#section-right img {
+	width: 80px;
+}
+
+#main-content {
+	overflow: auto;
+	flex: 1;
+	min-height: 0;
+	padding: 10px;
+	position: relative;
+	padding: 10px;
+	background: white;
+}
+
+#main-content>div {
+	background: white;
+}
+
+#loading-div {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	line-height: 50;
+	text-align: center;
+	z-index: 1000;
+}
+
+#loading-div  img {
+	max-width: 60px;
+}
+
+
+
+/*For JQuery AutoComplete*/
+.ui-autocomplete{
+	width: 100px;
+}
+
+
+.card {
+	border: none;
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	border-radius: 5px;
+}
+
+/*CheckList*/
+.checkboxLabel {
+	width: 100%;
+	text-align: center;
+	color: white;
+	padding: 7px 11px;
+	transition: all .2s ease-in-out;
+}
+
+.checkboxLabel:hover {
+	background: #168fe0;
+	transform: scale(1.03);
+	box-shadow: .1em .1em 3em rgba(0, 0, 0, 0.2);
+}
+
+.unSelectedLabel {
+	background-color: #3cb1ff;
+}
+
+.selectedLabel {
+	background-color: #6cd565;
+}
+.selectedLabel:hover{
+	background-color: #68cc61;
+}
+
+
+.customBtn {
+	width: 67px;
+	height: 34px;
+	font-size: 19px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	background-color: #3dd99b;
+}
+
+.customBtn:hover {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	color: #fff;
+}
+
+/*    card */
+.customCard {
+	border-radius: 0;
+}
+
+.customCard .card-header {
+	background-color: #20a1f6;
+}
+
+.customCard .card-header:first-child {
+	border-radius: 0;
+}
+
+.customCard .card-body {
+	padding-top: 20px;
+}
+/*Fieldset And Legend*/
+
+.customFieldset {
+	-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	-moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	margin-bottom: 10px;
+
+	margin-left: -11px;
+	margin-right: -11px;
+	padding: 9px;
+}
+
+.customLegend {
+	-webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	-moz-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+	background-color: #fff;
+	font-size: 18px;
+	text-align: center;
+}
