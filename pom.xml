@@ -3,13 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.joh</groupId>
-	<artifactId>mesms</artifactId>
+	<artifactId>esms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>esms</name>
 	<description>electronic stock managment system</description>
 	<properties>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
+
+		<jsp.api.version>2.1</jsp.api.version>
 
 		<springframework.version>4.3.18.RELEASE</springframework.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
@@ -22,11 +24,17 @@
 		<apache.commons.io.version>
 			2.5
 		</apache.commons.io.version>
+
 	</properties>
 
 	<dependencies>
 
-
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- Spring -->
 		<dependency>
@@ -82,11 +90,11 @@
 			<version>1.11.13.RELEASE</version>
 		</dependency>
 
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.2</version>
-        </dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
 
 		<!-- MySQL -->
 		<dependency>
@@ -201,11 +209,11 @@
 			<scope>provided</scope>
 		</dependency>
 
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>

@@ -58,9 +58,7 @@
                 text-align: right;
             }
 
-            table {
-                width: 80%;
-            }
+           
         </style>
     </c:if>
 

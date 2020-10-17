@@ -1,4 +1,48 @@
+var app = angular.module("app", []);
+
+app.controller("navbarCTRL", [ "$http", "$scope", "$window",
+	function($http, $scope, $window) {
+
+		$scope.changePassword={oldPassword:"",newPassword:"",confirmPassword:""};
+		$scope.show=false;
+
+		$scope.init = function() {
+			console.debug("appCTRL init->fired");
+		}
+		
+		$scope.saveChangePassword=function(){
+			console.log("saveChangePassword->fired");
+			
+			console.log("changePassword=",$scope.changePassword);
+			$http({
+	            method: 'POST',
+	            data: $scope.changePassword,
+	            url: $$ContextURL + '/changePassword'
+	        }).then(function (response) {
+	            console.log(response);
+	            
+	            $('#password-dialog').dialog('close');
+                $window.showSuccessAlert();
+	            
+	            
+	        }, function (response) {
+	        	  $window.showFailedAlert();
+	        });
+			
+			
+		}
+		
+	} ]);
+
+
+
+
+// /
+
+
+
 var $$ContextURL = js_root_applicaion.replace(/\/$/, "");
+
 
 $.datepicker.setDefaults({
 	changeMonth : true,
@@ -30,7 +74,7 @@ function cusConfirm() {
 				title : js_app_confirmWindow,
 				zIndex : 10000,
 				autoOpen : true,
-				width : '300',
+				width : '400',
 				resizable : false,
 				buttons : {
 					[js_app_yes] : function() {
@@ -65,7 +109,21 @@ function toggleMenu(){
 
 $(document).ready(function(){
 	$("#app-loading-div").hide();
+	
+	
+	
 });
+
+function showSuccessAlert(){
+	console.debug("showSuccessAlert->fired");
+	  $("#cus-success-alert").hide().slideDown(500).delay(2000).slideUp(500, function () {});
+   
+}
+
+function showFailedAlert(){
+	console.debug("showFailedAlert->fired");
+	  $("#cus-failed-alert").hide().slideDown(500).delay(2000).slideUp(500, function () {});
+}
 
 $(document).ready(function(){
     $.get( $$ContextURL+"/setting/GetSettingData", function( data ) {

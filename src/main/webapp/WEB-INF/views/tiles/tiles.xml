@@ -69,6 +69,7 @@
 			<add-attribute value="dashboard-notification" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="angular" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStock" />
 		</put-list-attribute>

@@ -26,7 +26,7 @@
 			test="${(pageContext.response.locale=='ar_SY'||pageContext.response.locale=='ar')&& item=='bootstrap'}">
 			<c:set var="item" value="bootstrap_rtl" />
 		</c:if>
-		<link href="<c:url value="/resources/css/${item}.css" />"
+		<link href="<c:url value="/resources/css/${item}.css?${version}" />"
 			rel="stylesheet"></link>
 	</c:forEach>
 
@@ -61,11 +61,26 @@ body {
 </style>
 
 </head>
-<body>
+<body ng-app="app">
+
 
 	<div id="app-loading-div">
 		<img id="" src="<c:url value="/resources/img/loading.gif" />" />
 	</div>
+
+
+	<div id="alerts-div">
+		<div class="alert alert-success" id="cus-success-alert" role="alert"
+			style="text-align: center;display: none;">
+			<spring:message code="layout.success" />
+		</div>
+		
+		<div class="alert alert-danger" id="cus-failed-alert" role="alert"
+			style="text-align: center;display: none;">
+			<spring:message code="layout.failed" />
+		</div>
+	</div>
+
 
 	<section id="view-port">
 
@@ -90,47 +105,18 @@ body {
 		<c:forEach var="item" items="${requiredJSFiles}">
 			<c:choose>
 				<c:when test="${item=='jsLang'}">
-					<script type="text/javascript" src="<c:url value='/${item}.js' />"></script>
+					<script type="text/javascript"
+						src="<c:url value='/${item}.js' />?${version}"></script>
 				</c:when>
 				<c:otherwise>
 					<script type="text/javascript"
-						src="<c:url value='/resources/js/${item}.js' />"></script>
+						src="<c:url value='/resources/js/${item}.js' />?${version}"></script>
 				</c:otherwise>
 			</c:choose>
 
 		</c:forEach>
 	</c:if>
-	
-	<script>
-		$('#cus_names').select2({
-			placeholder : '<spring:message code="report.selectCustomer"/>'
-		});
-	</script>
 
-	<script type="text/javascript" language="javascript">
-		function RunFile() {
-			if (document.getElementById("calc-contain").style.display
-					.includes("none"))
-				document.getElementById("calc-contain").style.display = "block";
-			else {
-				document.getElementById("calc-contain").style.display = "none";
-			}
-
-		}
-	</script>
-	<c:url var="urll" value="/setting/currency" />
-	<script>
-		function currencyview() {
-
-			$.get("${urll}", function(data) {
-				$("#curbase").val(data.base);
-				$("#tocur").val(data.to);
-				$("#currate").val(data.rate);
-				$("#curratereverse").val(data.reverseRate);
-			});
-			$('#Currency-dialog').dialog();
-		}
-	</script>
 
 	<!-- Modal -->
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog"
@@ -147,77 +133,6 @@ body {
 			</div>
 		</div>
 	</div>
-
-	<style>
-.calc_cus {
-	background: rgba(0, 0, 0, 0.5);
-	width: 100px;
-	height: auto;
-	position: absolute;
-	top: 35px;
-	left: 50px;
-}
-</style>
-
-
-	<form dir="ltr" class="calc_cus" style="display: none;"
-		id="calc-contain" name="calculator">
-
-		<table dir="ltr" id="calculator">
-			<tr>
-				<td colspan="4"><input class="form-control" type="text"
-					name="answer" /></td>
-			</tr>
-			<tr>
-				<td><input class="btn-secondary" type="button" value=" 1 "
-					onclick="calculator.answer.value += '1'" /></td>
-				<td><input class="btn-secondary" type="button" value=" 2 "
-					onclick="calculator.answer.value += '2'" /></td>
-				<td><input class="btn-secondary" type="button" value=" 3 "
-					onclick="calculator.answer.value += '3'" /></td>
-				<td><input class="btn-info" type="button" value=" + "
-					onclick="calculator.answer.value += '+'" /></td>
-			</tr>
-
-			<tr>
-				<td><input class="btn-secondary" type="button" value=" 4 "
-					onclick="calculator.answer.value += '4'" /></td>
-				<td><input class="btn-secondary" type="button" value=" 5 "
-					onclick="calculator.answer.value += '5'" /></td>
-				<td><input class="btn-secondary" type="button" value=" 6 "
-					onclick="calculator.answer.value += '6'" /></td>
-				<td><input class="btn-info" type="button" value=" - "
-					onclick="calculator.answer.value += '-'" /></td>
-			</tr>
-
-
-			<tr>
-				<td><input class="btn-secondary" type="button" value=" 7 "
-					onclick="calculator.answer.value += '7'" /></td>
-				<td><input class="btn-secondary" type="button" value=" 8 "
-					onclick="calculator.answer.value += '8'" /></td>
-				<td><input class="btn-secondary" type="button" value=" 9 "
-					onclick="calculator.answer.value += '9'" /></td>
-				<td><input class="btn-info" type="button" value=" x "
-					onclick="calculator.answer.value += '*'" /></td>
-			</tr>
-
-
-			<tr>
-				<td><input class="btn-warning" type="button" value=" c "
-					onclick="calculator.answer.value = ''" /></td>
-				<td><input class="btn-secondary" type="button" value=" 0 "
-					onclick="calculator.answer.value += '0'" /></td>
-				<td><input class="btn-success" type="button" value=" = "
-					onclick="calculator.answer.value = eval(calculator.answer.value)" />
-				</td>
-				<td><input class="btn-info" type="button" value=" / "
-					onclick="calculator.answer.value += '/'" />
-			</tr>
-
-
-		</table>
-	</form>
 
 </body>
 </html>
