@@ -20,14 +20,14 @@
 <c:if test="${!empty requiredCSSFiles}">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		rel="stylesheet">
+		rel="stylesheet" />
 	<c:forEach var="item" items="${requiredCSSFiles}">
 		<c:if
 			test="${(pageContext.response.locale=='ar_SY'||pageContext.response.locale=='ar')&& item=='bootstrap'}">
 			<c:set var="item" value="bootstrap_rtl" />
 		</c:if>
 		<link href="<c:url value="/resources/css/${item}.css?${version}" />"
-			rel="stylesheet"></link>
+			rel="stylesheet" />
 	</c:forEach>
 
 </c:if>
@@ -71,12 +71,12 @@ body {
 
 	<div id="alerts-div">
 		<div class="alert alert-success" id="cus-success-alert" role="alert"
-			style="text-align: center;display: none;">
+			style="text-align: center; display: none;">
 			<spring:message code="layout.success" />
 		</div>
-		
+
 		<div class="alert alert-danger" id="cus-failed-alert" role="alert"
-			style="text-align: center;display: none;">
+			style="text-align: center; display: none;">
 			<spring:message code="layout.failed" />
 		</div>
 	</div>

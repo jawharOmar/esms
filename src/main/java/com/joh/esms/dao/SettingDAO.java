@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SettingDAO extends JpaRepository<Setting, Integer> {
 
-    Setting findByid(int id);
+	Setting findTopByOrderById();
 
 }

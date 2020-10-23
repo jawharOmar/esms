@@ -23,6 +23,7 @@ app.controller("navbarCTRL", [ "$http", "$scope", "$window",
 	            
 	            $('#password-dialog').dialog('close');
                 $window.showSuccessAlert();
+                $scope.changePassword={oldPassword:"",newPassword:"",confirmPassword:""};
 	            
 	            
 	        }, function (response) {

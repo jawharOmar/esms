@@ -243,12 +243,12 @@
 
 	<!--Online Store page -->
 
-	<definition name="setting" extends="adminRoot">
+	<definition name="settings" extends="adminRoot">
 		<put-attribute name="title" value="Online Store" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/root.jsp" />
 		<put-attribute name="adminBody"
-			value="/WEB-INF/views/Onlinestore/setting.jsp" cascade="true" />
+			value="/WEB-INF/views/Onlinestore/settings.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
@@ -272,7 +272,6 @@
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="app" />
-			<add-attribute value="angularjs/ifLoading" />
 		</put-list-attribute>
 	</definition>
 
@@ -1925,42 +1924,6 @@
 			<add-attribute value="angular" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
-			<add-attribute value="app" />
-		</put-list-attribute>
-
-	</definition>
-
-	<definition name="setting" extends="adminRoot">
-		<put-attribute name="title" value="Setting" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/admin/root.jsp" />
-		<put-attribute name="adminBody"
-			value="/WEB-INF/views/setting/h_setting.jsp" cascade="true" />
-		<put-list-attribute name="requiredCSSFiles">
-			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
-			<add-attribute value="jquery-ui.theme" />
-			<add-attribute value="select2.min" />
-			<add-attribute value="toastr.min" />
-			<add-attribute value="app" />
-			<add-attribute value="admin" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="fixedHeader.dataTables.min" />
-			<add-attribute value="stockTransfers" />
-		</put-list-attribute>
-
-		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jsLang" />
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
-			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="dataTables.fixedHeader.min" />
-			<add-attribute value="dt/dataTables.buttons.min" />
-			<add-attribute value="toastr.min" />
 			<add-attribute value="app" />
 		</put-list-attribute>
 

@@ -1,13 +1,11 @@
 package com.joh.esms.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.joh.esms.dao.ProfitDAO;
-import com.joh.esms.dao.RepDAO;
-import com.joh.esms.dao.VendorRepDAO;
-import com.joh.esms.model.*;
-import com.joh.esms.service.CustomerPaymentService;
-import com.joh.esms.service.CustomerService;
-import com.joh.esms.service.VendorService;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -17,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.joh.esms.dao.ProfitDAO;
+import com.joh.esms.model.Customer;
+import com.joh.esms.model.CustomerPayment;
+import com.joh.esms.model.profit;
+import com.joh.esms.service.CustomerPaymentService;
+import com.joh.esms.service.CustomerService;
 
 @Controller()
 @RequestMapping(path = "/profit")

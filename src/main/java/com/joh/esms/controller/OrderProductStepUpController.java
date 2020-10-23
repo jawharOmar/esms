@@ -1,7 +1,6 @@
 package com.joh.esms.controller;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -25,13 +24,11 @@ import com.joh.esms.domain.model.ProductD;
 import com.joh.esms.exception.CusDataIntegrityViolationException;
 import com.joh.esms.model.CustomerOrderReturn;
 import com.joh.esms.model.OrderProductStepUp;
-import com.joh.esms.model.Setting;
 import com.joh.esms.model.Stock;
 import com.joh.esms.model.Vendor;
 import com.joh.esms.service.CustomerOrderReturnService;
 import com.joh.esms.service.OrderProductStepUpService;
 import com.joh.esms.service.ProductService;
-import com.joh.esms.service.SettingService;
 import com.joh.esms.service.StockService;
 import com.joh.esms.service.VendorService;
 import com.joh.esms.validator.OrderProductStepUpValidator;
@@ -56,9 +53,6 @@ public class OrderProductStepUpController {
 
 	@Autowired
 	private StockService stockService;
-
-	@Autowired
-	private SettingService settingService;
 
 	@GetMapping()
 	public String getAllOrderProductStepUp(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
@@ -124,19 +118,6 @@ public class OrderProductStepUpController {
 		model.addAttribute("jsonOrderProductStepUp", objectMapper.writeValueAsString(new OrderProductStepUp()));
 		model.addAttribute("jsonProductDs", objectMapper.writeValueAsString(productDs));
 		model.addAttribute("jsonStocks", objectMapper.writeValueAsString(stocks));
-		model.addAttribute("curRate", settingService.findOne(1).getReverseRate());
-
-		HashMap<String, Double> currencyExchange = new HashMap<>();
-
-		Setting setting = settingService.findOne(1);
-		if (setting.getRate() != null && setting.getReverseRate() != null) {
-			currencyExchange.put("curRate", setting.getRate());
-			currencyExchange.put("reverseRate", setting.getReverseRate());
-		} else {
-			currencyExchange = null;
-		}
-
-		model.addAttribute("currencyExchange", objectMapper.writeValueAsString(currencyExchange));
 
 		return "adminAddOrderProductStepUp";
 	}

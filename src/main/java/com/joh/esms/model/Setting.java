@@ -1,158 +1,167 @@
 package com.joh.esms.model;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "SETTINGS")
 public class Setting {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private int id;
 
+	@Column(name = "name")
+	private String name;
 
-    @Column(name = "name")
-    private String name;
+	@Column(name = "phone")
+	private String phone;
 
-    @Column(name = "phone")
-    private String phone;
+	@Column(name = "address")
+	private String address;
 
+	@Column(name = "headerImage")
+	private String headerImage;
 
-    @Column(name = "address")
-    private String address;
+	@Column(name = "footerImage")
+	private String footerImage;
 
-    @Column(name = "header_image")
-    private String header_image;
+	public String getEmail() {
+		return email;
+	}
 
-    @Column(name = "footer_image")
-    private String footer_image;
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	@Column(name = "email")
+	private String email;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	@Column(name = "logo")
+	private String logo;
 
-    @Column(name = "email")
-    private String email;
+	@Column(name = "description")
+	private String description;
 
+	@Column(name = "base_cur")
+	private String base;
 
-    @Column(name = "logo")
-    private String logo;
+	@Column(name = "to_cur")
+	private String to;
 
-    @Column(name = "description")
-    private String description;
+	@Column(name = "Cur_Rate")
+	private Double rate;
 
-    @Column(name = "base_cur")
-    private String base;
+	@Column(name = "Cur_Reverse_Rate")
+	private Double reverseRate;
 
-    @Column(name = "to_cur")
-    private String to;
+	public int getId() {
+		return id;
+	}
 
-    @Column(name = "Cur_Rate")
-    private Double rate;
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    @Column(name = "Cur_Reverse_Rate")
-    private Double reverseRate;
+	public String getName() {
+		return name;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getHeader_image() {
-        return header_image;
-    }
+	public String getHeaderImage() {
+		return headerImage;
+	}
 
-    public String getFooter_image() {
-        return footer_image;
-    }
+	public void setHeaderImage(String headerImage) {
+		this.headerImage = headerImage;
+	}
 
+	public String getFooterImage() {
+		return footerImage;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setFooterImage(String footerImage) {
+		this.footerImage = footerImage;
+	}
 
-    public void setFooter_image(String footer_image) {
-        this.footer_image = footer_image;
-    }
+	public String getLogo() {
+		return logo;
+	}
 
-    public void setHeader_image(String header_image) {
-        this.header_image = header_image;
-    }
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public String getLogo() {
-        return logo;
-    }
+	public String getBase() {
+		return base;
+	}
 
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
+	public void setBase(String base) {
+		this.base = base;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getTo() {
+		return to;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setTo(String to) {
+		this.to = to;
+	}
 
-    public String getBase() {
-        return base;
-    }
+	public Double getRate() {
+		return rate;
+	}
 
-    public void setBase(String base) {
-        this.base = base;
-    }
+	public void setRate(Double rate) {
+		this.rate = rate;
+	}
 
-    public String getTo() {
-        return to;
-    }
+	public Double getReverseRate() {
+		return reverseRate;
+	}
 
-    public void setTo(String to) {
-        this.to = to;
-    }
+	public void setReverseRate(Double reverseRate) {
+		this.reverseRate = reverseRate;
+	}
 
-    public Double getRate() {
-        return rate;
-    }
+	@Override
+	public String toString() {
+		return "Setting [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", headerImage="
+				+ headerImage + ", footerImage=" + footerImage + ", email=" + email + ", logo=" + logo
+				+ ", description=" + description + ", base=" + base + ", to=" + to + ", rate=" + rate + ", reverseRate="
+				+ reverseRate + "]";
+	}
 
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
-
-    public Double getReverseRate() {
-        return reverseRate;
-    }
-
-    public void setReverseRate(Double reverseRate) {
-        this.reverseRate = reverseRate;
-    }
 }

@@ -32,7 +32,6 @@ import com.joh.esms.model.Stock;
 import com.joh.esms.service.CustomerOrderDetailService;
 import com.joh.esms.service.CustomerOrderService;
 import com.joh.esms.service.CustomerService;
-import com.joh.esms.service.SettingService;
 import com.joh.esms.service.StockService;
 
 @Controller
@@ -55,9 +54,6 @@ public class CustomerOrderController {
 
 	@Autowired
 	private MessageSource messageSource;
-
-	@Autowired
-	private SettingService settingService;
 
 	@GetMapping(path = "/add")
 	private String getAddingCustomerOrder(Model model) throws JsonProcessingException {
@@ -207,10 +203,6 @@ public class CustomerOrderController {
 
 		customerOrder.getCustomer().setTotalLoan(customerService
 				.getCustomerTotalLoanByTime(customerOrder.getCustomer().getId(), customerOrder.getOrderTime()));
-
-		if (settingService.findOne(1) != null) {
-			model.addAttribute("currencyType", settingService.findOne(1));
-		}
 
 		return "getCustomerOrder";
 
