@@ -1,18 +1,4 @@
-appAdminProductCategories = angular.module("adminProductCategories", []);
-
-appAdminProductCategories.factory('httpRequestInterceptor', function() {
-	return {
-		request : function(config) {
-			config.headers['X-CSRF-TOKEN'] = csrf;
-			return config;
-		}
-	};
-});
-appAdminProductCategories.config(function($httpProvider) {
-	$httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
-appAdminProductCategories.controller("adminProductCategories", function($scope,
+app.controller("adminProductCategories", function($scope,
 		$http) {
 
 	$scope.getAddingProductCategory = function() {

@@ -41,24 +41,23 @@ public class VenderReturnServiceImpl implements VenderReturnService {
 
 	@Override
 	@Transactional
-	public VenderReturns save(VenderReturns venderReturns) {
-	    double totalPrice=0;
-		for (VenderReturnsDetail venderReturnsDetail : venderReturns.getVenderReturnsDetail()) {
+	public VendorReturn save(VendorReturn vendorReturn) {
+		double totalPrice = 0;
+		for (VenderReturnsDetail VendorReturnDetail : vendorReturn.getVenderReturnsDetail()) {
 			Product product = null;
 
-			Product productD = venderReturnsDetail.getProduct();
-
+			Product productD = VendorReturnDetail.getProduct();
 
 			int i = 0;
-			for (i = 0; i < venderReturnsDetail.getQTY(); i++) {
+			for (i = 0; i < VendorReturnDetail.getQTY(); i++) {
 				int amount = 1;
 				final ProductStepUp itemForStockDown = productStepUpDAO
-						.findProductStepUpForStockDown(venderReturnsDetail.getProduct().getCode(), amount);
+						.findProductStepUpForStockDown(VendorReturnDetail.getProduct().getCode(), amount);
 
 				if (itemForStockDown == null) {
 
 					String message = String.format("This product (%s) is not avaiable enough in the stock",
-							venderReturnsDetail.getProduct().getCode());
+							VendorReturnDetail.getProduct().getCode());
 
 					throw new ItemNotAvaiableException(message);
 				}
@@ -68,55 +67,51 @@ public class VenderReturnServiceImpl implements VenderReturnService {
 
 				}
 
-
 				productStepUpDAO.stockDown(itemForStockDown.getId(), amount);
 			}
 
-
-
 		}
 
-		totalPrice = venderReturns.getAmount();
+		totalPrice = vendorReturn.getAmount();
 
+		vendorReturn = vendorReturnDAO.save(vendorReturn);
 
-		venderReturns  = vendorReturnDAO.save(venderReturns);
+		accountTransactionService.makeTransaction(AccountTransactionType.VENDOR_RETURN, vendorReturn.getId(),
+				vendorReturn.getAmount());
 
-		accountTransactionService.makeTransaction(AccountTransactionType.VENDOR_RETURN, venderReturns.getId(),
-				venderReturns.getAmount());
-
-		venderReturns.getVenderReturnsDetail().forEach(e -> {
+		vendorReturn.getVenderReturnsDetail().forEach(e -> {
 			productStockService.stepDown(e.getStock().getId(), e.getProduct().getId(), e.getQTY());
 		});
 
-		return venderReturns;
+		return vendorReturn;
 	}
 
-    @Override
-   public List<VenderReturns> findAllByTimeBetween(Date from, Date to){
-	    return vendorReturnDAO.findAllByTimeBetween(from,to);
-   }
+	@Override
+	public List<VendorReturn> findAllByTimeBetween(Date from, Date to) {
+		return vendorReturnDAO.findAllByTimeBetween(from, to);
+	}
 
-   @Override
-   public VenderReturns findone(int id){
-	    return vendorReturnDAO.findOne(id);
-   }
+	@Override
+	public VendorReturn findone(int id) {
+		return vendorReturnDAO.findOne(id);
+	}
 
-    @Override
-    @Transactional
-    public void delete(int id) {
-        AccountTransaction accountTransaction = accountTransactionService.findAccountTransaction(id,
-                AccountTransactionType.VENDOR_RETURN);
-        if (accountTransaction != null)
-            accountTransactionService.delete(accountTransaction.getId());
+	@Override
+	@Transactional
+	public void delete(int id) {
+		AccountTransaction accountTransaction = accountTransactionService.findAccountTransaction(id,
+				AccountTransactionType.VENDOR_RETURN);
+		if (accountTransaction != null)
+			accountTransactionService.delete(accountTransaction.getId());
 
-        VenderReturns venderReturns = vendorReturnDAO.findOne(id);
+		VendorReturn VendorReturn = vendorReturnDAO.findOne(id);
 
-        venderReturns.getVenderReturnsDetail().forEach(e -> {
-            productStockService.stepUp(e.getStock().getId(), e.getProduct().getId(), e.getQTY());
+		VendorReturn.getVenderReturnsDetail().forEach(e -> {
+			productStockService.stepUp(e.getStock().getId(), e.getProduct().getId(), e.getQTY());
 
-        });
+		});
 
-        vendorReturnDAO.delete(id);
-    }
+		vendorReturnDAO.delete(id);
+	}
 
 }

@@ -1,14 +1,14 @@
 package com.joh.esms.dao;
 
-import com.joh.esms.model.VenderReturns;
-import com.joh.esms.model.VendorPayment;
-import org.springframework.data.repository.CrudRepository;
-
 import java.util.Date;
 import java.util.List;
 
-public interface VendorReturnDAO extends CrudRepository<VenderReturns, Integer> ,VendorReturnDAOExt {
+import org.springframework.data.repository.CrudRepository;
 
-    List<VenderReturns> findAllByTimeBetween(Date from, Date to);
+import com.joh.esms.model.VendorReturn;
+
+public interface VendorReturnDAO extends CrudRepository<VendorReturn, Integer> ,VendorReturnDAOExt {
+
+    List<VendorReturn> findAllByTimeBetween(Date from, Date to);
 
 }

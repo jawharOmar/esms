@@ -29,14 +29,11 @@ public class ApplicationInitializer {
 	@Autowired
 	private RoleService roleService;
 
-    @Autowired
-    private ProductCategorySevice productCategorySevice;
+	@Autowired
+	private ProductCategorySevice productCategorySevice;
 
-    @Autowired
-    private StockService stockService;
-
-    @Autowired
-    private ProductService productService ;
+	@Autowired
+	private StockService stockService;
 
 	@EventListener(ContextRefreshedEvent.class)
 	public void contextRefreshedEvent() {
@@ -44,57 +41,18 @@ public class ApplicationInitializer {
 
 		if (((Collection<ProductUnitType>) productUnitTypeService.findAll()).size() == 0) {
 
-            ProductCategory productCategory=new ProductCategory();
+			ProductCategory productCategory = new ProductCategory();
 			// pack id=1
 			ProductUnitType productUnitType1 = new ProductUnitType();
-			productUnitType1.setName("رزمة");
+			productUnitType1.setName("کارتۆن-package");
 
 			ProductUnitType productUnitType2 = new ProductUnitType();
-			productUnitType2.setName("قطعة");
-
-            ProductUnitType productUnitType3 = new ProductUnitType();
-            productUnitType3.setName("متر");
-
-            ProductUnitType productUnitType4 = new ProductUnitType();
-            productUnitType4.setName("Kg");
+			productUnitType2.setName("دانە-item");
 
 			productUnitTypeService.save(productUnitType1);
-            productUnitType2=productUnitTypeService.save(productUnitType2);
-            productUnitTypeService.save(productUnitType3);
-            productUnitTypeService.save(productUnitType4);
+			productUnitType2 = productUnitTypeService.save(productUnitType2);
 
-
-            if (((Collection<Product>) productService.findAll()).size() == 0) {
-
-
-                if (((Collection<Stock>) stockService.findAll()).size() == 0) {
-                    Stock stock = new Stock();
-                    stock.setName("TEST");
-                    stockService.save(stock);
-                }
-
-                if (((Collection<ProductCategory>) productCategorySevice.findAll()).size() == 0) {
-                    productCategory = new ProductCategory();
-                    productCategory.setName("TEST");
-                    productCategory= productCategorySevice.save(productCategory);
-                }
-
-
-                Product product=new Product();
-                product.setName("TEST");
-                product.setProductCategory(productCategory);
-                product.setCode("000");
-                product.setPrice(0.0);
-                product.setUnit("ITEM");
-                product.setProductUnitType(productUnitType2);
-                productService.save(product);
-
-            }
-
-
-        }
-
-
+		}
 
 		if (((Collection<Account>) accountService.findAll()).size() == 0) {
 
@@ -123,12 +81,12 @@ public class ApplicationInitializer {
 					"ROLE_INCOME_CATEGORY_WRITE", "ROLE_INCOME_CATEGORY_READ", "ROLE_INCOME_EDIT", "ROLE_INCOME_WRITE",
 					"ROLE_INCOME_READ", "ROLE_ORDER_PRE_PRODUCT_EDIT", "ROLE_ORDER_PRE_PRODUCT_WRITE",
 					"ROLE_ORDER_PRE_PRODUCT_READ", "ROLE_ACCOUNT_READ", "ROLE_ACCOUNT_WRITE", "ROLE_ACCOUNT_EDIT",
-					"ROLE_CUSTOMER_WASTED_PRODUCT_WRITE","ROLE_CUSTOMER_WASTED_PRODUCT_EDIT","ROLE_CUSTOMER_WASTED_PRODUCT_READ",
-					"ROLE_BOX_ACCOUNTING_READ","ROLE_SETTING","ROLE_VENDOR_RETURN_WRITE","ROLE_VENDOR_RETURN_READ","ROLE_VENDOR_RETURN_DELETE",
-					"ROLE_ACCOUNT_STATEMENT_READ","ROLE_PROFIT","ROLE_PRODUCT_RECORD_READ",
-					"ROLE_WITHDRAW_CATEGORY_EDIT", "ROLE_WITHDRAW_CATEGORY_WRITE", "ROLE_WITHDRAW_CATEGORY_READ","ROLE_WITHDRAW_EDIT",
-					"ROLE_WITHDRAW_WRITE", "ROLE_WITHDRAW_READ"
-			};
+					"ROLE_CUSTOMER_WASTED_PRODUCT_WRITE", "ROLE_CUSTOMER_WASTED_PRODUCT_EDIT",
+					"ROLE_CUSTOMER_WASTED_PRODUCT_READ", "ROLE_BOX_ACCOUNTING_READ", "ROLE_SETTING",
+					"ROLE_VENDOR_RETURN_WRITE", "ROLE_VENDOR_RETURN_READ", "ROLE_VENDOR_RETURN_DELETE",
+					"ROLE_ACCOUNT_STATEMENT_READ", "ROLE_PROFIT", "ROLE_PRODUCT_RECORD_READ",
+					"ROLE_WITHDRAW_CATEGORY_EDIT", "ROLE_WITHDRAW_CATEGORY_WRITE", "ROLE_WITHDRAW_CATEGORY_READ",
+					"ROLE_WITHDRAW_EDIT", "ROLE_WITHDRAW_WRITE", "ROLE_WITHDRAW_READ" };
 
 			for (String roleName : roleNames) {
 				Role role = new Role();

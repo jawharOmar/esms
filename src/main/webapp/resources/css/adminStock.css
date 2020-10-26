@@ -1,53 +1,60 @@
 @charset "UTF-8";
 
+.td-limit {
+	max-width: 70px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
 .cus-table-function-div {
-    text-align: center;
+	text-align: center;
 }
 
 th, td {
-    text-align: center;
+	text-align: center;
 }
 
 .cus-table-function-div button {
-    margin: 2px;
-    display: inline-block;
+	margin: 2px;
+	display: inline-block;
 }
 
-#stockTable_new > thead > tr:first-child input {
-    display: none;
+#stockTable_new>thead>tr:first-child input {
+	display: none;
 }
+
 .checked {
-    color: #01c851;
+	color: #01c851;
 }
 
-#stockTable_new > thead > tr:first-child input[type="checkbox"],
-.unchecked {
-    display: none;
+#stockTable_new>thead>tr:first-child input[type="checkbox"], .unchecked
+	{
+	display: none;
 }
 
-#stockTable_new > thead > tr:first-child input[type="checkbox"]:checked ~ label .unchecked
-{
-    display: inline-block;
+#stockTable_new>thead>tr:first-child input[type="checkbox"]:checked ~
+	label .unchecked {
+	display: inline-block;
 }
 
-#stockTable_new > thead > tr:first-child input[type="checkbox"]:checked ~ label .checked
-{
-    display: none;
+#stockTable_new>thead>tr:first-child input[type="checkbox"]:checked ~
+	label .checked {
+	display: none;
 }
-
 
 .card-header {
-    background-color: #162448 !important;
-    color: white;
+	background-color: #162448 !important;
+	color: white;
 }
 
 #stock {
-    background-color: #ff5741 !important;
-    color: white;
-    height: auto;
+	background-color: #ff5741 !important;
+	color: white;
+	height: auto;
 }
 
 #stock option {
-    background-color: #313f5f !important;
-    color: white;
+	background-color: #313f5f !important;
+	color: white;
 }

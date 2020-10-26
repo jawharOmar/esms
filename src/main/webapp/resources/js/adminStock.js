@@ -1,21 +1,3 @@
-//---------------AngularJs------------------
-var app = angular.module("stockApp", []);
-
-app.factory("httpRequestInterceptor", function () {
-    return {
-        request: function (config) {
-            config.headers["X-CSRF-TOKEN"] = csrf;
-            return config;
-        }
-    }
-});
-
-
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
-
 app.controller("stockCtrl", function ($scope, $http, $window) {
     $scope.initStock = function () {
         $scope.contextURL = $$ContextURL;

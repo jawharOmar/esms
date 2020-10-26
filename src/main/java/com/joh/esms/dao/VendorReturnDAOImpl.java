@@ -1,15 +1,16 @@
 package com.joh.esms.dao;
 
 
-import com.joh.esms.controller.VendorReturnController;
-import com.joh.esms.model.VenderReturns;
-import com.joh.esms.model.VenderReturnsDetail;
-import org.apache.log4j.Logger;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import org.apache.log4j.Logger;
+
+import com.joh.esms.controller.VendorReturnController;
+import com.joh.esms.model.VenderReturnsDetail;
+import com.joh.esms.model.VendorReturn;
 
 public class VendorReturnDAOImpl implements VendorReturnDAOExt {
     private static final Logger logger = Logger.getLogger(VendorReturnController.class);
@@ -19,7 +20,7 @@ public class VendorReturnDAOImpl implements VendorReturnDAOExt {
 
     @Override
     public void delete(int id) {
-        VenderReturns venderReturns = em.find(VenderReturns.class, id);
+        VendorReturn venderReturns = em.find(VendorReturn.class, id);
 
         if (venderReturns == null)
             throw new EntityNotFoundException("venderReturns not found with id=" + id);

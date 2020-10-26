@@ -276,7 +276,6 @@ public class ProductController {
 		return "product/customerOrderDetails";
 	}
 
-	@SuppressWarnings("null")
 	@GetMapping(path = "/stock")
 	private String getAdminStock(Model model, @RequestParam(name = "page", required = false) Integer page,
 			@RequestParam(name = "show", required = false) Integer showPerPage,
@@ -301,7 +300,7 @@ public class ProductController {
 			Stock stock = stockService.findOne(stockId);
 			model.addAttribute("stock", stock);
 		}
-		// ----
+
 		List<PriceCategory> priceCategories = priceCategoryService.findAll();
 		Iterable<Stock> stocks = stockService.findAll();
 

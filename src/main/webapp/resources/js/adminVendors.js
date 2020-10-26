@@ -1,21 +1,4 @@
-appAdminVendors = angular.module("adminVendors", []);
-
-appAdminVendors.factory('httpRequestInterceptor', function () {
-	  return {
-	    request: function (config) {
-	      config.headers['X-CSRF-TOKEN'] = csrf;
-	      return config;
-	    }
-	  };
-});
-
-appAdminVendors.config(function ($httpProvider) {
-	  $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
-
-
-appAdminVendors.controller('adminVendors', function($scope, $http) {
+app.controller('adminVendors', function($scope, $http) {
 
 	$scope.getAddingVendor = function() {
 		console.log("getAddingVendor->fired");

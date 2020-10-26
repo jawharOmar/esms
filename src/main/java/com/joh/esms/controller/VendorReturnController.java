@@ -1,22 +1,36 @@
 package com.joh.esms.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.joh.esms.dao.ProductStepUpDAO;
-import com.joh.esms.model.*;
-import com.joh.esms.service.*;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Date;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.joh.esms.dao.ProductStepUpDAO;
+import com.joh.esms.model.CustomerOrder;
+import com.joh.esms.model.VenderReturnsDetail;
+import com.joh.esms.model.VendorReturn;
+import com.joh.esms.service.ProductService;
+import com.joh.esms.service.ProductStepUpService;
+import com.joh.esms.service.ProductStockService;
+import com.joh.esms.service.StockService;
+import com.joh.esms.service.VenderReturnService;
+import com.joh.esms.service.VendorService;
 
 
 @Controller
-@RequestMapping(path = "/venderReturn")
+@RequestMapping(path = "/venderReturns")
 public class VendorReturnController {
 
 	private static final Logger logger = Logger.getLogger(VendorReturnController.class);
@@ -48,7 +62,7 @@ public class VendorReturnController {
 
 	    model.addAttribute("products",productService.findAll());
 
-	    VenderReturns returns=new VenderReturns();
+	    VendorReturn returns=new VendorReturn();
 	    VenderReturnsDetail detail=new VenderReturnsDetail();
         ObjectMapper mapper = new ObjectMapper();
         model.addAttribute("vendorreturn", mapper.writeValueAsString(returns));
@@ -85,11 +99,11 @@ public class VendorReturnController {
     }
 
     @PostMapping(path = "/add",produces="application/json;charset=UTF-8")
-    private String get(@RequestBody VenderReturns venderReturns,Model model) throws JsonProcessingException {
+    private String get(@RequestBody VendorReturn vendorReturn,Model model) throws JsonProcessingException {
         logger.info("Add Vendor Return->fired");
 
 
-        venderReturnService.save(venderReturns);
+        venderReturnService.save(vendorReturn);
         return "success";
     }
 

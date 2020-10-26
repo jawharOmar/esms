@@ -17,7 +17,7 @@ import com.joh.esms.validator.ProductValidation;
 @Table(name = "PRODUCT_CATEGORIES")
 public class ProductCategory {
 
-	@NotNull(groups= {ProductValidation.Insert.class},message = "product category id is null")
+	@NotNull(groups = { ProductValidation.Insert.class }, message = "{product.productCategory.null}")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "I_PRODUCT_CATEGORY")
