@@ -1,97 +1,83 @@
 $(document).ready()
 {
-    $("#from").datepicker({
-        dateFormat : "yy-mm-dd"
-    }).datepicker("setDate", $("#from").val());
+	$("#from").datepicker({
+		dateFormat : "yy-mm-dd"
+	}).datepicker("setDate", $("#from").val());
 
-    $("#to").datepicker({
-        dateFormat : "yy-mm-dd"
-    }).datepicker("setDate", $("#to").val());
+	$("#to").datepicker({
+		dateFormat : "yy-mm-dd"
+	}).datepicker("setDate", $("#to").val());
 
-    // S-DataTable
-    $('#customerWastedProductTable tfoot th:not(.cus-not-search)')
-        .each(
-            function() {
-                var title = $(this).text();
-                $(this)
-                    .html(
-                        '<input class="form-control form-control-sm cus-inline" type="text" />');
-            });
+	// S-DataTable
+	$('#customerWastedProductTable tfoot th:not(.cus-not-search)')
+			.each(
+					function() {
+						var title = $(this).text();
+						$(this)
+								.html(
+										'<input class="form-control form-control-sm cus-inline" type="text" />');
+					});
 
-    var table = $('#customerWastedProductTable').DataTable({
-        fixedHeader : {
-            header : true,
-            footer : true,
-            headerOffset : $("#header").outerHeight()
-        },
-        dom : 'lBfrtip',
-        buttons : [ {
-            extend : "excel",
-            messageTop : reportTitle,
-            filename : reportTitle,
-            className : "btn btn-sm ml-5 btn-outline-info",
-            exportOptions : {
-                columns : ':not(.cus-not-export)'
-            }
-        } ],
-        bInfo : false,
-        paging:true,
-        lengthChange:true
-    });
+	var table = $('#customerWastedProductTable').DataTable({
+		fixedHeader : {
+			header : true,
+			footer : true,
+			headerOffset : $("#header").outerHeight()
+		},
+		dom : 'lBfrtip',
+		buttons : [ {
+			extend : "excel",
+			messageTop : reportTitle,
+			filename : reportTitle,
+			className : "btn btn-sm ml-5 btn-outline-info",
+			exportOptions : {
+				columns : ':not(.cus-not-export)'
+			}
+		} ],
+		bInfo : false,
+		paging : true,
+		lengthChange : true
+	});
 
-    // Apply the search
-    table.columns().every(function() {
-        var that = this;
-        console.log("that=", that);
-        console.log("that.search()=", that.search());
+	// Apply the search
+	table.columns().every(function() {
+		var that = this;
+		console.log("that=", that);
+		console.log("that.search()=", that.search());
 
-        $('input', this.footer()).on('keyup change', function() {
-            if (that.search() !== this.value) {
-                that.search(this.value).draw();
-            }
-        });
-    });
-    // E-DataTable
+		$('input', this.footer()).on('keyup change', function() {
+			if (that.search() !== this.value) {
+				that.search(this.value).draw();
+			}
+		});
+	});
+	// E-DataTable
 
 }
 
-appAddCusotmerOrder = angular.module("customerWastedProduct", []);
+app.controller('customerWastedProduct', function($scope, $http) {
+	console.log("customerWastedProduct->controller->fired");
 
-appAddCusotmerOrder.factory('httpRequestInterceptor', function() {
-    return {
-        request : function(config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-appAddCusotmerOrder.config(function($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
+	$scope.deleteCustomerWastedProduct = function(orderId) {
+		console.log("deleteCustomerWastedProduct->fired");
+		console.log("orderId=", orderId);
 
-appAddCusotmerOrder.controller('customerWastedProduct', function($scope, $http) {
-    console.log("customerWastedProduct->controller->fired");
+		$.when(cusConfirm()).done(
+				function() {
 
-    $scope.deleteCustomerWastedProduct = function(orderId) {
-        console.log("deleteCustomerWastedProduct->fired");
-        console.log("orderId=", orderId);
+					$http.post(
+							$$ContextURL + "/customerWastedProducts/delete/"
+									+ orderId).then(function(response) {
+						$("#modal-body").html(response.data);
+						$("#modal").modal("show");
 
-        $.when(cusConfirm()).done(
-            function() {
+					}, function(response) {
+						console.error("error occurred");
+						$("#modal-body").html(response.data);
+						$("#modal").modal("show");
+					});
 
-                $http.post(
-                    $$ContextURL + "/customerWastedProducts/delete/"
-                    + orderId).then(function(response) {
-                    $("#modal-body").html(response.data);
-                    $("#modal").modal("show");
+				});
 
-                }, function(response) {
-                    console.error("error occurred");
-                    $("#modal-body").html(response.data);
-                    $("#modal").modal("show");
-                });
-
-            });
-
-    }
+	}
 });

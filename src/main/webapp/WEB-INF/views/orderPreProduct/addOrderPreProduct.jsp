@@ -10,7 +10,7 @@
 	var csrf = '${_csrf.token}';
 </script>
 
-<div ng-app="app" ng-controller="appCTRL" ng-init="init()">
+<div ng-controller="appCTRL" ng-init="init()">
 	<h2>
 		<spring:message code="addOrderPreProduct.title" />
 	</h2>
@@ -54,12 +54,12 @@
 
 				<thead>
 					<tr>
-						<td  width="5%">#</td>
-						<td width="10%"><spring:message code="addOrderPreProduct.image" /></td>
+						<td width="5%">#</td>
+						<td width="10%"><spring:message
+								code="addOrderPreProduct.image" /></td>
 						<td width="5%"><spring:message
 								code="addOrderProductStepUp.pCode" /></td>
-						<td><spring:message
-								code="addOrderPreProduct.pName" /></td>
+						<td><spring:message code="addOrderPreProduct.pName" /></td>
 						<td width="5%"><spring:message
 								code="addOrderPreProduct.weight" /></td>
 						<td width="3%"><spring:message

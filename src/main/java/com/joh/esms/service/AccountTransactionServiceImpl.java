@@ -2,10 +2,13 @@ package com.joh.esms.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.joh.esms.dao.AccountTransactionDAO;
@@ -17,122 +20,127 @@ import com.joh.esms.model.AccountTransaction;
 @Service
 public class AccountTransactionServiceImpl implements AccountTransactionService {
 
-    @Autowired
-    private AccountTransactionDAO accountTransactionDAO;
+	@Autowired
+	private AccountTransactionDAO accountTransactionDAO;
 
-    @Autowired
-    private AccountService accountService;
+	@Autowired
+	private AccountService accountService;
 
-    @Override
-    @Transactional
-    public AccountTransaction makeTransaction(AccountTransactionType accountTransactionType, int reference,
-                                              Double amount) {
-        Account account = accountService.findOne(1);
+	@Autowired
+	private MessageSource messageSource;
 
-        AccountTransaction accountTransaction = findAccountTransaction(reference, accountTransactionType);
+	@Override
+	@Transactional
+	public AccountTransaction makeTransaction(AccountTransactionType accountTransactionType, int reference,
+			Double amount) {
+		Account account = accountService.findOne(1);
 
-        if (accountTransaction == null && amount != null && amount != 0) {
-            accountTransaction = new AccountTransaction();
-            accountTransaction.setAccount(account);
-            accountTransaction.setAccountTransactionType(accountTransactionType);
-            accountTransaction.setAmount(amount);
-            accountTransaction.setReference(reference);
+		AccountTransaction accountTransaction = findAccountTransaction(reference, accountTransactionType);
 
-            accountTransaction = adjustSign(accountTransaction);
+		if (accountTransaction == null && amount != null && amount != 0) {
+			accountTransaction = new AccountTransaction();
+			accountTransaction.setAccount(account);
+			accountTransaction.setAccountTransactionType(accountTransactionType);
+			accountTransaction.setAmount(amount);
+			accountTransaction.setReference(reference);
 
-            account.setBalance(account.getBalance() + accountTransaction.getAmount());
+			accountTransaction = adjustSign(accountTransaction);
 
-            if (account.getBalance() < 0) {
-                throw new CusDataIntegrityViolationException("Balance will be less that 0 not allowed");
-            }
-            accountService.update(account);
+			account.setBalance(account.getBalance() + accountTransaction.getAmount());
 
-            accountTransaction = accountTransactionDAO.save(accountTransaction);
+			if (account.getBalance() < 0) {
+				Locale locale = LocaleContextHolder.getLocale();
+				throw new CusDataIntegrityViolationException(
+						messageSource.getMessage("accountTransaction.lowBalance", null, locale));
+			}
+			accountService.update(account);
 
-        } else if (accountTransaction != null) {
+			accountTransaction = accountTransactionDAO.save(accountTransaction);
 
-            // Remove the old transaction balance
-            account.setBalance(account.getBalance() - accountTransaction.getAmount());
+		} else if (accountTransaction != null) {
 
-            accountTransaction.setAmount(amount);
-            accountTransaction = adjustSign(accountTransaction);
+			// Remove the old transaction balance
+			account.setBalance(account.getBalance() - accountTransaction.getAmount());
 
-            account.setBalance(account.getBalance() + accountTransaction.getAmount());
+			accountTransaction.setAmount(amount);
+			accountTransaction = adjustSign(accountTransaction);
 
-            if (account.getBalance() < 0) {
-                throw new CusDataIntegrityViolationException("Balance will be less that 0 not allowed");
-            }
-            accountService.update(account);
+			account.setBalance(account.getBalance() + accountTransaction.getAmount());
 
-            accountTransaction = accountTransactionDAO.save(accountTransaction);
-        }
+			if (account.getBalance() < 0) {
+				throw new CusDataIntegrityViolationException("Balance will be less that 0 not allowed");
+			}
+			accountService.update(account);
 
-        return accountTransaction;
-    }
+			accountTransaction = accountTransactionDAO.save(accountTransaction);
+		}
 
-    @Override
-    public List<AccountTransaction> findAllByAccountId(int id) {
-        return accountTransactionDAO.findAllByAccountId(id);
-    }
+		return accountTransaction;
+	}
 
-    @Override
-    public List<AccountTransaction> findAllByTimeBetweenAndAccountId(Date from, Date to, int id) {
-        return accountTransactionDAO.findAllByTimeBetweenAndAccountId(from, to, id);
-    }
+	@Override
+	public List<AccountTransaction> findAllByAccountId(int id) {
+		return accountTransactionDAO.findAllByAccountId(id);
+	}
 
-    @Override
-    public void delete(int id) {
-        AccountTransaction accountTransaction = accountTransactionDAO.findOne(id);
+	@Override
+	public List<AccountTransaction> findAllByTimeBetweenAndAccountId(Date from, Date to, int id) {
+		return accountTransactionDAO.findAllByTimeBetweenAndAccountId(from, to, id);
+	}
 
-        Account account = accountService.findOne(accountTransaction.getAccount().getId());
-        accountTransaction.setAccount(account);
+	@Override
+	public void delete(int id) {
+		AccountTransaction accountTransaction = accountTransactionDAO.findOne(id);
 
-        account.setBalance(account.getBalance() - accountTransaction.getAmount());
+		Account account = accountService.findOne(accountTransaction.getAccount().getId());
+		accountTransaction.setAccount(account);
 
-        if (account.getBalance() < 0) {
-            throw new CusDataIntegrityViolationException("Balance will be less that 0 not allowed");
-        }
+		account.setBalance(account.getBalance() - accountTransaction.getAmount());
 
-        accountService.update(account);
-        accountTransactionDAO.delete(id);
-    }
+		if (account.getBalance() < 0) {
+			throw new CusDataIntegrityViolationException("Balance will be less that 0 not allowed");
+		}
 
-    @Override
-    public AccountTransaction findAccountTransaction(int reference, AccountTransactionType accountTransactionType) {
-        // because I used main account that is why I insert 1
-        return accountTransactionDAO.findByAccountIdAndReferenceAndAccountTransactionType(1, reference,
-                accountTransactionType);
-    }
+		accountService.update(account);
+		accountTransactionDAO.delete(id);
+	}
 
-    private AccountTransaction adjustSign(AccountTransaction accountTransaction) {
-        switch (accountTransaction.getAccountTransactionType()) {
-            case INCOME:
-                break;
-            case VENDOR_RETURN:
-                break;
-            case CUSTOMER_ORDER:
-                break;
-            case CUSTOMER_PAYMENT:
-                break;
-            case EXPENSE:
-                accountTransaction.setAmount(-accountTransaction.getAmount());
-                break;
-            case ORDER:
-                accountTransaction.setAmount(-accountTransaction.getAmount());
-                break;
-            case VENDOR_PAYMENT:
-                accountTransaction.setAmount(-accountTransaction.getAmount());
-                break;
-            case CUSTOMER_ORDER_RETURN:
-                accountTransaction.setAmount(-accountTransaction.getAmount());
-                break;
-            case WITHDRAW:
-                accountTransaction.setAmount(-accountTransaction.getAmount());
-                break;
-            default:
-                throw new CusDataIntegrityViolationException("Account transaction type not implemented");
-        }
-        return accountTransaction;
-    }
+	@Override
+	public AccountTransaction findAccountTransaction(int reference, AccountTransactionType accountTransactionType) {
+		// because I used main account that is why I insert 1
+		return accountTransactionDAO.findByAccountIdAndReferenceAndAccountTransactionType(1, reference,
+				accountTransactionType);
+	}
+
+	private AccountTransaction adjustSign(AccountTransaction accountTransaction) {
+		switch (accountTransaction.getAccountTransactionType()) {
+		case INCOME:
+			break;
+		case VENDOR_RETURN:
+			break;
+		case CUSTOMER_ORDER:
+			break;
+		case CUSTOMER_PAYMENT:
+			break;
+		case EXPENSE:
+			accountTransaction.setAmount(-accountTransaction.getAmount());
+			break;
+		case ORDER:
+			accountTransaction.setAmount(-accountTransaction.getAmount());
+			break;
+		case VENDOR_PAYMENT:
+			accountTransaction.setAmount(-accountTransaction.getAmount());
+			break;
+		case CUSTOMER_ORDER_RETURN:
+			accountTransaction.setAmount(-accountTransaction.getAmount());
+			break;
+		case WITHDRAW:
+			accountTransaction.setAmount(-accountTransaction.getAmount());
+			break;
+		default:
+			throw new CusDataIntegrityViolationException("Account transaction type not implemented");
+		}
+		return accountTransaction;
+	}
 
 }

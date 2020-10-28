@@ -59,7 +59,8 @@
 					<td><a href="<c:url value="/customerOrders/add"/>"> <spring:message
 								code="layout.salePoint" />
 					</a></td>
-					<td><a class="text-info" href="<c:url value="/customers"/>">
+					<td><a class="text-info"
+						href="<c:url value="/customerOrders"/>?from=${currentDate}&to=${tomorrow}">
 							<i class="fa fa-search fa-3x"></i>
 					</a></td>
 				</tr>
@@ -264,34 +265,20 @@
 
 		</sec:authorize>
 
-		<sec:authorize url="/customerWastedProducts/add">
+		<sec:authorize url="/customerReturnWastedProducts/add">
 
 			<table class="card card-body">
 				<tr>
 					<td><img
 						src="<c:url value="/resources/img/customerOrderReturns.png" />"
 						alt="" /></td>
-					<td><a href="<c:url value="/customerWastedProducts/add"/>">
-							<spring:message code="layout.customerReturnWastedProduct" />
+					<td><a
+						href="<c:url value="/customerReturnWastedProducts/add"/>"> <spring:message
+								code="layout.customerReturnWastedProduct" />
 					</a></td>
 					<td><a class="text-info"
-						href="<c:url value="/customerWastedProducts"/>?from=${currentDate}&to=${tomorrow}">
+						href="<c:url value="/customerReturnWastedProducts"/>?from=${currentDate}&to=${tomorrow}">
 							<i class="fa fa-search fa-3x"></i>
-					</a></td>
-				</tr>
-			</table>
-
-		</sec:authorize>
-		<sec:authorize url="/customerWastedProducts/wastedProduct">
-
-			<table class="card card-body">
-				<tr>
-					<td><img
-						src="<c:url value="/resources/img/wastedProductIcon.png" />"
-						alt="" /></td>
-					<td><a
-						href="<c:url value="/customerWastedProducts/wastedProduct"/>">
-							<spring:message code="layout.wastedProducts" />
 					</a></td>
 				</tr>
 			</table>
@@ -397,19 +384,6 @@
 
 		</sec:authorize>
 
-		<sec:authorize url="/psearch">
-
-			<table class="card card-body">
-				<tr>
-					<td><img
-						src="<c:url value="/resources/img/productCategory.png" />" alt="" /></td>
-					<td><a href="<c:url value="/psearch"/>"> <spring:message
-								code="layout.product" />
-					</a></td>
-				</tr>
-			</table>
-
-		</sec:authorize>
 		<sec:authorize url="/venderReturn">
 
 			<table class="card card-body">
@@ -417,22 +391,8 @@
 					<td><img src="<c:url value="/resources/img/vReturn.png" />"
 						alt="" /></td>
 					<td><a
-						href="<c:url value="/venderReturn/view"/>?from=${currentDate}&to=${tomorrow}">
+						href="<c:url value="/venderReturns/view"/>?from=${currentDate}&to=${tomorrow}">
 							<spring:message code="layout.VednorReturn" />
-					</a></td>
-				</tr>
-			</table>
-
-		</sec:authorize>
-		<sec:authorize url="/withdrawCategories">
-
-			<table class="card card-body">
-				<tr>
-					<td><img
-						src="<c:url value="/resources/img/withdrawCategories.png" />"
-						alt="" /></td>
-					<td><a href="<c:url value="/withdrawCategories"/>"> <spring:message
-								code="layout.withdrawCategories" />
 					</a></td>
 				</tr>
 			</table>
@@ -448,6 +408,10 @@
 						href="<c:url value="/withdraws"/>?from=${currentDate}&to=${tomorrow}">
 							<spring:message code="layout.withdraws" />
 					</a></td>
+					<td><a class="text-info"
+						href="<c:url value="/withdrawCategories"/>">
+							<i class="fa fa-search fa-3x"></i>
+					</a></td>
 				</tr>
 			</table>
 
@@ -459,7 +423,7 @@
 				<tr>
 					<td><img src="<c:url value="/resources/img/settings.png" />"
 						alt="" /></td>
-					<td><a href="<c:url value="/settings"/>"> <spring:message
+					<td><a href="<c:url value="/settings/add"/>"> <spring:message
 								code="layout.setting" />
 					</a></td>
 				</tr>

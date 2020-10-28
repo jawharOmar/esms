@@ -24,11 +24,21 @@
 					</div>
 				</td>
 				<td><a href="<c:url value="/adminRoot" />"> <img
-						src="<c:url value="/resources/img/logo.png" />" height="30" alt="" />
-						<b class="color-primary"><span id="Systemnam"></span></b>
+						src="<c:url value="/resources/img/logo.png?" />${version}"
+						height="30" alt="" /> <b class="color-primary"><span
+							id="Systemnam"></span></b>
 				</a></td>
 			</tr>
 		</table>
+		<sec:authorize url="/customerOrders/add">
+
+
+
+			<a style="padding: 5px" href="<c:url value="/customerOrders/add"/>">
+				<spring:message code="layout.salePoint" />
+			</a>
+
+		</sec:authorize>
 
 		<form action="<c:url value="/logout" />" method="POST">
 			<input type="hidden" name="${_csrf.parameterName}"
@@ -97,46 +107,4 @@
 	</div>
 
 
-	<div style="display: none">
-		<div id="Currency-dialog" class="p-1">
-
-			<form method="post" action="<c:url value="/setting/currency" />">
-				<table class="w-100">
-					<tr>
-						<td class="cus-fit-td">Base Currency</td>
-						<td class="cus-rest-td"><input required id="curbase"
-							type="text" name="base" class="form-control form-control-sm"></td>
-					</tr>
-
-					<tr>
-						<td class="cus-fit-td">Exchange Currency</td>
-						<td class="cus-rest-td"><input required type="text"
-							id="tocur" name="to" class="form-control form-control-sm"></td>
-					</tr>
-					<tr>
-						<td class="cus-fit-td">Exchange Rate</td>
-						<td class="cus-rest-td"><input required step="any"
-							type="number" id="currate" name="rate"
-							class="form-control form-control-sm"></td>
-					</tr>
-					<tr>
-						<td class="cus-fit-td">Exchange Rate (Reverse)</td>
-						<td class="cus-rest-td"><input required step="any"
-							type="number" id="curratereverse" name="reverseRate"
-							class="form-control form-control-sm"></td>
-					</tr>
-
-					<tr>
-						<td class="cus-fit-td">
-							<button class="btn btn-success btn-sm">
-								<i class="fa fa-save"></i>
-							</button>
-						</td>
-
-					</tr>
-				</table>
-
-			</form>
-		</div>
-	</div>
 </div>

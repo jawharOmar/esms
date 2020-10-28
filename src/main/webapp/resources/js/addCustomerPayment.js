@@ -5,23 +5,7 @@ $(document).ready()
 
 // Angular
 
-appAddCusotmerOrder = angular.module("app", []);
-
-
-appAddCusotmerOrder.factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-
-appAddCusotmerOrder.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
-appAddCusotmerOrder.controller('appCTRL', function ($scope, $http) {
+app.controller('appCTRL', function ($scope, $http) {
 
     $scope.customerPayment;
 

@@ -1,5 +1,19 @@
 var app = angular.module("app", []);
 
+angular.module('app').directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if (event.which === 13) {
+                scope.$apply(function () {
+                    scope.$eval(attrs.ngEnter, {'event': event});
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
+
 app.controller("navbarCTRL", [ "$http", "$scope", "$window",
 	function($http, $scope, $window) {
 
@@ -126,8 +140,3 @@ function showFailedAlert(){
 	  $("#cus-failed-alert").hide().slideDown(500).delay(2000).slideUp(500, function () {});
 }
 
-$(document).ready(function(){
-    $.get( $$ContextURL+"/setting/GetSettingData", function( data ) {
-$("#Systemname").html(JSON.parse(data).name);
-    });
-});

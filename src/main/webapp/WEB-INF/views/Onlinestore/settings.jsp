@@ -7,7 +7,9 @@
 
 
 <div>
-	<sf:form method="POST" commandName="setting">
+	<c:url value="/settings/add" var="formUrl" />
+	<sf:form method="POST" commandName="setting" action="${formUrl}"
+		enctype="multipart/form-data">
 		<table class="w-100">
 			<tbody>
 
@@ -34,9 +36,9 @@
 
 				<tr>
 					<td><spring:message code="settings.address" /></td>
-					<td><input id="files" type="file"
-						accept="image/x-png,image/gif,image/jpeg,image/jpg"
-						class="form-control form-control-sm" name="file" /></td>
+					<td><input id="files" type="file" accept=".png"
+						class=" form-control
+						form-control-sm" name="file" /></td>
 				</tr>
 
 				<tr>

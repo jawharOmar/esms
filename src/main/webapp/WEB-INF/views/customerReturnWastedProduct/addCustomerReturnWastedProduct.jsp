@@ -13,7 +13,7 @@
     var csrf = '${_csrf.token}';
 </script>
 
-<div ng-app="app" ng-controller="appCTRL" ng-init="init()">
+<div  ng-controller="appCTRL" ng-init="init()">
     <h2>
         <spring:message code="customerWastedProduct.title"/>
     </h2>

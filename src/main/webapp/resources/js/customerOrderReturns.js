@@ -57,20 +57,6 @@ $(document).ready()
 
 }
 
-app = angular.module("app", []);
-
-app.factory('httpRequestInterceptor', function() {
-	return {
-		request : function(config) {
-			config.headers['X-CSRF-TOKEN'] = csrf;
-			return config;
-		}
-	};
-});
-app.config(function($httpProvider) {
-	$httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('appCTRL', function($scope, $http) {
 
 	$scope.deleteCustomerOrderReturn = function(orderId) {

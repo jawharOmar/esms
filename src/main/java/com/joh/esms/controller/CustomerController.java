@@ -210,7 +210,6 @@ public class CustomerController {
 	private String searchForCustomer(@RequestParam("id") Integer id) throws JsonProcessingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Customer customer = customerService.findOne(id);
-		customer.setPassword(null);
 		return objectMapper.writeValueAsString(customer);
 	}
 

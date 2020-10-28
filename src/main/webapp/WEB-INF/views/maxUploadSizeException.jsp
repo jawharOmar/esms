@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!DOCTYPE thml>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<div style="text-align: center;">
 	<h3>
 		<spring:message code="maxUploadSizeException.tilte" />
 	</h3>
-</body>
-</html>
+	<div>
+		<img src="<c:url value="/resources/img/fat.png" />" alt="" />
+	</div>
+</div>

@@ -21,7 +21,8 @@
 				</tr>
 
 				<tr>
-					<td class="text-left"><spring:message code="editCustomer.phone" /></td>
+					<td class="text-left"><spring:message
+							code="editCustomer.phone" /></td>
 					<td><sf:input class="form-control" path="phone" /></td>
 					<td><sf:errors path="phone" /></td>
 				</tr>
@@ -35,23 +36,11 @@
 				</tr>
 
 				<tr>
-					<td class="text-left"><spring:message code="editCustomer.username" /></td>
-					<td><sf:input class="form-control" path="username" /></td>
-					<td><sf:errors path="username" /></td>
-				</tr>
-
-
-				<tr>
-					<td class="text-left"><spring:message code="editCustomer.password" /></td>
-					<td><sf:input class="form-control" type="password" path="password" /></td>
-					<td><sf:errors path="password" /></td>
-				</tr>
-
-				<tr>
 					<td class="text-left"><spring:message
 							code="addCustomer.priceCategory" /></td>
 					<td><select class="form-control" name="priceCategory[id]">
-							<option value=""><spring:message code="editCustomer.choose" /></option>
+							<option value=""><spring:message
+									code="editCustomer.choose" /></option>
 							<c:forEach items="${priceCategories}" var="item">
 								<c:if test="${customer.priceCategory.id==item.id}">
 									<option selected="selected" value="${item.id}">${item.name}</option>
@@ -71,11 +60,12 @@
 					<td><sf:errors path="note" /></td>
 				</tr>
 
-                <tr>
-                    <td class="text-left"><spring:message code="editCustomer.limit" /></td>
-                    <td><sf:input type="text" class="form-control" path="limit" /></td>
-                    <td><sf:errors path="limit" /></td>
-                </tr>
+				<tr>
+					<td class="text-left"><spring:message
+							code="editCustomer.limit" /></td>
+					<td><sf:input type="text" class="form-control" path="limit" /></td>
+					<td><sf:errors path="limit" /></td>
+				</tr>
 
 				<tr>
 					<td><button class="btn btn-warning">

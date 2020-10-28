@@ -3,36 +3,6 @@ $(document).ready()
     console.log("csrf=", csrf);
 }
 // Angular
-app = angular.module("app", []);
-
-angular.module('app').directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if (event.which === 13) {
-                scope.$apply(function () {
-                    scope.$eval(attrs.ngEnter, {'event': event});
-                });
-
-                event.preventDefault();
-            }
-        });
-    };
-});
-
-
-app.factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('addCustomerOrder', function ($scope, $http, $window) {
 
     $scope.customerOrder;
@@ -40,8 +10,6 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
     $scope.invoiceId;
 
     $scope.customers;
-
-    $scope.currencysetting = {};
 
     $scope.forPrintOnly = false;
 
@@ -80,6 +48,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
     $scope.resetProduct = angular.copy($scope.product);
 
     $scope.getCustomerOrder = function () {
+    	console.log("$scope.getCustomerOrder->fired");
         if ($scope.invoiceId) {
             $window.open($$ContextURL + "/customerOrders/edit?invoiceId=" + $scope.invoiceId, '_blank');
         }
@@ -99,15 +68,6 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
     $scope.setTotalPayment = function () {
         return $scope.customerOrder.totalPayment = parseFloat(($scope
             .totalPrice() - $scope.customerOrder.discount).toFixed(3));
-    };
-
-    $scope.setCurrency = function () {
-        $http({
-            method: 'GET',
-            url: $$ContextURL + '/setting/currency/',
-        }).then(function (response) {
-            angular.copy(response.data, $scope.currencysetting);
-        });
     };
 
     $scope.$watch("customerOrder.customer", function (newValue, oldValue) {
@@ -155,7 +115,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         }
     };
 
-    //Calculate Discount If Discount Ratio Changed
+    // Calculate Discount If Discount Ratio Changed
     $scope.calculateDiscount = function () {
         if ($scope.selectRatio && $scope.discountRatio < 1) {
             $scope.customerOrder.discount = parseFloat(($scope
@@ -163,8 +123,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
             $scope.calculateTotalPayment();
         }
     };
-
-    //Calculate Total Payment Based On Discount
+    
     $scope.calculateTotalPayment = function () {
         if ($scope.customerOrder.totalPayment > 0 && $scope.customerOrder.totalPayment > $scope.setTotalPayment()) {
             $scope.setTotalPayment();
@@ -188,10 +147,6 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         $scope.discountRatio = 0;
         $scope.checkTotalPrice = 0;
         $scope.paymentValidation = 0;
-
-
-
-        $scope.setCurrency();
 
         // S-Product AutoCompletion
         var productAuto = [];
@@ -219,6 +174,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
                 });
 
                 $("#autoselect").autocomplete({
+                	delay: 2000,
                     source: productAuto,
                     response: function (event, ui) {
                         if (ui.content.length === 1) {
@@ -303,7 +259,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         if (customerAuto.length < 1) {
             $("#customer-autoselect").autocomplete({});
         }
-//    -----------------End searchByCustomerOrPhone--------------
+// -----------------End searchByCustomerOrPhone--------------
     };
 
 
@@ -327,7 +283,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
 
                     console.log($scope.forPrintOnly);
                     if (response.data.stockLevel == 0 && !$scope.forPrintOnly) {
-                        $("#modal-body").html("Out of the stock or you may have expiration");
+                        $("#modal-body").html(outOfTheStock);
                         $("#modal").modal("show");
                     } else {
 
@@ -442,7 +398,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
                 $("#modal").modal("show");
 
 
-                //Reload The Page
+                // Reload The Page
                 $('#modal').on('hidden.bs.modal', function () {
                     location.reload();
                 })
@@ -451,22 +407,9 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         } else {
             if (($scope.totalPrice() - $scope.customerOrder.totalPayment - $scope.customerOrder.discount + $scope.customerOrder.customer.totalLoan) > $scope.customerOrder.customer.limit) {
                 $scope.limit = true;
-                toastr.error("This Customer Reaches limit", "Loan Limit", {
-                    "closeButton": true,
-                    "debug": false,
-                    "newestOnTop": false,
-                    "progressBar": false,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "showDuration": "300",
-                    "hideDuration": "300",
-                    "timeOut": "3000",
-                    "extendedTimeOut": "0",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                });
+                
+                $("#modal-body").html(customerReachLimit);
+                $("#modal").modal("show");
 
             } else {
 
@@ -490,7 +433,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
                     $("#modal-body").html(outPut);
                     $("#modal").modal("show");
 
-                    //Reload The Page
+                    // Reload The Page
                     $('#modal').on('hidden.bs.modal', function () {
                         location.reload();
                     })

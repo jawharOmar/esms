@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
-import org.springframework.web.multipart.MultipartException;
 
 import com.joh.esms.exception.CusDataIntegrityViolationException;
 import com.joh.esms.exception.ItemExistsException;
@@ -51,7 +50,6 @@ public class GlobalExceptionHandler {
 	public String maxUploadSizeExceptionHandler(HttpServletRequest request, MaxUploadSizeExceededException ex) {
 		logger.info("maxUploadSizeExceptionHandler occurred:: URL=" + request.getRequestURL());
 		logger.info("Entity refernece=" + ex.getMessage());
-
 		return "maxUploadSizeException";
 	}
 
@@ -73,11 +71,4 @@ public class GlobalExceptionHandler {
 		return "noResultException";
 	}
 
-	// @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-	// @ExceptionHandler({ Exception.class })
-	// public String handleInternalServerError(HttpServletRequest request, Exception
-	// ex) {
-	// logger.info("internalServerError occurred:: URL=" + request.getRequestURL());
-	// return "internalServerError";
-	// }
 }

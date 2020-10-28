@@ -13,7 +13,6 @@
 </script>
 <div ng-app="productStepUps" ng-controller="productStepUps">
 
-
 	<h2>
 		<spring:message code="orderPreProducts.title" />
 	</h2>

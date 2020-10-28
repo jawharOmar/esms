@@ -56,43 +56,26 @@ $(document).ready()
 	// E-DataTable
 
 }
-
-app = angular.module("app", []);
-
-app.factory('httpRequestInterceptor', function() {
-	return {
-		request : function(config) {
-			config.headers['X-CSRF-TOKEN'] = csrf;
-			return config;
-		}
-	};
-});
-app.config(function($httpProvider) {
-	$httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('appCTRL', function($scope, $http) {
 
 	$scope.deletereturn = function(returnId) {
 
+		$.when(cusConfirm()).done(function() {
 
-		$.when(cusConfirm()).done(
-				function() {
+			$.ajax({
+				type : "GET",
+				url : $$ContextURL + "/venderReturn/delete/" + returnId,
+				success : function(response) {
+					$("#modal-body").html(response);
+					$("#modal").modal("show");
+				},
+				error : function(response) {
+					$("#modal-body").html(response.responseText);
+					$("#modal").modal("show");
+				}
+			});
 
-                    $.ajax({
-                        type : "GET",
-                        url : $$ContextURL + "/venderReturn/delete/" + returnId,
-                        success : function(response) {
-                            $("#modal-body").html(response);
-                            $("#modal").modal("show");
-                        },
-                        error : function(response) {
-                            $("#modal-body").html(response.responseText);
-                            $("#modal").modal("show");
-                        }
-                    });
-
-				});
+		});
 
 	}
 });

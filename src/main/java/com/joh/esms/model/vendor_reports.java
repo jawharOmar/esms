@@ -15,7 +15,7 @@ import java.util.Date;
 		"UNION ALL \n" +
 		"select vp.I_VENDOR as I_VENDOR,if(vp.NOTE is null,'empty',vp.NOTE) as note,'Payment' as TYPE,vp.I_VENDOR_PAYMENT AS ACTION_ID,vp.I_VENDOR_PAYMENT as Invoice,vp.PAYMENT_TIME as Time,if(vp.DISCOUNT is null,0,vp.DISCOUNT) AS Discount,0 as Credit,(vp.TOTAL_PAYMENT+if(vp.DISCOUNT is null,0,vp.DISCOUNT)) as Debit from VENDOR_PAYMENTS vp\n" +
 		"UNION ALL\n" +
-		"select vr.I_VENDOR as I_VENDOR,'empty' as note,'Return' as TYPE,vr.I_RETURN AS ACTION_ID,vr.I_RETURN as Invoice,vr.Time as Time,0 as Discount,0 as Credit,vr.AMOUNT as Debit from VENDERRETURNS vr")
+		"select vr.I_VENDOR as I_VENDOR,'empty' as note,'Return' as TYPE,vr.I_RETURN AS ACTION_ID,vr.I_RETURN as Invoice,vr.Time as Time,0 as Discount,0 as Credit,vr.AMOUNT as Debit from VENDOR_RETURNS vr")
 public class vendor_reports {
 
 

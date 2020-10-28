@@ -13,20 +13,6 @@ $(document).ready()
 
 // Angular
 
-app = angular.module("app", []);
-
-app.factory('httpRequestInterceptor', function() {
-	return {
-		request : function(config) {
-			config.headers['X-CSRF-TOKEN'] = csrf;
-			return config;
-		}
-	};
-});
-app.config(function($httpProvider) {
-	$httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('appCTRL', function($scope, $http, $q) {
 
 	$scope.preProduct = {
@@ -174,7 +160,7 @@ app.controller('appCTRL', function($scope, $http, $q) {
 			$("#modal-body").html(outPut);
 			$("#modal").modal("show");
 
-			//Reload The Page
+			// Reload The Page
 			$('#modal').on('hidden.bs.modal', function () {
 				location.reload();
 			})

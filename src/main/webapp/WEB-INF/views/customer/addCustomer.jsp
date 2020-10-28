@@ -33,20 +33,6 @@
 					<td><sf:errors path="address" /></td>
 				</tr>
 
-
-				<tr>
-					<td class="text-left"><spring:message code="addCustomer.username" /></td>
-					<td><sf:input class="form-control" path="username" /></td>
-					<td><sf:errors path="username" /></td>
-				</tr>
-
-
-				<tr>
-					<td class="text-left"><spring:message code="addCustomer.password" /></td>
-					<td><sf:input class="form-control" type="password" path="password" /></td>
-					<td><sf:errors path="password" /></td>
-				</tr>
-
 				<tr>
 					<td class="text-left"><spring:message
 							code="addCustomer.priceCategory" /></td>

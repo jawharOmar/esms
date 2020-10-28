@@ -154,9 +154,8 @@
 			<add-attribute value="angular" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
-			<add-attribute value="app" />
 			<add-attribute value="toastr.min" />
-
+			<add-attribute value="app" />
 			<add-attribute value="addCustomerOrder" />
 			<add-attribute value="angularjs/ifLoading" />
 		</put-list-attribute>

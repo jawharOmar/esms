@@ -32,146 +32,142 @@ import com.joh.esms.service.CustomerService;
 @RequestMapping(path = "/customerPayments")
 public class CustomerPaymentController {
 
-    private static final Logger logger = Logger.getLogger(CustomerPaymentController.class);
+	private static final Logger logger = Logger.getLogger(CustomerPaymentController.class);
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @Autowired
-    private CustomerPaymentService customerPaymentService;
+	@Autowired
+	private CustomerPaymentService customerPaymentService;
 
-    @Autowired
-    private CustomerDAO customerDAO;
+	@Autowired
+	private CustomerDAO customerDAO;
 
-    @Autowired
-    private MessageSource messageSource;
+	@Autowired
+	private MessageSource messageSource;
 
-    @GetMapping()
-    private String getCustomerPaymentsByDate(@RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
-                                             @RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
-        logger.info("getCustomerPaymentsByDate->fired");
+	@GetMapping()
+	private String getCustomerPaymentsByDate(@RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
+		logger.info("getCustomerPaymentsByDate->fired");
 
-        Iterable<CustomerPayment> customerPayments = customerPaymentService.findAllByTimeBetween(from, to);
+		Iterable<CustomerPayment> customerPayments = customerPaymentService.findAllByTimeBetween(from, to);
 
-        logger.info("customerPayments=" + customerPayments);
+		logger.info("customerPayments=" + customerPayments);
 
-        model.addAttribute("customerPayments", customerPayments);
-        model.addAttribute("from", from);
-        model.addAttribute("to", to);
+		model.addAttribute("customerPayments", customerPayments);
+		model.addAttribute("from", from);
+		model.addAttribute("to", to);
 
-        return "customerPayments";
-    }
+		return "customerPayments";
+	}
 
-    @GetMapping(path = "/customer/{id}")
-    public String getCustomerPayments(@PathVariable int id, Model model) {
-        logger.info("getCustomerPayments->fired");
-        logger.info("id=" + id);
+	@GetMapping(path = "/customer/{id}")
+	public String getCustomerPayments(@PathVariable int id, Model model) {
+		logger.info("getCustomerPayments->fired");
+		logger.info("id=" + id);
 
-        Customer customer = customerService.findOne(id);
+		Customer customer = customerService.findOne(id);
 
-        logger.info("customer=" + customer);
-        model.addAttribute("customer", customer);
+		logger.info("customer=" + customer);
+		model.addAttribute("customer", customer);
 
-        return "customerCustomerPayments";
-    }
+		return "customerCustomerPayments";
+	}
 
-    @GetMapping(path = "/add")
-    private String getAddingCustomerPayment(Model model) throws JsonProcessingException {
-        logger.info("getAddingCustomerPayment->fired");
-        CustomerPayment customerPayment = new CustomerPayment();
+	@GetMapping(path = "/add")
+	private String getAddingCustomerPayment(Model model) throws JsonProcessingException {
+		logger.info("getAddingCustomerPayment->fired");
+		CustomerPayment customerPayment = new CustomerPayment();
 
-        ObjectMapper objectMapper = new ObjectMapper();
+		ObjectMapper objectMapper = new ObjectMapper();
 
-        model.addAttribute("jsonCustomerPayment", objectMapper.writeValueAsString(customerPayment));
+		model.addAttribute("jsonCustomerPayment", objectMapper.writeValueAsString(customerPayment));
 
+		return "addCustomerPayment";
+	}
 
-        return "addCustomerPayment";
-    }
+	@GetMapping(path = "/totalLoan/{id}/{projectId}")
+	@ResponseBody
+	private Double getAddingCustomerPayment(@PathVariable("id") Integer id,
+			@PathVariable("projectId") Integer projectId) throws JsonProcessingException {
+		if (id != null && projectId != null) {
+			return customerDAO.totalLoanByProject(id, projectId);
+		}
+		return null;
+	}
 
-    @GetMapping(path = "/totalLoan/{id}/{projectId}")
-    @ResponseBody
-    private Double getAddingCustomerPayment(@PathVariable("id") Integer id, @PathVariable("projectId") Integer projectId) throws JsonProcessingException {
-        if (id != null && projectId != null) {
-//        	Customer Id And Project id
-			return customerDAO.totalLoanByProject(id,projectId);
-        }
-        return null;
-    }
+	@GetMapping(path = "/customerpayment/edit/{id}")
+	public String getediting(@PathVariable int id, Model model) {
+		logger.info("getCustomerPayments->fired");
+		logger.info("id=" + id);
 
+		CustomerPayment customerPayment = customerPaymentService.findOne(id);
 
-    @GetMapping(path = "/customerpayment/edit/{id}")
-    public String getediting(@PathVariable int id, Model model) {
-        logger.info("getCustomerPayments->fired");
-        logger.info("id=" + id);
+		logger.info("customer=" + customerPayment);
+		model.addAttribute("customerPayment", customerPayment);
 
-        CustomerPayment customerPayment = customerPaymentService.findOne(id);
+		return "customerPayment/editCustomerPayment";
+	}
 
+	@PostMapping(path = "/customerpayment/edit/{id}")
+	private String editcustomer(@RequestBody @Validated() CustomerPayment customerPayment, Locale locale) {
 
-        logger.info("customer=" + customerPayment);
-        model.addAttribute("customerPayment", customerPayment);
+		logger.info("editCustomerOrder->fired");
 
-        return "customerPayment/editCustomerPayment";
-    }
+		logger.info("customerPayment=" + customerPayment);
+		customerPayment.setCustomer(customerPaymentService.findOne(customerPayment.getId()).getCustomer());
 
-    @PostMapping(path = "/customerpayment/edit/{id}")
-    private String editcustomer(@RequestBody @Validated() CustomerPayment customerPayment, Locale locale) {
+		CustomerPayment customerPaymentold = customerPaymentService.findOne(customerPayment.getId());
+		customerPaymentold.setTotalPayment(customerPayment.getTotalPayment());
+		customerPaymentold.setCustomerProject(customerPayment.getCustomerProject());
+		customerPayment = customerPaymentService.update(customerPaymentold);
 
-        logger.info("editCustomerOrder->fired");
+		return "success";
+	}
 
-        logger.info("customerPayment=" + customerPayment);
-        customerPayment.setCustomer(customerPaymentService.findOne(customerPayment.getId()).getCustomer());
+	@PostMapping(path = "/add")
+	@ResponseBody
+	private JsonResponse addCustomerPayment(@RequestBody @Validated() CustomerPayment customerPayment, Locale locale) {
 
-        CustomerPayment customerPaymentold = customerPaymentService.findOne(customerPayment.getId());
-        customerPaymentold.setTotalPayment(customerPayment.getTotalPayment());
-        customerPaymentold.setCustomerProject(customerPayment.getCustomerProject());
-        customerPayment = customerPaymentService.update(customerPaymentold);
+		logger.info("addCustomerOrder->fired");
 
-        return "success";
-    }
+		logger.info("customerPayment=" + customerPayment);
 
+		customerPayment = customerPaymentService.save(customerPayment);
 
-    @PostMapping(path = "/add")
-    @ResponseBody
-    private JsonResponse addCustomerPayment(@RequestBody @Validated() CustomerPayment customerPayment, Locale locale) {
+		JsonResponse jsonResponse = new JsonResponse();
+		jsonResponse.setStatus(200);
+		jsonResponse.setMessage(messageSource.getMessage("success", null, locale));
+		jsonResponse.setEtc("" + customerPayment.getId());
 
-        logger.info("addCustomerOrder->fired");
+		return jsonResponse;
+	}
 
-        logger.info("customerPayment=" + customerPayment);
+	@PostMapping(path = "/delete/{id}")
+	private String deleteCustomerPayment(@PathVariable int id) {
+		logger.info("deleteCustomerPayment->fired");
+		customerPaymentService.delete(id);
+		return "success";
+	}
 
-        customerPayment = customerPaymentService.save(customerPayment);
+	@GetMapping(path = "/{id}/print")
+	public String customerPaymentPrint(@PathVariable int id, Model model) {
+		logger.info("customerPaymentPrint->fired");
+		logger.info("id=" + id);
 
-        JsonResponse jsonResponse = new JsonResponse();
-        jsonResponse.setStatus(200);
-        jsonResponse.setMessage(messageSource.getMessage("success", null, locale));
-        jsonResponse.setEtc("" + customerPayment.getId());
+		CustomerPayment customerPayment = customerPaymentService.findOne(id);
+		logger.info("customerPayment=" + customerPayment);
 
-        return jsonResponse;
-    }
+		double totalLoan = customerService.getCustomerTotalLoan(customerPayment.getCustomer().getId());
 
-    @PostMapping(path = "/delete/{id}")
-    private String deleteCustomerPayment(@PathVariable int id) {
-        logger.info("deleteCustomerPayment->fired");
-        customerPaymentService.delete(id);
-        return "success";
-    }
+		logger.info("totalLoan=" + totalLoan);
 
-    @GetMapping(path = "/{id}/print")
-    public String customerPaymentPrint(@PathVariable int id, Model model) {
-        logger.info("customerPaymentPrint->fired");
-        logger.info("id=" + id);
+		model.addAttribute("totalLoan", totalLoan);
 
-        CustomerPayment customerPayment = customerPaymentService.findOne(id);
-        logger.info("customerPayment=" + customerPayment);
+		model.addAttribute("customerPayment", customerPayment);
 
-        double totalLoan = customerService.getCustomerTotalLoan(customerPayment.getCustomer().getId());
-
-        logger.info("totalLoan=" + totalLoan);
-
-        model.addAttribute("totalLoan", totalLoan);
-
-        model.addAttribute("customerPayment", customerPayment);
-
-        return "customerPaymentPrint";
-    }
+		return "customerPaymentPrint";
+	}
 
 }

@@ -59,21 +59,7 @@ $(document).ready()
 
 }
 
-appAddCusotmerOrder = angular.module("productStepUps", []);
-
-appAddCusotmerOrder.factory('httpRequestInterceptor', function() {
-	return {
-		request : function(config) {
-			config.headers['X-CSRF-TOKEN'] = csrf;
-			return config;
-		}
-	};
-});
-appAddCusotmerOrder.config(function($httpProvider) {
-	$httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
-appAddCusotmerOrder.controller('productStepUps', function($scope, $http) {
+app.controller('productStepUps', function($scope, $http) {
 	console.log("productStepUps->controller->fired");
 
 	$scope.deleteOrderProductStepUp = function(orderId) {

@@ -8,7 +8,7 @@
     var jsonCustomers = '<spring:escapeBody  javaScriptEscape="true">${jsonCustomers}</spring:escapeBody>';
     var csrf = '${_csrf.token}';
 </script>
-<div class="container" ng-app="app" ng-controller="appCTRL" ng-init="init()">
+<div class="container" ng-controller="appCTRL" ng-init="init()">
 
     <br>
     <br>

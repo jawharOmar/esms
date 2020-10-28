@@ -21,7 +21,7 @@
 
 
 
-<div ng-app="app" ng-controller="appCTRL" ng-init="init()">
+<div ng-controller="appCTRL" ng-init="init()">
 
 	<div id="loading-div" if-loading>
 		<img id=""

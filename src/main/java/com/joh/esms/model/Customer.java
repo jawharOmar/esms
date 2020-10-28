@@ -20,30 +20,6 @@ public class Customer {
 	@Column(name = "FULL_NAME")
 	private String fullName;
 
-
-	@Column(name = "Username")
-	private String username;
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return Password;
-	}
-
-	public void setPassword(String Password) {
-		this.Password = Password;
-	}
-
-	@Column(name = "Password")
-	private String Password;
-
-
 	@NotBlank(message = "Phone is blank")
 	@Column(name = "PHONE")
 	private String phone;
@@ -58,8 +34,8 @@ public class Customer {
 	@Transient
 	private Double totalLoan;
 
-    @Column(name = "Limit_loan")
-    private Double limit;
+	@Column(name = "Limit_loan")
+	private Double limit;
 
 	@ManyToOne()
 	@JoinColumn(name = "I_PRICE_CATEGORY")
@@ -69,7 +45,7 @@ public class Customer {
 	@JoinColumn(name = "I_CUSTOMER")
 	private List<CustomerProject> customerProjects = new ArrayList<>();
 
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
 	private List<CustomerPayment> customerPayments = new ArrayList<>();
 
 	public int getId() {
@@ -144,15 +120,15 @@ public class Customer {
 		this.totalLoan = totalLoan;
 	}
 
-    public Double getLimit() {
-        return limit;
-    }
+	public Double getLimit() {
+		return limit;
+	}
 
-    public void setLimit(Double limit) {
-        this.limit = limit;
-    }
+	public void setLimit(Double limit) {
+		this.limit = limit;
+	}
 
-    @Override
+	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", fullName=" + fullName + ", phone=" + phone + ", address=" + address + ", note="
 				+ note + ", totalLoan=" + totalLoan + ", priceCategory=" + priceCategory + ", customerProjects="

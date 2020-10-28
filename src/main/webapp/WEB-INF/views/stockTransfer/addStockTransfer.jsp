@@ -15,7 +15,7 @@
 	var csrf = '${_csrf.token}';
 </script>
 
-<div ng-app="app" ng-controller="appCTRL" ng-init="init()">
+<div ng-controller="appCTRL" ng-init="init()">
 
 	<pre>
 	</pre>

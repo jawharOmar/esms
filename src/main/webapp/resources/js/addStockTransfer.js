@@ -3,39 +3,7 @@ $(document).ready()
     console.log("csrf=", csrf);
 }
 // Angular
-app = angular.module("app", []);
-
-angular.module('app').directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if (event.which === 13) {
-                scope.$apply(function () {
-                    scope.$eval(attrs.ngEnter, {
-                        'event': event
-                    });
-                });
-
-                event.preventDefault();
-            }
-        });
-    };
-});
-
-app.factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('appCTRL', function ($scope, $http, $window) {
-
     $scope.stockTransfer = {
         from: {
             id: "",
@@ -179,6 +147,6 @@ app.controller('appCTRL', function ($scope, $http, $window) {
             $("#modal-body").html(response.data);
             $("#modal").modal("show");
         });
-    }
+					    }
 
-});
+				});

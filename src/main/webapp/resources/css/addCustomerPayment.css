@@ -8,3 +8,7 @@ label {
 #refreshBtn{
     background-color:#45b5ff;
 }
+
+.customCard button:disabled{
+	background: red;
+}

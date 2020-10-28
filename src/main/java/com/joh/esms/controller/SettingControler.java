@@ -1,6 +1,11 @@
 package com.joh.esms.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+
+import javax.servlet.ServletContext;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +31,10 @@ public class SettingControler {
 	@Autowired
 	private SettingService settingService;
 
-	@GetMapping()
+	@Autowired
+	ServletContext context;
+
+	@GetMapping(path = "/add")
 	public String settings(Model model) {
 
 		Setting setting = settingService.findSetting();
@@ -50,12 +58,19 @@ public class SettingControler {
 
 		if (result.hasErrors()) {
 			model.addAttribute("setting", setting);
+
 			return "settings";
+		}
+
+		String uploadPath = context.getRealPath("") + File.separator + "/resources/img/logo.png";
+
+		try (OutputStream os = new FileOutputStream(uploadPath)) {
+			os.write(file.getBytes());
 		}
 
 		settingService.save(setting);
 
-		return null;
+		return "redirect:/settings";
 	}
 
 }

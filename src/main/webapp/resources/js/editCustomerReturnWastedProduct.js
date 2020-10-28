@@ -5,21 +5,6 @@ $(document).ready()
 }
 
 // Angular
-
-app = angular.module("app", []);
-
-app.factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('appCTRL', function ($scope, $http, $q) {
 
 
@@ -164,10 +149,10 @@ app.controller('appCTRL', function ($scope, $http, $q) {
             headers: {
                 'Content-Type': undefined
             },
-            url: $$ContextURL + '/customerWastedProducts/update'
+            url: $$ContextURL + '/customerReturnWastedProducts/update'
         }).then(function (response) {
             console.log(response);
-            history.pushState(null, '', $$ContextURL + "/customerWastedProducts/edit/" + response.data.etc);
+            history.pushState(null, '', $$ContextURL + "/customerReturnWastedProducts/edit/" + response.data.etc);
             var outPut = `
 			
 			<div>${response.data.message}

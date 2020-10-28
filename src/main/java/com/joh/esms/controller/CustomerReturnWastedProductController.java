@@ -1,6 +1,5 @@
 package com.joh.esms.controller;
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -32,175 +31,165 @@ import java.util.List;
 import java.util.Locale;
 
 @Controller()
-@RequestMapping(path = "/customerWastedProducts")
+@RequestMapping(path = "/customerReturnWastedProducts")
 public class CustomerReturnWastedProductController {
 
+	private static final Logger logger = Logger.getLogger(CustomerReturnWastedProductController.class);
 
-    private static final Logger logger = Logger.getLogger(CustomerReturnWastedProductController.class);
+	@Autowired
+	private CustomerReturnWastedProductService wastedProductService;
 
-    @Autowired
-    private CustomerReturnWastedProductService wastedProductService;
+	@Autowired
+	private ProductService productService;
 
-    @Autowired
-    private ProductService productService;
+	@Autowired
+	private CustomerService customerService;
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private StockService stockService;
 
-    @Autowired
-    private StockService stockService;
+	@Autowired
+	private MessageSource messageSource;
 
-    @Autowired
-    private MessageSource messageSource;
+	@GetMapping()
+	public String getAllCustomerWastedProduct(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
+		logger.info("getAllCustomerWastedProduct->fired");
+		logger.info("from=" + from);
+		logger.info("to=" + to);
 
+		List<CustomerReturnWastedProduct> wastedProducts = wastedProductService.findAllByReturnDateBetween(from, to);
+		logger.info("wastedProducts=" + wastedProducts);
 
+		model.addAttribute("wastedProducts", wastedProducts);
+		model.addAttribute("from", from);
+		model.addAttribute("to", to);
 
-    @GetMapping()
-    public String getAllCustomerWastedProduct(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
-                                              @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
-        logger.info("getAllCustomerWastedProduct->fired");
-        logger.info("from=" + from);
-        logger.info("to=" + to);
+		return "customerReturnWastedProduct";
+	}
 
-        List<CustomerReturnWastedProduct> wastedProducts = wastedProductService.findAllByReturnDateBetween(from,to);
-        logger.info("wastedProducts=" + wastedProducts);
+	@GetMapping("/wastedProduct")
+	public String getAllWastedProduct(Model model) {
+		logger.info("getAllWastedProduct->fired");
 
-        model.addAttribute("wastedProducts", wastedProducts);
-        model.addAttribute("from", from);
-        model.addAttribute("to", to);
+		List<WastedProductsD> wastedProductsDS = wastedProductService.findAllWastedProduct();
+		logger.info("wastedProducts=" + wastedProductsDS);
 
-        return "customerReturnWastedProduct";
-    }
+		model.addAttribute("wastedProducts", wastedProductsDS);
 
-    @GetMapping("/wastedProduct")
-    public String getAllWastedProduct(Model model) {
-        logger.info("getAllWastedProduct->fired");
+		return "showWastedProduct";
+	}
 
-        List<WastedProductsD> wastedProductsDS = wastedProductService.findAllWastedProduct();
-        logger.info("wastedProducts=" + wastedProductsDS);
+	@GetMapping(path = "/add")
+	private String getAddingCustomerWastedProductProduct(Model model) throws JsonProcessingException {
+		logger.info("getAddingCustomerWastedProductProduct->fired");
 
-        model.addAttribute("wastedProducts", wastedProductsDS);
+		Iterable<Customer> customers = customerService.findAll();
 
-        return "showWastedProduct";
-    }
+		Iterable<Stock> stocks = stockService.findAll();
 
+		logger.info("customers=" + customers);
 
-    @GetMapping(path = "/add")
-    private String getAddingCustomerWastedProductProduct(Model model) throws JsonProcessingException {
-        logger.info("getAddingCustomerWastedProductProduct->fired");
+		Iterable<Product> products = productService.findAll();
 
-        Iterable<Customer> customers = customerService.findAll();
+		logger.info("products=" + products);
 
-        Iterable<Stock> stocks = stockService.findAll();
+		ObjectMapper objectMapper = new ObjectMapper();
+		model.addAttribute("jsonCustomers", objectMapper.writeValueAsString(customers));
+		model.addAttribute("jsonProducts", objectMapper.writeValueAsString(products));
+		model.addAttribute("jsonStocks", objectMapper.writeValueAsString(stocks));
+		model.addAttribute("jsonWastedProduct", objectMapper.writeValueAsString(new CustomerReturnWastedProduct()));
 
-        logger.info("customers=" + customers);
+		return "addCustomerReturnWastedProduct";
+	}
 
-        Iterable<Product> products = productService.findAll();
+	@PostMapping(path = "/add")
+	@ResponseBody
+	private JsonResponse addCustomerReturnWastedProduct(@Valid CustomerReturnWastedProduct wastedProduct,
+			BindingResult result, Locale locale) throws IOException {
+		logger.info("addCustomerReturnWastedProduct->fired");
 
-        logger.info("products=" + products);
+		logger.info("wastedProduct=" + wastedProduct);
+		logger.info("errors=" + result.getAllErrors());
+		if (result.hasErrors()) {
+			throw new CusDataIntegrityViolationException("You are entered bad input please fill the data correctly");
+		}
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        model.addAttribute("jsonCustomers", objectMapper.writeValueAsString(customers));
-        model.addAttribute("jsonProducts", objectMapper.writeValueAsString(products));
-        model.addAttribute("jsonStocks", objectMapper.writeValueAsString(stocks));
-        model.addAttribute("jsonWastedProduct", objectMapper.writeValueAsString(new CustomerReturnWastedProduct()));
+		wastedProduct = wastedProductService.save(wastedProduct);
+		JsonResponse jsonResponse = new JsonResponse();
+		jsonResponse.setStatus(200);
+		jsonResponse.setMessage(messageSource.getMessage("success", null, locale));
+		jsonResponse.setEtc("" + wastedProduct.getId());
 
-        return "addCustomerReturnWastedProduct";
-    }
+		return jsonResponse;
+	}
 
-    @PostMapping(path = "/add")
-    @ResponseBody
-    private JsonResponse addCustomerReturnWastedProduct(@Valid CustomerReturnWastedProduct wastedProduct, BindingResult result, Locale locale)
-            throws IOException {
-        logger.info("addCustomerReturnWastedProduct->fired");
+	@GetMapping(path = "/edit/{id}")
+	private String getEditingCustomerWasted(@PathVariable int id, Model model) throws JsonProcessingException {
+		logger.info("getEditingCustomerWasted->fired");
+		logger.info("customerReturnWastedProductID=" + id);
 
-        logger.info("wastedProduct=" + wastedProduct);
-        logger.info("errors=" + result.getAllErrors());
-        if (result.hasErrors()) {
-            throw new CusDataIntegrityViolationException("You are entered bad input please fill the data correctly");
-        }
+		CustomerReturnWastedProduct wastedProduct = wastedProductService.findOne(id);
 
-        wastedProduct = wastedProductService.save(wastedProduct);
-        JsonResponse jsonResponse = new JsonResponse();
-        jsonResponse.setStatus(200);
-        jsonResponse.setMessage(messageSource.getMessage("success", null, locale));
-        jsonResponse.setEtc("" + wastedProduct.getId());
+		wastedProduct.getCustomer().setCustomerPayments(new ArrayList<>());
 
-        return jsonResponse;
-    }
+		logger.info("wastedProduct=" + wastedProduct);
 
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 
+		Iterable<Customer> customers = customerService.findAll();
 
-    @GetMapping(path = "/edit/{id}")
-    private String getEditingCustomerWasted(@PathVariable int id, Model model) throws JsonProcessingException {
-        logger.info("getEditingCustomerWasted->fired");
-        logger.info("customerReturnWastedProductID=" + id);
+		Iterable<Stock> stocks = stockService.findAll();
 
-        CustomerReturnWastedProduct wastedProduct = wastedProductService.findOne(id);
+		logger.info("customers=" + customers);
 
-        wastedProduct.getCustomer().setCustomerPayments(new ArrayList<>());
+		Iterable<Product> products = productService.findAll();
 
-        logger.info("wastedProduct=" + wastedProduct);
+		logger.info("products=" + products);
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+		model.addAttribute("jsonCustomers", objectMapper.writeValueAsString(customers));
+		model.addAttribute("jsonProducts", objectMapper.writeValueAsString(products));
+		model.addAttribute("jsonStocks", objectMapper.writeValueAsString(stocks));
+		model.addAttribute("jsonWastedProduct", objectMapper.writeValueAsString(wastedProduct));
 
+		return "editCustomerReturnWastedProduct";
+	}
 
-        Iterable<Customer> customers = customerService.findAll();
+	@PostMapping(path = "/update")
+	@ResponseBody
+	private JsonResponse update(@Valid CustomerReturnWastedProduct wastedProduct, BindingResult result, Locale locale) {
+		logger.info("update->fired");
 
+		logger.info("wastedProduct=" + wastedProduct);
+		logger.info("errors=" + result.getAllErrors());
+		if (result.hasErrors()) {
+			throw new CusDataIntegrityViolationException("You are entered bad input please fill the data correctly");
+		}
 
-        Iterable<Stock> stocks = stockService.findAll();
+		wastedProduct = wastedProductService.update(wastedProduct);
+		JsonResponse jsonResponse = new JsonResponse();
+		jsonResponse.setStatus(200);
+		jsonResponse.setMessage(messageSource.getMessage("success", null, locale));
+		jsonResponse.setEtc("" + wastedProduct.getId());
 
-        logger.info("customers=" + customers);
+		return jsonResponse;
+	}
 
-        Iterable<Product> products = productService.findAll();
+	@GetMapping(path = "/{id}/print")
+	private String printCustomerReturnWastedProduct(@PathVariable int id, Model model) throws JsonProcessingException {
+		logger.info("printCustomerReturnWastedProduct->fired");
+		CustomerReturnWastedProduct wastedProduct = wastedProductService.findOne(id);
+		model.addAttribute("wastedProduct", wastedProduct);
+		return "printCustomerWastedProduct";
+	}
 
-        logger.info("products=" + products);
-
-        model.addAttribute("jsonCustomers", objectMapper.writeValueAsString(customers));
-        model.addAttribute("jsonProducts", objectMapper.writeValueAsString(products));
-        model.addAttribute("jsonStocks", objectMapper.writeValueAsString(stocks));
-        model.addAttribute("jsonWastedProduct", objectMapper.writeValueAsString(wastedProduct));
-
-        return "editCustomerReturnWastedProduct";
-    }
-
-    @PostMapping(path = "/update")
-    @ResponseBody
-    private JsonResponse update(@Valid CustomerReturnWastedProduct wastedProduct, BindingResult result, Locale locale) {
-        logger.info("update->fired");
-
-        logger.info("wastedProduct=" + wastedProduct);
-        logger.info("errors=" + result.getAllErrors());
-        if (result.hasErrors()) {
-            throw new CusDataIntegrityViolationException("You are entered bad input please fill the data correctly");
-        }
-
-        wastedProduct = wastedProductService.update(wastedProduct);
-        JsonResponse jsonResponse = new JsonResponse();
-        jsonResponse.setStatus(200);
-        jsonResponse.setMessage(messageSource.getMessage("success", null, locale));
-        jsonResponse.setEtc("" + wastedProduct.getId());
-
-        return jsonResponse;
-    }
-
-    @GetMapping(path = "/{id}/print")
-    private String printCustomerReturnWastedProduct(@PathVariable int id, Model model) throws JsonProcessingException {
-        logger.info("printCustomerReturnWastedProduct->fired");
-        CustomerReturnWastedProduct wastedProduct = wastedProductService.findOne(id);
-        model.addAttribute("wastedProduct", wastedProduct);
-        return "printCustomerWastedProduct";
-    }
-
-    @PostMapping(path = "/delete/{id}")
-    private String delete(@PathVariable int id) {
-        logger.info("delete->fired");
-        logger.info("customerReturnWastedProductID=" + id);
-        wastedProductService.delete(id);
-        return "success";
-    }
-
-
+	@PostMapping(path = "/delete/{id}")
+	private String delete(@PathVariable int id) {
+		logger.info("delete->fired");
+		logger.info("customerReturnWastedProductID=" + id);
+		wastedProductService.delete(id);
+		return "success";
+	}
 
 }

@@ -1,19 +1,4 @@
-app = angular.module("myApp", []);
-
-app.factory('httpRequestInterceptor', function() {
-	return {
-		request : function(config) {
-			return config;
-		}
-	};
-});
-
-app.config(function($httpProvider) {
-	$httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
-app
-		.controller(
+app.controller(
 				'myApp',
 				function($scope, $http, $q) {
 
@@ -47,7 +32,7 @@ app
 								{
 									method : 'GET',
 									url : $$ContextURL
-											+ '/venderReturn/getPrice/'
+											+ '/venderReturns/getPrice/'
 											+ $scope.product.id
 								}).then(function(response) {
 							$scope.lastprice = response.data;
@@ -59,7 +44,7 @@ app
 								{
 									method : 'GET',
 									url : $$ContextURL
-											+ '/venderReturn/getVender/'
+											+ '/venderReturns/getVender/'
 											+ $scope.vendorname
 								}).then(function(response) {
 							$scope.venderReturns.vendor = response.data;
@@ -75,7 +60,7 @@ app
 								{
 									method : 'GET',
 									url : $$ContextURL
-											+ '/venderReturn/getProduct/'
+											+ '/venderReturns/getProduct/'
 											+ $scope.product.id + '/stock/'
 											+ $scope.selectedstock
 								}).then(function(response) {
@@ -125,7 +110,7 @@ app
 						$http({
 							method : 'POST',
 							data : $scope.venderReturns,
-							url : $$ContextURL + '/venderReturn/add'
+							url : $$ContextURL + '/venderReturns/add'
 						}).then(function(response) {
 							$("#modal-body").html(response.data);
 							$("#modal").modal("show");

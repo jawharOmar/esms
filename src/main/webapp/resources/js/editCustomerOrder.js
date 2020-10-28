@@ -5,35 +5,6 @@ $(document).ready()
 
 }
 // Angular
-app = angular.module("app", []);
-
-angular.module('app').directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-        element.bind("keydown keypress", function (event) {
-            if (event.which === 13) {
-                scope.$apply(function () {
-                    scope.$eval(attrs.ngEnter, {'event': event});
-                });
-
-                event.preventDefault();
-            }
-        });
-    };
-});
-
-
-app.factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
 
 app.controller('addCustomerOrder', function ($scope, $http, $window) {
 
@@ -143,7 +114,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         }
     };
 
-    //Calculate Discount If Discount Ratio Changed
+    // Calculate Discount If Discount Ratio Changed
     $scope.calculateDiscount = function () {
         if ($scope.selectRatio && $scope.discountRatio < 1) {
             $scope.customerOrder.discount = parseFloat(($scope
@@ -152,7 +123,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         }
     };
 
-    //Calculate Total Payment Based On Discount
+    // Calculate Total Payment Based On Discount
     $scope.calculateTotalPayment = function () {
         if ($scope.customerOrder.totalPayment > 0 && $scope.customerOrder.totalPayment > $scope.setTotalPayment()) {
             $scope.setTotalPayment();
@@ -170,7 +141,8 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
 
         $scope.stocks = JSON.parse(jsonStocks);
 
-        // $scope.discountRatio = Math.round($scope.customerOrder.discount * 100 / $scope.customerOrder.totalPrice) / 100;
+        // $scope.discountRatio = Math.round($scope.customerOrder.discount * 100
+		// / $scope.customerOrder.totalPrice) / 100;
         $scope.discountRatio = 0;
         $scope.checkTotalPrice = 0;
         $scope.paymentValidation = 0;
@@ -201,6 +173,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
                 });
 
                 $("#autoselect").autocomplete({
+                	delay: 2000,
                     source: productAuto,
                     response: function (event, ui) {
                         if (ui.content.length === 1) {
@@ -252,8 +225,8 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
                     console.log("success");
 
                     if (response.data.stockLevel == 0) {
-                        $("#modal-body").html("Out of the stock or you may have expiration");
-                        $("#modal").modal("show");
+                    	 $("#modal-body").html(outOfTheStock);
+                         $("#modal").modal("show");
                     } else {
 
                         var exist = true;
@@ -348,22 +321,8 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
         console.log("$scope.customerOrder=", $scope.customerOrder);
         if (($scope.totalPrice() - $scope.customerOrder.totalPayment - $scope.customerOrder.discount + $scope.customerOrder.customer.totalLoan) > $scope.customerOrder.customer.limit) {
             $scope.limit = true;
-            toastr.error("This Customer Reaches limit", "Loan Limit", {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "showDuration": "300",
-                "hideDuration": "300",
-                "timeOut": "3000",
-                "extendedTimeOut": "0",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            });
+            $("#modal-body").html(customerReachLimit);
+            $("#modal").modal("show");
         } else {
             $http({
                 method: 'POST',
@@ -385,7 +344,7 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
                 $("#modal-body").html(outPut);
                 $("#modal").modal("show");
 
-                //Reload The Page
+                // Reload The Page
                 $('#modal').on('hidden.bs.modal', function () {
                     location.reload();
                 })

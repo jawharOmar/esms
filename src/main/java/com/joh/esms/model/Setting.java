@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "SETTINGS")
 public class Setting {
@@ -16,15 +18,19 @@ public class Setting {
 	@Column(name = "id")
 	private int id;
 
+	@NotEmpty()
 	@Column(name = "name")
 	private String name;
 
+	@NotEmpty()
 	@Column(name = "phone")
 	private String phone;
 
+	@NotEmpty()
 	@Column(name = "address")
 	private String address;
 
+	@NotEmpty()
 	@Column(name = "headerImage")
 	private String headerImage;
 

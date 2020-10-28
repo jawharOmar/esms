@@ -70,9 +70,7 @@ $(document).ready()
 
 }
 
-appAddCusotmerOrder = angular.module("customerOrders", []);
-
-appAddCusotmerOrder.controller('customerOrders', function($scope, $http) {
+app.controller('customerOrders', function($scope, $http) {
 	$scope.deleteCustomerOrder = function(customerOrderId) {
 		console.log("deleteCustomerOrder->fired");
 		console.log("customerOrderId=", customerOrderId);

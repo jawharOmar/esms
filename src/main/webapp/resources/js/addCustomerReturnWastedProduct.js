@@ -12,21 +12,6 @@ $(document).ready()
 }
 
 // Angular
-
-app = angular.module("app", []);
-
-app.factory('httpRequestInterceptor', function () {
-    return {
-        request: function (config) {
-            config.headers['X-CSRF-TOKEN'] = csrf;
-            return config;
-        }
-    };
-});
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('httpRequestInterceptor');
-});
-
 app.controller('appCTRL', function ($scope, $http, $q) {
 
     $scope.customerWastedProducts = {
@@ -168,7 +153,7 @@ app.controller('appCTRL', function ($scope, $http, $q) {
             headers: {
                 'Content-Type': undefined
             },
-            url: $$ContextURL + '/customerWastedProducts/add'
+            url: $$ContextURL + '/customerReturnWastedProducts/add'
         }).then(function (response) {
             console.log(response);
             var outPut = `
@@ -176,7 +161,7 @@ app.controller('appCTRL', function ($scope, $http, $q) {
         	<div>${response.data.message}
         	</div>
         	<div>
-        	<a class="btn btn-info" target="_blank" href="${$$ContextURL}/customerWastedProducts/${response.data.etc}/print"><i class="fa fa-print"></i></a></div>
+        	<a class="btn btn-info" target="_blank" href="${$$ContextURL}/customerReturnWastedProducts/${response.data.etc}/print"><i class="fa fa-print"></i></a></div>
         	`;
             $("#freeze").addClass("cus-freeze");
             console.log("outPut=", outPut);
@@ -184,7 +169,7 @@ app.controller('appCTRL', function ($scope, $http, $q) {
             $("#modal-body").html(outPut);
             $("#modal").modal("show");
 
-            //Reload The Page
+            // Reload The Page
             $('#modal').on('hidden.bs.modal', function () {
                 location.reload();
             })
