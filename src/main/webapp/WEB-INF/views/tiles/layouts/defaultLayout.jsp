@@ -34,11 +34,11 @@
 
 <tiles:importAttribute name="rightToLeftCSS" />
 <c:if
-	test="${(pageContext.response.locale=='ar_SY'||pageContext.response.locale=='ar')&&!empty rightToLeftCSS}">
+	test="${pageContext.response.locale=='ar_SY'||pageContext.response.locale=='ar'}">
 
 	<link
-		href="<c:url value="/resources/css/${rightToLeftCSS}.css?${version}" />"
-		rel="stylesheet"></link>
+		href="<c:url value="/resources/css/rightToLeftCSS.css?${version}" />"
+		rel="stylesheet" />
 </c:if>
 
 

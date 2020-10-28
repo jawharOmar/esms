@@ -125,7 +125,7 @@ function toggleMenu(){
 $(document).ready(function(){
 	$("#app-loading-div").hide();
 	
-	
+	$('[data-toggle="tooltip"]').tooltip()
 	
 });
 

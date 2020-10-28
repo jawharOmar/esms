@@ -5,6 +5,14 @@ jquery ui
 	font-family: NotoKufiArabic !important;
 }
 
+.tooltip>.tooltip-inner {
+	background-color: #73AD21;
+	color: red;
+	border: 1px solid green;
+	padding: 15px;
+	font-size: 20px;
+}
+
 /*bootstrap*/
 .modal-backdrop {
 	z-index: -1;
@@ -245,7 +253,8 @@ Customize datatable
 }
 
 #alerts-div {
-	position: fixed; z-index : 1000;
+	position: fixed;
+	z-index: 1000;
 	right: 0px;
 	left: 0px;
 	top: 0px;

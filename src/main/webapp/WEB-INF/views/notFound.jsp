@@ -4,6 +4,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 
-<div>
+<div style="text-align: center;">
 	<img src="<c:url value="/resources/img/notFound.png" />" alt="" />
 </div>
