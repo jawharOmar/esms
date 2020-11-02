@@ -28,7 +28,7 @@
 			<td>
 				<button class="btn btn-lg btn-outline-success"
 					onClick="window.location.reload()">
-					<i class="fa fa-refresh"></i>
+					<i class="fas fa-retweet"></i>
 				</button>
 			</td>
 
@@ -87,7 +87,7 @@
 						ng-change="findproduct()" ng-model="product.id"
 						class="form-control form-control-sm" placeholder="product">
 							<c:forEach items="${Products}" var="item">
-								<option value="${item.id}">${item.name}- ${item.code}</option>
+								<option value="${item.id}">${item.name}-${item.code}</option>
 							</c:forEach>
 					</select></th>
 					<th><input required tabindex="2" id="productName"

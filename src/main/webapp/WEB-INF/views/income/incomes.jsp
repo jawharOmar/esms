@@ -1,12 +1,12 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions' %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<jsp:useBean id="now" class="java.util.Date"/>
-<fmt:formatDate var="currentDate" value="${now}" pattern="yyyy-MM-dd"/>
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate var="currentDate" value="${now}" pattern="yyyy-MM-dd" />
 <script>
     var csrf = '${_csrf.token}';
 </script>
@@ -14,109 +14,113 @@
 
 <div>
 
-    <h4>
-        <spring:message code="adminIncomes.title"/>
-    </h4>
-    <hr>
+	<h4>
+		<spring:message code="adminIncomes.title" />
+	</h4>
+	<hr>
 
-    <div>
-        <form class="form-inline" action="<c:url value="/incomes" />">
-            <div class="form-group">
-                <label for="from"><spring:message code="customerOrders.from"/></label>
-                <input readonly class="form-control mx-sm-3" id="from" name="from"
-                       value="<fmt:formatDate pattern = "yyyy-MM-dd"
-         value = "${from}" />"/>
-            </div>
-            <div class="form-group">
-                <label for="to"><spring:message code="customerOrders.to"/></label>
-                <input readonly class="form-control mx-sm-3" id="to" name="to"
-                       value="<fmt:formatDate pattern = "yyyy-MM-dd"
-         value = "${to}" />"/>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-outline-info">
-                    <i class="fa fa-eye"></i>
-                </button>
-            </div>
+	<div>
+		<form class="form-inline" action="<c:url value="/incomes" />">
+			<div class="form-group">
+				<label for="from"><spring:message code="customerOrders.from" /></label>
+				<input readonly class="form-control mx-sm-3" id="from" name="from"
+					value="<fmt:formatDate pattern = "yyyy-MM-dd"
+         value = "${from}" />" />
+			</div>
+			<div class="form-group">
+				<label for="to"><spring:message code="customerOrders.to" /></label>
+				<input readonly class="form-control mx-sm-3" id="to" name="to"
+					value="<fmt:formatDate pattern = "yyyy-MM-dd"
+         value = "${to}" />" />
+			</div>
+			<div class="form-group">
+				<button class="btn btn-outline-info">
+					<i class="fa fa-eye"></i>
+				</button>
+			</div>
 
-        </form>
-    </div>
+		</form>
+	</div>
 
-    <hr>
+	<hr>
 
-    <div>
-        <button class="btn btn-success" onclick="getAddingIncome()">
-            <i class="fa fa-plus"></i>
-        </button>
-    </div>
+	<div>
+		<a class="btn btn-success m-1"
+			href="<c:url value="/incomeCategories"/>"> <i
+			class="fas fa-code-branch"></i>
+		</a>
+		<button class="btn btn-success" onclick="getAddingIncome()">
+			<i class="fa fa-plus"></i>
+		</button>
+	</div>
 
-    <table id="table" class="display nowrap">
-        <thead>
-        <tr>
-            <th><spring:message code="adminIncomes.name"/></th>
-            <th><spring:message code="adminIncomes.amount"/></th>
-            <th><spring:message code="adminIncomes.incomeCategory"/></th>
-            <th><spring:message code="adminIncomes.time"/></th>
-            <th><spring:message code="adminIncomes.note"/></th>
-            <th class="cus-not-search"><spring:message
-                    code="adminIncomes.function"/></th>
-        </tr>
-        </thead>
-        <tbody>
+	<table id="table"
+		class="table table-striped table-bordered dt-responsive nowrap">
+		<thead>
+			<tr>
+				<th><spring:message code="adminIncomes.name" /></th>
+				<th><spring:message code="adminIncomes.amount" /></th>
+				<th><spring:message code="adminIncomes.incomeCategory" /></th>
+				<th><spring:message code="adminIncomes.time" /></th>
+				<th><spring:message code="adminIncomes.note" /></th>
+				<th class="cus-not-search"><spring:message
+						code="adminIncomes.function" /></th>
+			</tr>
+		</thead>
+		<tbody>
 
-        <c:set var="sumTotalAmount" value="${0}"/>
-        <c:forEach items="${incomes}" var="item">
-            <tr>
-                <td>${item.name}</td>
-                <td>${item.amount}
-                    <c:set var="sumTotalAmount"
-                           value="${sumTotalAmount+item.amount}"/>
-                </td>
-                <td>${item.incomeCategory.name}</td>
-                <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
-                                    value="${item.time}"/></td>
-                <td class="cus-note-td">${item.note}</td>
-                <td>
-                        <div>
-                            <button class="btn btn-danger" onclick="deleteIncome(${item.id})">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <button class="btn btn-warning"
-                                    onclick="editingIncome(${item.id})">
-                                <i class="fa fa-edit"></i>
-                            </button>
-                        </div>
-                </td>
+			<c:set var="sumTotalAmount" value="${0}" />
+			<c:forEach items="${incomes}" var="item">
+				<tr>
+					<td>${item.name}</td>
+					<td>${item.amount}<c:set var="sumTotalAmount"
+							value="${sumTotalAmount+item.amount}" />
+					</td>
+					<td>${item.incomeCategory.name}</td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
+							value="${item.time}" /></td>
+					<td class="cus-note-td">${item.note}</td>
+					<td>
+						<div>
+							<button class="btn btn-danger" onclick="deleteIncome(${item.id})">
+								<i class="fa fa-times"></i>
+							</button>
+							<button class="btn btn-warning"
+								onclick="editingIncome(${item.id})">
+								<i class="fa fa-edit"></i>
+							</button>
+						</div>
+					</td>
 
 
-            </tr>
-        </c:forEach>
+				</tr>
+			</c:forEach>
 
-        <tr class="text-info">
-            <td><spring:message code="adminIncomes.total"/></td>
+			<tr class="text-info">
+				<td><spring:message code="adminIncomes.total" /></td>
 
-            <td><fmt:formatNumber value="${sumTotalAmount}"
-                                  maxFractionDigits="3"/></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
+				<td><fmt:formatNumber value="${sumTotalAmount}"
+						maxFractionDigits="3" /></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
 
-        </tbody>
+		</tbody>
 
-        <tfoot>
-        <tr>
-            <th><spring:message code="adminIncomes.name"/></th>
-            <th><spring:message code="adminIncomes.amount"/></th>
-            <th><spring:message code="adminIncomes.incomeCategory"/></th>
-            <th><spring:message code="adminIncomes.time"/></th>
-            <th><spring:message code="adminIncomes.note"/></th>
-            <th class="cus-not-search">&nbsp;</th>
-        </tr>
-        </tfoot>
+		<tfoot>
+			<tr>
+				<th><spring:message code="adminIncomes.name" /></th>
+				<th><spring:message code="adminIncomes.amount" /></th>
+				<th><spring:message code="adminIncomes.incomeCategory" /></th>
+				<th><spring:message code="adminIncomes.time" /></th>
+				<th><spring:message code="adminIncomes.note" /></th>
+				<th class="cus-not-search">&nbsp;</th>
+			</tr>
+		</tfoot>
 
-    </table>
+	</table>
 
 </div>
 

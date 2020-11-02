@@ -21,7 +21,7 @@
 		</button>
 	</div>
 
-	<table class="table table-bordered">
+	<table class="table table-striped table-bordered dt-responsive nowrap">
 		<thead>
 			<tr>
 				<td>#</td>
@@ -37,11 +37,9 @@
 				<tr>
 					<td>${item.id}</td>
 					<td>${item.name}</td>
-					<td>
-					<c:if test="${item.ratio!=null}">
+					<td><c:if test="${item.ratio!=null}">
 					${item.ratio*100}%
-					</c:if>
-					</td>
+					</c:if></td>
 					<td>
 						<div>
 							<button class="btn btn-outline-danger"

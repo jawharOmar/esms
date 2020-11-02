@@ -19,15 +19,14 @@
 
 	<hr>
 
-	<hr>
-
 	<div>
 		<button class="btn btn-success" onclick="getAddingStock()">
 			<i class="fa fa-plus"></i>
 		</button>
 	</div>
 
-	<table id="table" class="display nowrap">
+	<table id="table"
+		class="table table-striped table-bordered dt-responsive nowrap">
 		<thead>
 			<tr>
 				<th><spring:message code="stocks.name" /></th>

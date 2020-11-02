@@ -22,7 +22,7 @@
 			<div class="form-group">
 				<a class="btn btn-info mx-sm-3"
 					href="<c:url value="/customerOrderReturns/detail"/>?from=<fmt:formatDate value="${from}" pattern="yyyy-MM-dd"/>&to=<fmt:formatDate value="${to}" pattern="yyyy-MM-dd"/>">
-					<i class="fa fa-info"></i>
+					<i class="fas fa-info"></i>
 				</a>
 			</div>
 			<div class="form-group">

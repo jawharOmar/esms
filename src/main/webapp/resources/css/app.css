@@ -23,122 +23,8 @@ jquery ui
 	padding: 5px 12px;
 }
 
-/*Test*/
-table {
-	width: 100%;
-}
-
-body {
-	color: black;
-}
-
-body {
-	font-size: 14px;
-}
-
-.cus-avatar {
-	vertical-align: middle;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-}
-
-#view-port {
-	
-}
-
-#header {
-	color: white;
-	position: fixed;
-	top: 0px;
-	max-height: 40px;
-	z-index: 100;
-	left: 0px;
-	right: 0px;
-	overflow: auto;
-}
-
-#header a {
-	text-decoration: none;
-	color: inherit;
-}
-
-#cus-navbar {
-	background: black;
-	color: white;
-	padding: 0px;
-	margin: 0px;
-	max-height: 36px;
-	padding: 2px;
-	padding-right: 5px;
-	padding-left: 5px;
-	align-items: flex-start;
-}
-
-#cus-navbar table {
-	width: auto;
-}
-
-#toggle-menu {
-	opacity: 0.6;
-}
-
-#toggle-menu:hover {
-	opacity: 1;
-}
-
-#toggle-menu span {
-	display: block;
-	width: 26px;
-	height: 4px;
-	margin: 4px;
-	background: white;
-}
-
-#site-content {
-	padding-top: 40px;
-	padding-bottom: 35px;
-	padding-right: 0px;
-	padding-left: 0px;
-}
-
-#footer {
-	position: fixed;
-	z-index: 0;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	overflow: auto;
-	max-height: 35px;
-	z-index: -100;
-	overflow: auto;
-}
-
-#footer nav {
-	padding: 5px;
-	color: white;
-}
-
-#footer nav div:first-child {
-	text-align: right;
-}
-
-#footer nav div:last-child {
-	text-align: left;
-}
-
-#footer div {
-	display: inline-block;
-	width: 49%;
-	padding: 0px;
-}
-
 a {
 	color: inherit;
-}
-
-#section-right li {
-	min-width: 150px;
 }
 
 #app-loading-div {
@@ -260,3 +146,8 @@ Customize datatable
 	top: 0px;
 	z-index: 1000;
 }
+
+.land-item{
+	max-height: 20px
+}
+

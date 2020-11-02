@@ -1,11 +1,6 @@
 $(document).ready()
 {
 	var table = $('#table').DataTable({
-		fixedHeader : {
-			header : true,
-			footer : true,
-			headerOffset : $("#header").outerHeight()
-		},
 		paginate : false,
 		dom : 'Bfrtip',
 		buttons : [ {
@@ -34,10 +29,6 @@ $(document).ready()
 			}
 		} ],
 		bInfo : false,
-	});
-
-	new $.fn.dataTable.FixedHeader(table, {
-		bottom : true
 	});
 
 }

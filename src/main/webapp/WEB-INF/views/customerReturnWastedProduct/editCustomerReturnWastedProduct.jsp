@@ -18,9 +18,9 @@
 		<spring:message code="customerWastedProduct.title" />
 	</h2>
 	<hr>
-	<button class="btn btn-lg btn-outline-success"
+	<button class="btn btn-lg btn-outline-warning"
 		onClick="window.location.reload()">
-		<i class="fa fa-refresh"></i>
+		<i class="fas fa-retweet"></i>
 	</button>
 
 	<div id="freeze">
@@ -133,8 +133,8 @@
 			</div>
 			<button
 				ng-disabled="!form.$valid || !wastedProduct.customerWastedProducts.length>0 || !wastedProduct.customer.fullName.length>0"
-				class="btn btn-success" ng-click="saveCustomerWastedProduct()">
-				<i class="fa fa-plus"></i>
+				class="btn btn-warning" ng-click="saveCustomerWastedProduct()">
+				<i class="fa fa-edit"></i>
 			</button>
 		</div>
 	</div>

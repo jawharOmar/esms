@@ -11,3 +11,7 @@
 	text-align: right;
 	padding: 10px;
 }
+
+#accordionSidebar a{
+	direction: rtl;
+}

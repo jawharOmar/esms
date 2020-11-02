@@ -72,55 +72,62 @@
 				<div class="row">
 					<div class="col-lg-4 ">
 						<fieldset>
-							<legend><spring:message code="userManager.info"/></legend>
+							<legend>
+								<spring:message code="userManager.info" />
+							</legend>
 							<div class="form-group">
-								<label><spring:message code="userManager.userName"/></label>
-								<input required name="userName" ng-model="user.userName"
-									   class="form-control form-control-sm">
+								<label><spring:message code="userManager.userName" /></label> <input
+									required name="userName" ng-model="user.userName"
+									class="form-control form-control-sm">
 							</div>
 							<div class="form-group">
-								<label><spring:message code="userManager.password"/></label>
-								<input name="password" ng-required="!user.id"
-									   ng-model="user.password" class="form-control form-control-sm">
+								<label><spring:message code="userManager.password" /></label> <input
+									name="password" ng-required="!user.id" ng-model="user.password"
+									class="form-control form-control-sm">
 							</div>
 							<div class="form-group">
 								<label class="checkboxLabel"
-									   ng-class="user.enabled?'selectedLabel':'unSelectedLabel'" for="userEnable">
-									<spring:message code="userManager.enabled"/></label>
-								<input type="checkbox" id="userEnable" ng-model="user.enabled" style="display: none;"
-									   class="form-control form-control-sm">
+									ng-class="user.enabled?'selectedLabel':'unSelectedLabel'"
+									for="userEnable"> <spring:message
+										code="userManager.enabled" /></label> <input type="checkbox"
+									id="userEnable" ng-model="user.enabled" style="display: none;"
+									class="form-control form-control-sm">
 							</div>
 
 						</fieldset>
 					</div>
 
 
-					<div class="col-lg-8" id="roles">
+					<div class="col-2" id="roles">
 						<fieldset>
-							<legend><spring:message code="userManager.role"/></legend>
+							<legend>
+								<spring:message code="userManager.role" />
+							</legend>
 
-							<div class="form-group" ng-repeat="item in userRoles|orderBy:'role.id'">
+							<div class="form-group"
+								ng-repeat="item in userRoles|orderBy:'role.id'">
 								<label class="checkboxLabel" for="{{item.role.id}}"
-									   ng-class="item.hasRole?'selectedLabel':'unSelectedLabel'">{{item.role.name}}</label>
-								<input type="checkbox" id="{{item.role.id}}" ng-model="item.hasRole"
-									   style="display: none;">
+									ng-class="item.hasRole?'selectedLabel':'unSelectedLabel'">{{item.role.name}}</label>
+								<input type="checkbox" id="{{item.role.id}}"
+									ng-model="item.hasRole" style="display: none;">
 
 							</div>
 						</fieldset>
 					</div>
 				</div>
-				<div class="text-center">
-					<button ng-if="!user.id" class="btn btn-success col-lg-1 col-md-2 col-sm-3"
-							ng-disabled="defineUserForm.$invalid" ng-click="addUser()">
+				<div class="text-center row">
+					<button ng-if="!user.id" class="btn btn-success col-2 offset-4"
+						ng-disabled="defineUserForm.$invalid" ng-click="addUser()">
 						<i class="fa fa-save"></i>
 					</button>
 
 					<div ng-if="user.id">
-						<button class="btn btn-warning col-lg-1 col-md-2 col-sm-3" ng-click="updateUser()"
-								ng-disabled="defineUserForm.$invalid">
+						<button class="btn btn-warning col-lg-1 col-md-2 col-sm-3"
+							ng-click="updateUser()" ng-disabled="defineUserForm.$invalid">
 							<i class="fa fa-edit"></i>
 						</button>
-						<button class="btn btn-danger col-lg-1 col-md-2 col-sm-3" ng-click="cancleEdit()">
+						<button class="btn btn-danger col-lg-1 col-md-2 col-sm-3"
+							ng-click="cancleEdit()">
 							<i class="fa fa-close"></i>
 						</button>
 					</div>

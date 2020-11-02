@@ -40,14 +40,14 @@
 
 				</form>
 			</div>
-			<div class="col-1">
+			<div class="col-3">
 				<div class="form-group">
 					<label class="checkboxLabel"
 						ng-class="showLoan?'selectedLabel':'unSelectedLabel'"
-						for="showLoan"> <i class="fa fa-money"
-						style="font-size: 24px"></i>
-					</label> <input type="checkbox" id="showLoan" value="false"
-						ng-model="showLoan" style="display: none;">
+						for="showLoan"><spring:message
+							code="customerOrders.showLoan" /> </label> <input type="checkbox"
+						id="showLoan" value="false" ng-model="showLoan"
+						style="display: none;">
 				</div>
 			</div>
 
@@ -56,7 +56,8 @@
 	<hr>
 
 	<div>
-		<table id="customerOrdersTable" class="display">
+		<table id="customerOrdersTable"
+			class="table table-striped table-bordered dt-responsive nowrap">
 			<thead>
 				<tr>
 					<td>#</td>
@@ -97,18 +98,35 @@
 						<td><fmt:formatNumber type="number" maxFractionDigits="3"
 								value="${item.totalPayment}" /> <c:set var="sumTotalPayment"
 								value="${sumTotalPayment+item.totalPayment}" /></td>
-						<td width="20%"><a class="btn btn-sm btn-outline-warning"
-							href="<c:url value="/customerOrders/edit/" />${item.id}"> <i
-								class="fa fa-edit"></i>
-						</a>
+						<td width="20%">
 
-							<button class="btn btn-sm btn-outline-danger"
-								ng-click="deleteCustomerOrder(${item.id})">
-								<i class="fa fa-times"></i>
-							</button> <a target="_blank" class="btn btn-sm btn-outline-info"
-							href="<c:url value="/customerOrders/" />${item.id}/{{showLoan}}">
-								<i class="fa fa-print"></i>
-						</a></td>
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button"
+									id="d${item.id}" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									<spring:message code="adminCustomers.function" />
+								</button>
+								<div class="dropdown-menu" aria-labelledby="d${item.id}">
+
+									<a class="dropdown-item"
+										href="<c:url value="/customerOrders/edit/" />${item.id}">
+										<i class="fas fa-edit"></i>
+									</a>
+
+									<button class="dropdown-item"
+										ng-click="deleteCustomerOrder(${item.id})">
+										<i class="fa fa-times"></i>
+									</button>
+
+									<a target="_blank" class="dropdown-item"
+										href="<c:url value="/customerOrders/" />${item.id}/{{showLoan}}">
+										<i class="fa fa-print"></i>
+									</a>
+
+
+								</div>
+							</div>
+						</td>
 					</tr>
 				</c:forEach>
 				<tr class="text-info">

@@ -17,12 +17,12 @@ public class MessageResourceComparator {
 
 		Properties arabic = new Properties();
 
-		InputStream aInput = classLoader.getResourceAsStream("messages_ar_SY.properties");
+		InputStream aInput = classLoader.getResourceAsStream("messages_en.properties");
 		arabic.load(new InputStreamReader(aInput, Charset.forName("UTF-8")));
 
 		Properties kurdish = new Properties();
 
-		InputStream kInput = classLoader.getResourceAsStream("messages_en.properties");
+		InputStream kInput = classLoader.getResourceAsStream("messages_ar_SY.properties");
 		kurdish.load(new InputStreamReader(kInput, Charset.forName("UTF-8")));
 
 		@SuppressWarnings("unchecked")

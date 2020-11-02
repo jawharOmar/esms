@@ -35,7 +35,7 @@
     <div>
         <button class="btn btn-lg btn-outline-warning"
                 onClick="window.location.reload()">
-            <i class="fa fa-refresh"></i>
+            <i class="fas fa-retweet"></i>
         </button>
     </div>
 

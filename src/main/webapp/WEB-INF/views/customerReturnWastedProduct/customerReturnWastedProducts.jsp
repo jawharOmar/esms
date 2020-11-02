@@ -14,14 +14,15 @@
 <div ng-controller="customerWastedProduct">
 	<h2>
 		<spring:message code="customerWastedProduct.title" />
-		<a class="text-info" href="<c:url value="/customerReturnWastedProducts/wastedProduct"/>">
+		<a class="text-info"
+			href="<c:url value="/customerReturnWastedProducts/wastedProduct"/>">
 			<i class="fa fa-info"></i>
 		</a>
 	</h2>
 	<hr>
 	<div>
 		<form class="form-inline"
-			action="<c:url value="/customerWastedProducts"/>">
+			action="<c:url value="/customerReturnWastedProducts"/>">
 			<div class="form-group">
 				<label for="from"><spring:message
 						code="orderPreProducts.from" /></label> <input readonly
@@ -37,7 +38,7 @@
 			</div>
 			<div class="form-group">
 				<button class="btn btn-outline-info">
-					<i class="fa fa-eye"></i>
+					<i class="fas fa-eye"></i>
 				</button>
 			</div>
 

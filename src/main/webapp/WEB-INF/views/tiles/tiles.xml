@@ -21,7 +21,8 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 		</put-list-attribute>
 
@@ -43,16 +44,15 @@
 			value="/WEB-INF/views/admin/notifications.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
-			<add-attribute value="toastr.min" />
-
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
-			<add-attribute value="app" />
-			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="buttons.dataTables.min" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min.rtl" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
 			<add-attribute value="adminStock" />
 		</put-list-attribute>
 
@@ -70,6 +70,11 @@
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStock" />
 		</put-list-attribute>
@@ -84,13 +89,13 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.fancybox" />
-			<add-attribute value="font-awesome" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminStock" />
@@ -114,8 +119,13 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStock" />
 		</put-list-attribute>
@@ -132,12 +142,12 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="toastr.min" />
-
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addCustomerOrder" />
@@ -151,10 +161,16 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="angular" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addCustomerOrder" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -171,11 +187,12 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -195,8 +212,11 @@
 			<add-attribute value="dataTables.fixedHeader.min" />
 
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addStockTransfer" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -213,11 +233,12 @@
 			value="/WEB-INF/views/user/userManager.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="userManager" />
@@ -232,8 +253,11 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="userManager" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -250,11 +274,12 @@
 			value="/WEB-INF/views/Onlinestore/settings.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -268,6 +293,9 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="app" />
@@ -285,11 +313,12 @@
 			value="/WEB-INF/views/Onlinestore/store.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -303,7 +332,10 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -322,11 +354,12 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="richtext.min" />
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -358,11 +391,12 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="richtext.min" />
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -376,6 +410,7 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.richtext.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
 		</put-list-attribute>
@@ -392,11 +427,12 @@
 			value="/WEB-INF/views/Onlinestore/listing.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -410,8 +446,11 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
 		</put-list-attribute>
@@ -426,7 +465,7 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
@@ -446,8 +485,11 @@
 			<add-attribute value="jquery.serializejson" />
 
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="editStockTransfer" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -465,7 +507,7 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
@@ -473,6 +515,7 @@
 			<add-attribute value="fixedHeader.dataTables.min" />
 			<add-attribute value="toastr.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="editCustomerOrder" />
@@ -487,11 +530,13 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="toastr.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
-
 			<add-attribute value="editCustomerOrder" />
 			<add-attribute value="angularjs/ifLoading" />
 
@@ -509,10 +554,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -523,6 +569,7 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="popper.min" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
@@ -537,12 +584,14 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminCustomerOrders" />
 		</put-list-attribute>
-
 	</definition>
 
 	<!-- AccountMain page -->
@@ -554,10 +603,11 @@
 			value="/WEB-INF/views/account/accountMain.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -584,8 +634,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="accountMain" />
 		</put-list-attribute>
@@ -604,10 +657,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -634,8 +688,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminCustomerOrderProductSold" />
 		</put-list-attribute>
@@ -654,10 +711,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -684,8 +742,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminCustomerOrders" />
 		</put-list-attribute>
@@ -704,10 +765,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -735,8 +797,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminCustomerOrders" />
 		</put-list-attribute>
@@ -753,14 +818,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
-
 			<add-attribute value="adminProductCategories" />
 		</put-list-attribute>
 
@@ -773,8 +838,11 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminProductCategories" />
 		</put-list-attribute>
@@ -793,11 +861,12 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminAddOrderProductStepUp" />
@@ -813,8 +882,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminAddOrderProductStepUp" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -833,11 +905,12 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addCustomerOrderReturn" />
@@ -853,8 +926,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addCustomerOrderReturn" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -872,11 +948,12 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="editCustomerOrderReturn" />
@@ -892,8 +969,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="editCustomerOrderReturn" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -912,10 +992,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminEditOrderProductStepUp" />
@@ -930,8 +1011,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminEditOrderProductStepUp" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -948,13 +1032,14 @@
 			value="/WEB-INF/views/return/addVenderReturn.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -978,8 +1063,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addVenderReturn" />
 		</put-list-attribute>
@@ -995,13 +1083,14 @@
 			value="/WEB-INF/views/return/VendorReturns.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 		</put-list-attribute>
@@ -1025,8 +1114,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="VendorReturns" />
 		</put-list-attribute>
@@ -1044,13 +1136,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="orderProductStepUps" />
@@ -1075,8 +1168,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="orderProductStepUps" />
 		</put-list-attribute>
@@ -1094,12 +1190,13 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="customerOrderReturns" />
@@ -1124,8 +1221,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerOrderReturns" />
 		</put-list-attribute>
@@ -1144,12 +1244,13 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="orderProductStepUpsDetail" />
@@ -1174,8 +1275,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="orderProductStepUpsDetail" />
 		</put-list-attribute>
@@ -1193,12 +1297,13 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="customerOrderReturnsDetail" />
@@ -1223,8 +1328,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerOrderReturnsDetail" />
 		</put-list-attribute>
@@ -1243,13 +1351,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="productOrderProductStepUps" />
@@ -1274,8 +1383,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="productOrderProductStepUps" />
 		</put-list-attribute>
@@ -1293,12 +1405,13 @@
 			value="/WEB-INF/views/vendor/adminVendors.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminVendors" />
@@ -1322,8 +1435,11 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminVendors" />
 		</put-list-attribute>
@@ -1344,10 +1460,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="priceCategories" />
@@ -1361,8 +1478,11 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="priceCategories" />
 		</put-list-attribute>
@@ -1379,11 +1499,12 @@
 			value="/WEB-INF/views/customer/adminCustomers.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminCustomers" />
@@ -1392,11 +1513,14 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="popper.min" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1410,6 +1534,8 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
+			<add-attribute value="sb-admin-2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminCustomers" />
 		</put-list-attribute>
@@ -1427,10 +1553,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="customerProjects" />
@@ -1444,8 +1571,11 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerProjects" />
 		</put-list-attribute>
@@ -1464,13 +1594,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="customerCustomerPayments" />
@@ -1484,6 +1615,8 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1496,6 +1629,7 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerCustomerPayments" />
 		</put-list-attribute>
@@ -1513,13 +1647,13 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
-
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="customerInvoiceDetail" />
@@ -1533,6 +1667,8 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1546,6 +1682,7 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerInvoiceDetail" />
 		</put-list-attribute>
@@ -1563,13 +1700,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="customerPayments" />
@@ -1583,6 +1721,8 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1596,6 +1736,7 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerPayments" />
 		</put-list-attribute>
@@ -1612,13 +1753,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="vendorVendorPayments" />
@@ -1632,6 +1774,8 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1645,6 +1789,7 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="vendorVendorPayments" />
 		</put-list-attribute>
@@ -1661,13 +1806,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="vendorPayments" />
@@ -1681,6 +1827,8 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1694,6 +1842,7 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="vendorPayments" />
 		</put-list-attribute>
@@ -1710,10 +1859,11 @@
 			value="/WEB-INF/views/income/incomes.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -1741,8 +1891,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminIncomes" />
 		</put-list-attribute>
@@ -1758,10 +1911,11 @@
 			value="/WEB-INF/views/report/report_account.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -1788,8 +1942,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="stockTransfers" />
 		</put-list-attribute>
@@ -1805,10 +1962,11 @@
 			value="/WEB-INF/views/report/project_statement.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -1835,8 +1993,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="projectStatement" />
 		</put-list-attribute>
@@ -1852,10 +2013,11 @@
 			value="/WEB-INF/views/profit_cal/profit.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -1882,8 +2044,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="stockTransfers" />
 		</put-list-attribute>
@@ -1899,10 +2064,11 @@
 			value="/WEB-INF/views/psearch/p_search.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -1921,8 +2087,11 @@
 			<add-attribute value="dataTables.fixedHeader.min" />
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 		</put-list-attribute>
 
@@ -1939,10 +2108,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -1969,8 +2139,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="stockTransfers" />
 		</put-list-attribute>
@@ -1987,10 +2160,11 @@
 			value="/WEB-INF/views/expense/expenses.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2018,8 +2192,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminExpenses" />
 		</put-list-attribute>
@@ -2036,10 +2213,11 @@
 			value="/WEB-INF/views/stock/stocks.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2067,8 +2245,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="stocks" />
 		</put-list-attribute>
@@ -2086,10 +2267,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2117,8 +2299,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="expenseCategories" />
 		</put-list-attribute>
@@ -2136,10 +2321,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2167,8 +2353,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="incomeCategories" />
 		</put-list-attribute>
@@ -2185,10 +2374,11 @@
 			value="/WEB-INF/views/customer/customerInvoice.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2216,8 +2406,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerInvoice" />
 		</put-list-attribute>
@@ -2236,10 +2429,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2267,8 +2461,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerInvoice" />
 		</put-list-attribute>
@@ -2286,10 +2483,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addCustomerPayment" />
@@ -2304,8 +2502,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addCustomerPayment" />
 		</put-list-attribute>
@@ -2322,10 +2523,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addVendorPayment" />
@@ -2340,8 +2542,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addVendorPayment" />
 		</put-list-attribute>
@@ -2358,10 +2563,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addOrderPreProduct" />
@@ -2377,8 +2583,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addOrderPreProduct" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -2396,10 +2605,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="editOrderPreProduct" />
@@ -2415,8 +2625,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="editOrderPreProduct" />
 		</put-list-attribute>
@@ -2432,13 +2645,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="orderPreProducts" />
@@ -2464,8 +2678,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="orderPreProducts" />
 		</put-list-attribute>
@@ -2482,13 +2699,14 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.fancybox" />
-			<add-attribute value="font-awesome" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminStock" />
@@ -2512,8 +2730,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 		</put-list-attribute>
 	</definition>
@@ -2530,13 +2751,14 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
 
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="orderPreProducts" />
@@ -2562,8 +2784,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="customerReturnWastedProducts" />
 		</put-list-attribute>
@@ -2582,10 +2807,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addOrderPreProduct" />
@@ -2601,8 +2827,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addCustomerReturnWastedProduct" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -2621,10 +2850,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="editOrderPreProduct" />
@@ -2640,8 +2870,11 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="editCustomerReturnWastedProduct" />
 		</put-list-attribute>
@@ -2657,10 +2890,11 @@
 			value="/WEB-INF/views/box/boxAccounting.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2686,8 +2920,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="boxAccounting" />
 		</put-list-attribute>
@@ -2703,10 +2940,11 @@
 			value="/WEB-INF/views/net/netProfit.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2732,8 +2970,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 		</put-list-attribute>
 	</definition>
@@ -2747,10 +2988,11 @@
 			value="/WEB-INF/views/withdraw/withdraws.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2778,8 +3020,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminWithdraws" />
 		</put-list-attribute>
@@ -2796,10 +3041,11 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
@@ -2827,8 +3073,11 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="withdrawCategories" />
 		</put-list-attribute>
@@ -2855,7 +3104,7 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 		</put-list-attribute>
 
@@ -2873,7 +3122,7 @@
 			value="/WEB-INF/views/customerOrder/getCustomerOrder.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="getCustomerOrder" />
 		</put-list-attribute>
@@ -2892,7 +3141,7 @@
 			value="/WEB-INF/views/customerPayment/customerPaymentPrint.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="customerPaymentPrint" />
 		</put-list-attribute>
@@ -2909,7 +3158,7 @@
 			value="/WEB-INF/views/vendorPayment/vendorPaymentPrint.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 		</put-list-attribute>
 
@@ -2926,7 +3175,7 @@
 			value="/WEB-INF/views/orderProductStepUp/printOrderProductStepUp.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="printOrderProductStepUp" />
 		</put-list-attribute>
@@ -2942,7 +3191,7 @@
 			value="/WEB-INF/views/stockTransfer/printStockTransfer.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="printStockTransfer" />
 		</put-list-attribute>
@@ -2960,7 +3209,7 @@
 			value="/WEB-INF/views/customerOrderReturn/printCustomerOrderReturn.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 		</put-list-attribute>
 
@@ -2976,7 +3225,7 @@
 			value="/WEB-INF/views/return/printVendorReturn.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 		</put-list-attribute>
 
@@ -2992,7 +3241,7 @@
 			value="/WEB-INF/views/orderPreProduct/printOrderPreProduct.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="printOrderPreProduct" />
 		</put-list-attribute>
@@ -3011,7 +3260,7 @@
 			value="/WEB-INF/views/customerReturnWastedProduct/printCustomerReturnWastedProduct.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="printOrderPreProduct" />
 		</put-list-attribute>
@@ -3029,7 +3278,7 @@
 			value="/WEB-INF/views/customer/customerPrintInvoice.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
-			<add-attribute value="font-awesome" />
+			<add-attribute value="fontawesome/css/all.min" />
 			<add-attribute value="print" />
 			<add-attribute value="customerPrintInvoice" />
 		</put-list-attribute>

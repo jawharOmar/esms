@@ -95,7 +95,7 @@
 							</button>
 							<button class="btn customBtn" id="refreshBtn"
 								onClick="window.location.reload()">
-								<i class="fa fa-refresh"></i>
+								<i class="fas fa-retweet"></i>
 							</button>
 						</div>
 					</div>

@@ -14,7 +14,7 @@ angular.module('app').directive('ngEnter', function () {
     };
 });
 
-app.controller("navbarCTRL", [ "$http", "$scope", "$window",
+app.controller("appCTRL", [ "$http", "$scope", "$window",
 	function($http, $scope, $window) {
 
 		$scope.changePassword={oldPassword:"",newPassword:"",confirmPassword:""};
@@ -34,12 +34,9 @@ app.controller("navbarCTRL", [ "$http", "$scope", "$window",
 	            url: $$ContextURL + '/changePassword'
 	        }).then(function (response) {
 	            console.log(response);
-	            
-	            $('#password-dialog').dialog('close');
                 $window.showSuccessAlert();
                 $scope.changePassword={oldPassword:"",newPassword:"",confirmPassword:""};
-	            
-	            
+                $("#passwordModal").modal("hide");
 	        }, function (response) {
 	        	  $window.showFailedAlert();
 	        });
@@ -132,7 +129,6 @@ $(document).ready(function(){
 function showSuccessAlert(){
 	console.debug("showSuccessAlert->fired");
 	  $("#cus-success-alert").hide().slideDown(500).delay(2000).slideUp(500, function () {});
-   
 }
 
 function showFailedAlert(){

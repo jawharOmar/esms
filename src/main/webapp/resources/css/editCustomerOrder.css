@@ -1,9 +1,16 @@
-.cus-disabled-div {
-    pointer-events: none;
-    opacity: 0.4;
-}
-
-#totalPriceInput{
+#totalPriceInput {
 	display: inline-block !important;
 	width: auto;
+}
+
+#productDetailTable thead {
+	background: #F9F9F9;
+}
+
+#productDetailTable thead>tr:nth-child(2) th {
+	vertical-align: top;
+}
+
+#productDetailTable th, #productDetailTable  td {
+	text-align: center;
 }
