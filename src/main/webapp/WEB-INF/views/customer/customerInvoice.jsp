@@ -76,13 +76,32 @@
 						<td><fmt:formatNumber type="number" maxFractionDigits="3"
 								value="${item.totalPayment}" /> <c:set var="sumTotalPayment"
 								value="${sumTotalPayment+item.totalPayment}" /></td>
-						<td width="20%"><a class="btn btn-sm btn-outline-warning"
-							href="<c:url value="/customerOrders/edit/" />${item.id}">E</a>
+						<td width="20%">
 
-							<button class="btn btn-sm btn-outline-danger"
-								ng-click="deleteCustomerOrder(${item.id})">D</button> <a
-							target="_blank" class="btn btn-sm btn-outline-info"
-							href="<c:url value="/customerOrders/" />${item.id}">V</a></td>
+
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button"
+									id="d${item.id}" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									<spring:message code="adminCustomers.function" />
+								</button>
+								<div class="dropdown-menu" aria-labelledby="d${item.id}">
+									<a class="dropdown-item"
+										href="<c:url value="/customerOrders/edit/" />${item.id}">
+										<spring:message code="edit" />
+
+									</a> <a class="dropdown-item" target="_blank"
+										href="<c:url value="/customerOrders/" />${item.id}"> <spring:message
+											code="print" />
+									</a>
+									<button class="dropdown-item"
+										ng-click="deleteCustomerOrder(${item.id})">
+										<spring:message code="delete" />
+									</button>
+
+								</div>
+							</div>
+						</td>
 					</tr>
 				</c:forEach>
 				<tr class="text-info">

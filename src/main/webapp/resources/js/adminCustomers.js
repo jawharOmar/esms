@@ -1,7 +1,7 @@
 $(document).ready()
 {
-	var table = $('#table').DataTable({
-		paginate : false,
+	var table = $('#dataTable').DataTable({
+		paginate : true,
 		dom : 'Bfrtip',
 		buttons : [ {
 			extend : "excel",

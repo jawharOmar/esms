@@ -12,7 +12,6 @@
 
 <script>
 	var csrf = '${_csrf.token}';
-
 </script>
 
 
@@ -46,19 +45,33 @@
 					<td>${item.id}</td>
 					<td>${item.name}</td>
 					<td>
-						<div>
-							<a href="<c:url value="/products/stock/" />${item.id}"
-								class="btn btn-info"> <i class="fa fa-info"></i>
-							</a>
+						<div class="dropdown">
+							<button class="btn btn-sm btn-secondary dropdown-toggle"
+								type="button" id="d${item.id}" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">
+								<spring:message code="function" />
+							</button>
+							<div class="dropdown-menu" aria-labelledby="d${item.id}">
 
-							<button class="btn btn-danger"
-								ng-click="deleteProductCategory(${item.id})">
-								<i class="fa fa-times"></i>
-							</button>
-							<button class="btn btn-warning"
-								ng-click="editProductCategory(${item.id})">
-								<i class="fa fa-edit"></i>
-							</button>
+
+								<a href="<c:url value="/products/stock/" />${item.id}"
+									class="dropdown-item"> <spring:message
+										code="productCategories.orderProducts" />
+								</a>
+
+								<button class="dropdown-item"
+									ng-click="deleteProductCategory(${item.id})">
+									<i class="fa fa-times"></i>
+								</button>
+
+								<button class="dropdown-item"
+									ng-click="editProductCategory(${item.id})">
+									<i class="fa fa-edit"></i>
+								</button>
+
+
+
+							</div>
 						</div>
 					</td>
 

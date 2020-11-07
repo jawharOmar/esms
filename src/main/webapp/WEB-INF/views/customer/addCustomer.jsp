@@ -37,7 +37,8 @@
 					<td class="text-left"><spring:message
 							code="addCustomer.priceCategory" /></td>
 					<td><select class="form-control" name="priceCategory[id]">
-							<option value=""><spring:message code="addCustomer.choose" /></option>
+							<option value=""><spring:message
+									code="addCustomer.choose" /></option>
 							<c:forEach items="${priceCategories}" var="item">
 								<c:if test="${customer.priceCategory.id==item.id}">
 									<option selected="selected" value="${item.id}">${item.name}</option>
@@ -57,11 +58,11 @@
 					<td><sf:errors path="note" /></td>
 				</tr>
 
-                <tr>
-                    <td class="text-left"><spring:message code="addCustomer.limit" /></td>
-                    <td><sf:input type="text" class="form-control" path="limit" /></td>
-                    <td><sf:errors path="limit" /></td>
-                </tr>
+				<tr>
+					<td class="text-left"><spring:message code="addCustomer.limit" /></td>
+					<td><sf:input type="number" class="form-control" path="limit" /></td>
+					<td><sf:errors path="limit" /></td>
+				</tr>
 
 
 				<tr>

@@ -16,15 +16,15 @@ public class Customer {
 	@Column(name = "I_CUSTOMER")
 	private int id;
 
-	@NotBlank(message = "Full Name is blank")
+	@NotBlank(message = "{addCustomer.fullName.notBlank}")
 	@Column(name = "FULL_NAME")
 	private String fullName;
 
-	@NotBlank(message = "Phone is blank")
+	@NotBlank(message = "{addCustomer.phone.notBlank}")
 	@Column(name = "PHONE")
 	private String phone;
 
-	@NotBlank(message = "Address is blank")
+	@NotBlank(message = "{addCustomer.address.notBlank}")
 	@Column(name = "ADDRESS")
 	private String address;
 

@@ -63,8 +63,7 @@ $(document).ready()
 		});
 	});
 	// E-DataTable
-	
-	
+
 	// S-DataTable
 	$('#customerPaymentsTable tfoot th:not(.cus-not-search)')
 			.each(
@@ -101,26 +100,22 @@ $(document).ready()
 	});
 
 	// Apply the search
-	table.columns().every(
-			function() {
-				var that = this;
-				console.log("that=", that);
-				console.log("that.search()=", that.search());
+	table.columns().every(function() {
+		var that = this;
+		console.log("that=", that);
+		console.log("that.search()=", that.search());
 
-				$('input', this.footer()).on('keyup change',
-						function() {
-							if (that.search() !== this.value) {
-								that.search(this.value).draw();
-							}
-						});
-			});
+		$('input', this.footer()).on('keyup change', function() {
+			if (that.search() !== this.value) {
+				that.search(this.value).draw();
+			}
+		});
+	});
 	// E-DataTable
 
 }
 
-appAddCusotmerOrder = angular.module("customerOrders", []);
-
-appAddCusotmerOrder.controller('customerOrders', function($scope, $http) {
+app.controller('customerOrders', function($scope, $http) {
 	$scope.deleteCustomerOrder = function(customerOrderId) {
 		console.log("deleteCustomerOrder->fired");
 		console.log("customerOrderId=", customerOrderId);

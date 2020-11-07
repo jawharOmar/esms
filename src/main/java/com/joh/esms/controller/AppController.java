@@ -1,7 +1,10 @@
 package com.joh.esms.controller;
 
 import java.security.Principal;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -26,6 +29,11 @@ import com.joh.esms.dao.ReportDAO;
 import com.joh.esms.dao.VendorPaymentDAO;
 import com.joh.esms.domain.model.AccountTransactionType;
 import com.joh.esms.domain.model.ChangePassword;
+import com.joh.esms.domain.model.CustomerOrderD;
+import com.joh.esms.domain.model.DashboardBalanceD;
+import com.joh.esms.domain.model.DashboardExpiredProductD;
+import com.joh.esms.domain.model.MinimumProductStockLevelD;
+import com.joh.esms.domain.model.SalesReportD;
 import com.joh.esms.exception.InputErrorException;
 import com.joh.esms.model.Account;
 import com.joh.esms.model.User;
@@ -92,13 +100,39 @@ public class AppController {
 	}
 
 	@GetMapping(path = "/adminRoot")
-	private String adminRoot(Model model) {
+	private String adminRoot(Model model) throws JsonProcessingException {
 		logger.info("adminRoot->fired");
+		ObjectMapper mapper = new ObjectMapper();
+
 		model.addAttribute("minProducts", minimumDAO.count());
 		model.addAttribute("ExpiredProducts", expiredDAO.count());
 		model.addAttribute("cus", report.findAdminNotifications());
 		Account account = accountservice.findOne(1);
 		model.addAttribute("account", account);
+		List<CustomerOrderD> customerOrders = report.customerOrders();
+		SalesReportD salesReport = report.salesReport();
+
+		List<String> customerOrderLabel = customerOrders.stream().map(e -> e.getDate()).collect(Collectors.toList());
+		List<Double> customerOrderData = customerOrders.stream().map(e -> e.getAmount()).collect(Collectors.toList());
+
+		List<String> salesLabel = Arrays.asList("ORDER", "PAYMENT", "LOAN", "RETURN");
+		List<Double> salesData = Arrays.asList(salesReport.getOrder(), salesReport.getPayment(), salesReport.getLoan(),
+				salesReport.getOrderReturn());
+
+		model.addAttribute("customerOrderLabel", mapper.writeValueAsString(customerOrderLabel));
+		model.addAttribute("customerOrderData", mapper.writeValueAsString(customerOrderData));
+		model.addAttribute("salesLabel", salesLabel);
+		model.addAttribute("salesData", mapper.writeValueAsString(salesData));
+
+		DashboardBalanceD dashboardBalanceD = report.getBalance();
+		model.addAttribute(dashboardBalanceD);
+
+		List<MinimumProductStockLevelD> minimumStockLevelProducts = report.getMinimumStockLevelProducts();
+		model.addAttribute("minimumStockLevelProducts", minimumStockLevelProducts);
+
+		List<DashboardExpiredProductD> dashboardExpiredProductDs = report.getExpiredProducts();
+		model.addAttribute("dashboardExpiredProductDs", dashboardExpiredProductDs);
+
 		return "adminRoot";
 	}
 

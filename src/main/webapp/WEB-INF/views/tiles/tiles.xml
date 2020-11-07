@@ -50,7 +50,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="buttons.dataTables.min" />
 			<add-attribute value="select2.min" />
-			<add-attribute value="sb-admin-2.min.rtl" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminStock" />
@@ -59,24 +59,24 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<add-attribute value="toastr.min" />
-			<add-attribute value="dashboard-notification" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="sb-admin-2.min" />
+			<add-attribute value="Chart.min" />
+			<add-attribute value="chart-area-dashboard" />
+			<add-attribute value="chart-pie-dashboard" />
+			<add-attribute value="popper.min" />
+			<add-attribute value="bootstrap" />
 			<add-attribute value="app" />
-			<add-attribute value="adminStock" />
+			<add-attribute value="dashboard-notification" />
 		</put-list-attribute>
 	</definition>
 
@@ -104,6 +104,7 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="popper.min" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.fancybox" />
@@ -120,9 +121,9 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -166,10 +167,6 @@
 			<add-attribute value="toastr.min" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
-			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addCustomerOrder" />
@@ -196,7 +193,6 @@
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
-
 			<add-attribute value="addStockTransfer" />
 		</put-list-attribute>
 
@@ -208,14 +204,11 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="dataTables.fixedHeader.min" />
-
-			<add-attribute value="angular" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="addStockTransfer" />
@@ -252,11 +245,11 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="angular" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="userManager" />
@@ -294,7 +287,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
@@ -331,12 +324,12 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
-			<add-attribute value="select2.min" />
 			<add-attribute value="sb-admin-2.min" />
-			<add-attribute value="moment.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
 		</put-list-attribute>
@@ -372,7 +365,12 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.richtext.min" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
 		</put-list-attribute>
@@ -409,7 +407,11 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.richtext.min" />
+			<add-attribute value="select2.min" />
+			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -445,11 +447,11 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="angular" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="angularjs/ifLoading" />
@@ -457,7 +459,7 @@
 	</definition>
 	<!-- EditStockTransfer page -->
 	<definition name="editStockTransfer" extends="adminRoot">
-		<put-attribute name="title" value="AddStockTransfer" />
+		<put-attribute name="title" value="EditStockTransfer" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/root.jsp" />
 		<put-attribute name="adminBody"
@@ -470,8 +472,10 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
+			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
+			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="editStockTransfer" />
 		</put-list-attribute>
 
@@ -483,12 +487,11 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-
-			<add-attribute value="angular" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
+			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="editStockTransfer" />
@@ -524,17 +527,16 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="angular" />
-			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="toastr.min" />
+			<add-attribute value="angular" />
+			<add-attribute value="jquery.easing.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="editCustomerOrder" />
@@ -585,7 +587,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -635,7 +637,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -689,7 +691,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -722,7 +724,6 @@
 			<add-attribute value="fixedHeader.dataTables.min" />
 			<add-attribute value="adminCustomerOrders" />
 		</put-list-attribute>
-
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
@@ -743,7 +744,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -774,7 +775,6 @@
 			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
-
 			<add-attribute value="adminCustomerOrders" />
 		</put-list-attribute>
 
@@ -798,7 +798,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -832,6 +832,7 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="popper.min" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.dataTables" />
@@ -839,7 +840,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -883,7 +884,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -927,7 +928,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -970,7 +971,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1012,7 +1013,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1064,7 +1065,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1115,7 +1116,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1169,7 +1170,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1222,7 +1223,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1276,7 +1277,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1329,7 +1330,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1384,7 +1385,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1420,6 +1421,7 @@
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="popper.min" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
@@ -1436,7 +1438,7 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1479,7 +1481,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1520,7 +1522,6 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1534,7 +1535,6 @@
 			<add-attribute value="dt/buttons.html5.min" />
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
-			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="sb-admin-2.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminCustomers" />
@@ -1572,7 +1572,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1616,7 +1616,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1668,7 +1668,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1722,7 +1722,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1775,7 +1775,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1828,7 +1828,7 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="jquery.dataTables" />
@@ -1892,7 +1892,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1943,7 +1943,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -1994,7 +1994,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2045,7 +2045,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2088,7 +2088,7 @@
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2140,7 +2140,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2193,7 +2193,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2246,7 +2246,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2300,7 +2300,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2354,7 +2354,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2379,17 +2379,17 @@
 			<add-attribute value="jquery-ui.theme" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="sb-admin-2.min" />
-			<add-attribute value="app" />
-			<add-attribute value="admin" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="fixedHeader.dataTables.min" />
-
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
 			<add-attribute value="customerInvoice" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jsLang" />
 			<add-attribute value="jquery" />
+			<add-attribute value="popper.min" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="jquery.serializeObject" />
@@ -2407,7 +2407,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2462,7 +2462,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2503,7 +2503,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2543,7 +2543,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2584,7 +2584,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2626,7 +2626,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2679,7 +2679,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2731,7 +2731,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2785,7 +2785,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2828,7 +2828,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2871,7 +2871,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2921,7 +2921,7 @@
 
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -2971,7 +2971,7 @@
 
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -3021,7 +3021,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />
@@ -3074,7 +3074,7 @@
 			<!-- E-DataTableLib -->
 			<add-attribute value="angular" />
 			<add-attribute value="jquery.easing.min" />
-			<add-attribute value="Chart.min.js" />
+			<add-attribute value="Chart.min" />
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="sb-admin-2.min" />

@@ -490,7 +490,7 @@ public class ProductController {
 
 	@GetMapping(path = "/stock/{productCategoryId}")
 	private String getAdminStockByProductCategory(@PathVariable int productCategoryId, Model model) {
-		logger.info("getAdminStock->fired");
+		logger.info("getAdminStockByProductCategory->fired");
 
 		List<ProductD> productDs = productService.findStockByProductCategoryId(productCategoryId);
 

@@ -147,7 +147,81 @@ Customize datatable
 	z-index: 1000;
 }
 
-.land-item{
+.land-item {
 	max-height: 20px
 }
 
+#navbar-div {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	overflow: auto;
+	width: 240px;
+	z-index: 10;
+	overflow: visible;
+	overflow-y: auto;
+}
+
+#navbar-div.toggled {
+	width: 125px;
+	overflow-y: visible;
+}
+
+#accordionSidebar {
+	background: #3F4A59;
+}
+
+#accordionSidebar .nav-item:hover {
+	background: #3A4450;
+}
+
+.collapse-item:hover {
+	background: #3F4A59;
+}
+
+#content-wrapper {
+	margin-left: 230px;
+}
+
+#content-wrapper.toggled {
+	margin-left: 120px;
+}
+
+.sidebar-brand {
+	background: #926dde
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
+	.sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
+	background: inherit;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item, .sidebar .nav-item .collapsing .collapse-inner .collapse-item
+	{
+	color: white;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover {
+	background: #3F4A59;
+}
+
+#navbar-div.toggled .collapse {
+	background: #3F4A59;
+}
+
+#navbar-div.toggled .collapse.totop {
+	top: auto;
+	bottom: 0px;
+}
+
+#footer {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 2000;
+	height: 20px;
+	background: #232429;
+	padding: 3px;
+}

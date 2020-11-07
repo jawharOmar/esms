@@ -9,3 +9,5 @@ var js_app_confirmWindow='<spring:message code="js.app.confirmWindow" />';
 var js_app_yes='<spring:message code="js.app.yes" />';
 var js_app_no='<spring:message code="js.app.no" />';
 var js_datatable_search='<spring:message code="js.datatable.search" />';
+var js_datatable_next='<spring:message code="js.datatable.next" />';;
+var js_datatable_previous='<spring:message code="js.datatable.previous" />';;

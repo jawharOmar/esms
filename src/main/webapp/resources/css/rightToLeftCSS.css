@@ -1,4 +1,4 @@
-*{
+* {
 	direction: rtl;
 }
 
@@ -12,6 +12,28 @@
 	padding: 10px;
 }
 
-#accordionSidebar a{
+#accordionSidebar a {
 	direction: rtl;
+}
+
+#navbar-div {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: auto;
+	width: 240px;
+	z-index: 1000;
+	bottom: 0px;
+	overflow: visible;
+}
+
+#content-wrapper {
+	margin-right: 230px;
+	margin-left: 0px;
+}
+
+#content-wrapper.toggled {
+	margin-right: 120px;
+	margin-left: 0px;
 }

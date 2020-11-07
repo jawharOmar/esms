@@ -25,7 +25,8 @@
 		</button>
 	</div>
 
-	<table class="table table-bordered" id="vendorTable">
+	<table class="table table-striped table-bordered dt-responsive nowrap"
+		id="vendorTable">
 		<thead>
 			<tr>
 				<td><spring:message code="adminVendor.fullName" /></td>
@@ -47,23 +48,38 @@
 					<td>${item.totalLoan}</td>
 					<td>${item.note}</td>
 					<td>
-						<div>
-							<a class="btn btn-info" target="_blank"
-								href="<c:url value="/vendorPayments/vendor/" />${item.id}">
-								<i class="fa fa-money"></i>
-							</a> <a class="btn btn-info" target="_blank"
-								href="<c:url value="/orderProductStepUps/vendor/" />${item.id}">
-								<i class="fa fa-arrow-up"></i>
-							</a>
 
-							<button class="btn btn-danger"
-								ng-click="deleteVendor(${item.id})">
-								<i class="fa fa-times"></i>
+
+
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button"
+								id="d${item.id}" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
+								<spring:message code="function" />
 							</button>
-							<button class="btn btn-warning" ng-click="editVendor(${item.id})">
-								<i class="fa fa-edit"></i>
-							</button>
+							<div class="dropdown-menu" aria-labelledby="d${item.id}">
+
+								<a class="dropdown-item" target="_blank"
+									href="<c:url value="/vendorPayments/vendor/" />${item.id}">
+									<spring:message code="adminVendor.vendorPayments" />
+								</a> <a class="dropdown-item" target="_blank"
+									href="<c:url value="/orderProductStepUps/vendor/" />${item.id}">
+									<spring:message code="adminVendor.vendorOrders" />
+								</a>
+
+								<button class="dropdown-item"
+									ng-click="deleteVendor(${item.id})">
+									<i class="fas fa-times"></i>
+								</button>
+
+								<button class="dropdown-item" ng-click="editVendor(${item.id})">
+									<i class="fa fa-edit"></i>
+								</button>
+							</div>
 						</div>
+
+
+						<div></div>
 					</td>
 
 
@@ -78,11 +94,9 @@
 
 
 <script>
-
-	window.addEventListener('load', function () {
-				$('#vendorTable').DataTable();
-			}
-	);
+	window.addEventListener('load', function() {
+		$('#vendorTable').DataTable();
+	});
 </script>
 
 

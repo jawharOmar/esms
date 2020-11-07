@@ -16,10 +16,8 @@
 	<h4>
 		<spring:message code="stocks.title" />
 	</h4>
-
 	<hr>
-
-	<div>
+	<div class="p-1">
 		<button class="btn btn-success" onclick="getAddingStock()">
 			<i class="fa fa-plus"></i>
 		</button>

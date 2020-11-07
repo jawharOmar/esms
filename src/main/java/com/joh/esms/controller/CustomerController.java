@@ -86,6 +86,8 @@ public class CustomerController {
 		logger.info("error=" + result.getAllErrors());
 		if (result.hasErrors()) {
 			model.addAttribute("customer", customer);
+			List<PriceCategory> priceCategories = priceCategoryService.findAll();
+			model.addAttribute("priceCategories", priceCategories);
 			return "customer/addCustomer";
 		} else {
 

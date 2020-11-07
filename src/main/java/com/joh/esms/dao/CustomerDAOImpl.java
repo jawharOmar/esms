@@ -28,7 +28,7 @@ public class CustomerDAOImpl implements CustomerDAOExt {
 	@Transactional
 	public List<CustomerInvoiceD> findAllCustomerInvoice(int id, Date from, Date to) {
 
-		Query query = em.createNativeQuery("SELECT *\n"
+		String sql = "SELECT *\n"
 				+ "FROM (SELECT I_CUSTOMER_ORDER AS REFERENCE,0 AS T_TYPE,ROUND(IFNULL(TOTAL_PRICE, 0) - IFNULL(TOTAL_PAYMENT, 0) - IFNULL(DISCOUNT, 0), 3) AMOUNT,ORDER_TIME T_TIME\n"
 				+ "FROM CUSTOMER_ORDERS\n" + "WHERE I_CUSTOMER =:I_CUSTOMER\n"
 				+ "AND (ORDER_TIME BETWEEN :FROM AND :TO OR :ALL)\n" + "UNION\n"
@@ -37,7 +37,10 @@ public class CustomerDAOImpl implements CustomerDAOExt {
 				+ "AND (PAYMENT_TIME BETWEEN :FROM AND :TO OR :ALL)\n"
 				+ "UNION SELECT I_CUSTOMER_ORDER_RETURN AS REFERENCE,2 AS T_TYPE,TOTAL_PRICE AMOUNT,CUSTOMER_ORDER_RETURN_TIME T_TIME\n"
 				+ "FROM CUSTOMER_ORDER_RETURNS\n" + "WHERE I_CUSTOMER = :I_CUSTOMER\n"
-				+ "AND (CUSTOMER_ORDER_RETURN_TIME  BETWEEN :FROM AND :TO OR :ALL)\n" + ") P\n" + "ORDER BY T_TIME;");
+				+ "AND (CUSTOMER_ORDER_RETURN_TIME  BETWEEN :FROM AND :TO OR :ALL)\n" + ") P\n" + "ORDER BY T_TIME;";
+
+		logger.debug("sql=" + sql);
+		Query query = em.createNativeQuery(sql);
 
 		query.setParameter("I_CUSTOMER", id);
 
@@ -75,12 +78,12 @@ public class CustomerDAOImpl implements CustomerDAOExt {
 		return customerInvoiceDs;
 	}
 
-
 	@Override
 	public List<SearchD> findCustomersByNameOrPhone(String keyword) {
 		List<SearchD> searchDS = new ArrayList<>();
-		Query query = em.createNativeQuery("SELECT I_CUSTOMER,FULL_NAME,PHONE FROM CUSTOMERS WHERE (FULL_NAME LIKE CONCAT('%',?1,'%') || PHONE LIKE CONCAT('%',?1,'%'))");
-		query.setParameter(1,keyword);
+		Query query = em.createNativeQuery(
+				"SELECT I_CUSTOMER,FULL_NAME,PHONE FROM CUSTOMERS WHERE (FULL_NAME LIKE CONCAT('%',?1,'%') || PHONE LIKE CONCAT('%',?1,'%'))");
+		query.setParameter(1, keyword);
 
 		List<Object[]> resultList = query.getResultList();
 

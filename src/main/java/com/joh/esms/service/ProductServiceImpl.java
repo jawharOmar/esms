@@ -14,11 +14,16 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
-import com.joh.esms.domain.model.*;
-import com.joh.esms.model.PriceCategory;
-
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellUtil;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -28,10 +33,15 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.joh.esms.controller.ProductController;
 import com.joh.esms.dao.ProductDAO;
+import com.joh.esms.domain.model.ProductD;
+import com.joh.esms.domain.model.ProductTransactionD;
+import com.joh.esms.domain.model.SearchD;
+import com.joh.esms.domain.model.SearchInStockD;
+import com.joh.esms.domain.model.StockColumnD;
 import com.joh.esms.exception.CusDataIntegrityViolationException;
 import com.joh.esms.exception.ItemExistsException;
+import com.joh.esms.model.PriceCategory;
 import com.joh.esms.model.Product;
 import com.joh.esms.model.ProductPriceCategory;
 
@@ -129,13 +139,15 @@ public class ProductServiceImpl implements ProductService {
 
 		List<Integer> ids = productDs.stream().map(e -> e.getProductId()).collect(Collectors.toList());
 
-		List<ProductPriceCategory> productPriceCategories = productPriceCategoryService.findAllByProductIds(ids);
+		if (ids.size() > 0) {
+			List<ProductPriceCategory> productPriceCategories = productPriceCategoryService.findAllByProductIds(ids);
 
-		productDs.forEach(e -> {
-			List<ProductPriceCategory> productProductPriceCategory = productPriceCategories.stream()
-					.filter(i -> i.getPorductId() == e.getProductId()).collect(Collectors.toList());
-			e.setProductPriceCategories(productProductPriceCategory);
-		});
+			productDs.forEach(e -> {
+				List<ProductPriceCategory> productProductPriceCategory = productPriceCategories.stream()
+						.filter(i -> i.getPorductId() == e.getProductId()).collect(Collectors.toList());
+				e.setProductPriceCategories(productProductPriceCategory);
+			});
+		}
 
 		return productDs;
 	}

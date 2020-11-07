@@ -64,6 +64,12 @@ $.datepicker.setDefaults({
 if (typeof $.fn.dataTable !== 'undefined'){
 $.extend( true, $.fn.dataTable.defaults, {
 	"order": [],
+	language: {
+	    paginate: {
+	      next:js_datatable_next, 
+	      previous:js_datatable_previous// or '←'
+	    }
+	  },
 	oLanguage: {
 		  "sSearch": "<span style='padding-left:5px;padding-right:5px;'>"+js_datatable_search+"</span>"
 		}
@@ -122,7 +128,42 @@ function toggleMenu(){
 $(document).ready(function(){
 	$("#app-loading-div").hide();
 	
-	$('[data-toggle="tooltip"]').tooltip()
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	$("#sidebarToggle").click(function(){
+		console.log("sidebarToggle->fired");
+		if(localStorage.getItem("toggle") === "true"){
+			localStorage.setItem("toggle", "false");
+		}
+		else{
+			localStorage.setItem("toggle", "true");
+		}
+	});
+	
+	if(!localStorage.getItem("toggle")) {
+	    // Check if theres anything in localstorage already
+	    localStorage.setItem("toggle", "false");
+	} 
+	
+	if(localStorage.getItem("toggle") === "true"){
+	$("body").addClass("sidebar-toggled");
+    $(".sidebar").addClass("toggled");
+	$("#navbar-div").addClass("toggled");
+    $("#content-wrapper").addClass("toggled");
+    if ($(".sidebar").hasClass("toggled")) {
+      $('.sidebar .collapse').collapse('hide');
+    };
+	}
+	else{
+		$("body").removeClass("sidebar-toggled");
+	    $(".sidebar").removeClass("toggled");
+		$("#navbar-div").removeClass("toggled");
+	    $("#content-wrapper").removeClass("toggled");
+	    if ($(".sidebar").removeClass("toggled")) {
+	      $('.sidebar .collapse').collapse('show');
+	    };
+	}
+
 	
 });
 
@@ -135,4 +176,14 @@ function showFailedAlert(){
 	console.debug("showFailedAlert->fired");
 	  $("#cus-failed-alert").hide().slideDown(500).delay(2000).slideUp(500, function () {});
 }
+
+$("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
+    $("body").toggleClass("sidebar-toggled");
+    $(".sidebar").toggleClass("toggled");
+    $("#content-wrapper").toggleClass("toggled");
+    $("#navbar-div").toggleClass("toggled");
+    if ($(".sidebar").hasClass("toggled")) {
+      $('.sidebar .collapse').collapse('hide');
+    };
+  });
 

@@ -73,7 +73,7 @@ public class NetProfitDAO {
                 "UNION ALL\n" +
                 "SELECT ?6 AS TYPE, (ROUND(IFNULL((SELECT SUM(IFNULL(TOTAL_PRICE,0)-IFNULL(TOTAL_PAYMENT,0) -IFNULL(O.DISCOUNT,0) ) FROM ORDER_PRODUCT_STEPUPS O\n" +
                 " WHERE ORDER_TIME BETWEEN ?1 AND ?2),0)-IFNULL((SELECT SUM(TOTAL_PAYMENT) + SUM(IF(vp.DISCOUNT IS NULL,0,vp.DISCOUNT)) FROM VENDOR_PAYMENTS vp WHERE PAYMENT_TIME BETWEEN ?1 AND ?2 ),0)\n" +
-                "-IFNULL((SELECT SUM(AMOUNT) FROM VENDERRETURNS WHERE Time  BETWEEN ?1 AND ?2),0) ,3)*-1) AMOUNT\n");
+                "-IFNULL((SELECT SUM(AMOUNT) FROM VENDOR_RETURNS WHERE Time  BETWEEN ?1 AND ?2),0) ,3)*-1) AMOUNT\n");
 
         query.setParameter(1,from);
         query.setParameter(2,to);
@@ -108,7 +108,7 @@ public class NetProfitDAO {
                 "UNION ALL\n" +
                 "SELECT ?4 AS TYPE, (ROUND(IFNULL((SELECT SUM(IFNULL(TOTAL_PRICE,0)-IFNULL(TOTAL_PAYMENT,0) -IFNULL(O.DISCOUNT,0) ) FROM ORDER_PRODUCT_STEPUPS O\n" +
                 " WHERE ORDER_TIME < ?1),0)-IFNULL((SELECT SUM(TOTAL_PAYMENT) + SUM(IF(vp.DISCOUNT IS NULL,0,vp.DISCOUNT)) FROM VENDOR_PAYMENTS vp WHERE PAYMENT_TIME < ?1 ),0)\n" +
-                "-IFNULL((SELECT SUM(AMOUNT) FROM VENDERRETURNS WHERE Time < ?1),0) ,3)*-1) AMOUNT\n");
+                "-IFNULL((SELECT SUM(AMOUNT) FROM VENDOR_RETURNS WHERE Time < ?1),0) ,3)*-1) AMOUNT\n");
 
         query.setParameter(1,from);
         query.setParameter(2,messageSource.getMessage("netProfit.customer_loan", null, locale));

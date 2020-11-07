@@ -66,7 +66,7 @@ app.controller('customerWastedProduct', function($scope, $http) {
 				function() {
 
 					$http.post(
-							$$ContextURL + "/customerWastedProducts/delete/"
+							$$ContextURL + "/customerReturnWastedProducts/delete/"
 									+ orderId).then(function(response) {
 						$("#modal-body").html(response.data);
 						$("#modal").modal("show");

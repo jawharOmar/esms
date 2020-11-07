@@ -1,13 +1,13 @@
 package com.joh.esms.dao;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.joh.esms.model.Customer;
 
-import java.util.Date;
-
-public interface CustomerDAO extends CrudRepository<Customer, Integer>, CustomerDAOExt {
+public interface CustomerDAO extends PagingAndSortingRepository<Customer, Integer>, CustomerDAOExt {
 
 	@Query(value = "SELECT ROUND(IFNULL((SELECT SUM(IFNULL(TOTAL_PRICE,0)-IFNULL(DISCOUNT,0)-IFNULL(TOTAL_PAYMENT,0))\n" +
 			"FROM CUSTOMER_ORDERS  WHERE I_CUSTOMER=?1 ),0)-IFNULL((SELECT SUM(IFNULL(TOTAL_PRICE-TOTAL_PAID,0))\n" +

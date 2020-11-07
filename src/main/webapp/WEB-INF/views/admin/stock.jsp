@@ -67,7 +67,7 @@
 							<div class="form-inline float-sm-left ml-1">
 								<button class="btn btn-sm btn-outline-info"
 									ng-click="reloadProducts()">
-									<i class="fa fa-refresh"></i>
+									<i class="fas fa-retweet"></i>
 								</button>
 
 								<button class="btn btn-sm btn-outline-success ml-1"
@@ -132,7 +132,9 @@
 									<td>{{productD.name}}</td>
 									<td>{{productD.category}}</td>
 									<td>{{productD.unitType}}</td>
-									<td>{{productD.stockLevel | number }} {{productD.unit}}</td>
+									<td>{{productD.stockLevel | number }} <span
+										class="text-info"> {{productD.unit}} </span>
+									</td>
 									<td><span class="text-info"
 										ng-if="productD.packetSize!=null">
 											{{productD.stockLevel/productD.packetSize | number}} </span></td>
@@ -154,24 +156,34 @@
 									</span></td>
 
 									<td>
-										<div class="cus-table-function-div">
-											<button class="btn btn-outline-danger btn-sm"
-												data-product-id="{{productD.productId}}"
-												onclick="deleteProduct(this)">
-												<i class="fa fa-times"></i>
+										<div class="dropdown">
+											<button class="btn btn-sm btn-secondary dropdown-toggle"
+												type="button" id="d${item.id}" data-toggle="dropdown"
+												aria-haspopup="true" aria-expanded="false">
+												<spring:message code="function" />
 											</button>
-											<button class="btn btn-outline-warning btn-sm"
-												data-product-id="{{productD.productId}}"
-												onclick="editProduct(this)">
-												<i class="fa fa-edit"></i>
-											</button>
-											<a class="btn btn-sm btn-info" target="_blank"
-												href="<c:url value="/orderProductStepUps/product/" />{{productD.code}}">
-												<i class="fa fa-arrow-up"></i>
-											</a> <a class="btn btn-sm btn-info" target="_blank"
-												href="<c:url value="/customerOrders/product/" />{{productD.productId}}">
-												<i class="fa fa-users"></i>
-											</a>
+											<div class="dropdown-menu" aria-labelledby="d${item.id}">
+
+												<button class="dropdown-item"
+													data-product-id="{{productD.productId}}"
+													onclick="deleteProduct(this)">
+													<spring:message code="delete" />
+												</button>
+
+												<button class="dropdown-item"
+													data-product-id="{{productD.productId}}"
+													onclick="editProduct(this)">
+													<spring:message code="edit" />
+												</button>
+
+												<a class="dropdown-item" target="_blank"
+													href="<c:url value="/orderProductStepUps/product/" />{{productD.code}}">
+													<spring:message code="stock.productOrders" />
+												</a> <a class="dropdown-item" target="_blank"
+													href="<c:url value="/customerOrders/product/" />{{productD.productId}}">
+													<spring:message code="stock.productSales" />
+												</a>
+											</div>
 										</div>
 									</td>
 								</tr>
@@ -196,9 +208,11 @@
 					<ul class="pagination justify-content-center">
 						<li class="page-item" ng-class="(currentPage-1)==0?'disabled':''">
 							<a class="page-link" ng-if="stockId.length==0"
-							ng-href="{{contextURL}}/products/stock?page={{currentPage-1}}&show={{showPerPage}}">Previous</a>
-							<a class="page-link" ng-if="stockId.length!=0"
-							ng-href="{{contextURL}}/products/stock?stockId={{stockId}}&page={{currentPage-1}}&show={{showPerPage}}">Previous</a>
+							ng-href="{{contextURL}}/products/stock?page={{currentPage-1}}&show={{showPerPage}}"><spring:message
+									code="js.datatable.previous" /></a> <a class="page-link"
+							ng-if="stockId.length!=0"
+							ng-href="{{contextURL}}/products/stock?stockId={{stockId}}&page={{currentPage-1}}&show={{showPerPage}}"><spring:message
+									code="js.datatable.previous" /></a>
 						</li>
 						<li class="page-item" ng-repeat="i in range "
 							ng-class="i==currentPage?'active':''" ng-if="i<=totalPage">
@@ -211,10 +225,11 @@
 						<li class="page-item"
 							ng-class="currentPage+1>totalPage?'disabled':''"><a
 							class="page-link" ng-if="stockId.length==0"
-							ng-href="{{contextURL}}/products/stock?page={{currentPage+1}}&show={{showPerPage}}">Next</a>
-							<a class="page-link" ng-if="stockId.length!=0"
-							ng-href="{{contextURL}}/products/stock?stockId={{stockId}}&page={{currentPage+1}}&show={{showPerPage}}">Next</a>
-						</li>
+							ng-href="{{contextURL}}/products/stock?page={{currentPage+1}}&show={{showPerPage}}"><spring:message
+									code="js.datatable.next" /></a> <a class="page-link"
+							ng-if="stockId.length!=0"
+							ng-href="{{contextURL}}/products/stock?stockId={{stockId}}&page={{currentPage+1}}&show={{showPerPage}}"><spring:message
+									code="js.datatable.next" /></a></li>
 					</ul>
 
 				</div>

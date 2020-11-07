@@ -7,227 +7,205 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.joh.esms.domain.model.p_Stock;
-import com.joh.esms.model.IncomeCategory;
-import com.joh.esms.model.reports;
 import org.springframework.stereotype.Component;
 
+import com.joh.esms.domain.model.CustomerOrderD;
+import com.joh.esms.domain.model.DashboardBalanceD;
+import com.joh.esms.domain.model.DashboardExpiredProductD;
+import com.joh.esms.domain.model.MinimumProductStockLevelD;
 import com.joh.esms.domain.model.NotificationD;
+import com.joh.esms.domain.model.SalesReportD;
+import com.joh.esms.domain.model.p_Stock;
 
 @Component
 public class ReportDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
-	
-//
-//	public List<DoctorCustomerOrderD> findDoctorCustomerOrder(int doctorId, Date from, Date to) {
-//
-//		Query query = em.createNativeQuery(
-//				"SELECT I_CUSTOMER_ORDER,CUSTOMER_NAME,ORDER_TIME,TOTAL_PRICE,TOTAL_PRICE-TOTAL_PRICE*IFNULL(DISCOUNT_AMOUNT,0) AS TOTAL_PAYMENT,DISCOUNT_AMOUNT,DISCOUNT_TYPE\n"
-//						+ ",\n" + "(\n" + "CASE \n"
-//						+ "WHEN I_DISCOUNT_TYPE=3 THEN -TOTAL_PRICE*IFNULL(DISCOUNT_AMOUNT,0) \n"
-//						+ "ELSE (TOTAL_PRICE-TOTAL_PRICE*IFNULL(DISCOUNT_AMOUNT,0))*PROFIT \n" + "END\n" + ") INCOME\n"
-//						+ "FROM DOCTORS D\n" + "INNER JOIN \n" + "CUSTOMER_ORDERS C USING(I_DOCTOR)\n"
-//						+ "LEFT OUTER JOIN DISCOUNT_TYPES DT USING(I_DISCOUNT_TYPE)\n" + "WHERE I_DOCTOR=:I_DOCTOR \n"
-//						+ "AND ORDER_TIME BETWEEN :from AND :to");
-//
-//		query.setParameter("I_DOCTOR", doctorId);
-//		query.setParameter("from", from, TemporalType.TIMESTAMP);
-//		query.setParameter("to", to, TemporalType.TIMESTAMP);
-//
-//		List<Object[]> rows = query.getResultList();
-//
-//		List<DoctorCustomerOrderD> doctorCustomerOrderDs = new ArrayList<>();
-//		for (Object[] columns : rows) {
-//			DoctorCustomerOrderD doctorCustomerOrderD = new DoctorCustomerOrderD();
-//
-//			doctorCustomerOrderD.setCustomerOrderId(Integer.parseInt("" + columns[0]));
-//			doctorCustomerOrderD.setCustomerName((String) columns[1]);
-//			doctorCustomerOrderD.setOrderTime((Date) columns[2]);
-//			doctorCustomerOrderD.setTotalPrice((Double) columns[3]);
-//			doctorCustomerOrderD.setTotalPayment((Double) columns[4]);
-//			doctorCustomerOrderD.setDiscountAmount((BigDecimal) columns[5]);
-//			doctorCustomerOrderD.setDiscountType((String) columns[6]);
-//			doctorCustomerOrderD.setIncome((Double) columns[7]);
-//
-//			doctorCustomerOrderDs.add(doctorCustomerOrderD);
-//		}
-//		return doctorCustomerOrderDs;
-//
-//	}
 
 	public NotificationD findAdminNotifications() {
 
+		Query query = em.createNativeQuery(
+				"select count(I_CUSTOMER_ORDER) as qty, (if(sum(TOTAL_PRICE) is null,0,sum(TOTAL_PRICE))-if(sum(DISCOUNT) is null,0,sum(DISCOUNT))) as price,if(sum(total_payment) is null,0,sum(total_payment)) as payment,((if(sum(TOTAL_PRICE) is null,0,sum(TOTAL_PRICE))-if(sum(DISCOUNT) is null,0,sum(DISCOUNT)))-if(sum(total_payment) is null,0,sum(total_payment))) as loan from  CUSTOMER_ORDERS where date(ORDER_TIME)=current_date();");
 
-		// // Notification-1
-		//
-		Query query = em.createNativeQuery("select count(I_CUSTOMER_ORDER) as qty, (if(sum(TOTAL_PRICE) is null,0,sum(TOTAL_PRICE))-if(sum(DISCOUNT) is null,0,sum(DISCOUNT))) as price,if(sum(total_payment) is null,0,sum(total_payment)) as payment,((if(sum(TOTAL_PRICE) is null,0,sum(TOTAL_PRICE))-if(sum(DISCOUNT) is null,0,sum(DISCOUNT)))-if(sum(total_payment) is null,0,sum(total_payment))) as loan from  CUSTOMER_ORDERS where date(ORDER_TIME)=current_date();");
-
-		NotificationD zh=new NotificationD();
+		NotificationD zh = new NotificationD();
 
 		List<Object[]> dashboard = query.getResultList();
 
 		for (Object[] row : dashboard) {
-			zh.setQty(Integer.valueOf(row[0]+""));
-			zh.setPrice(Double.valueOf(row[1]+""));
-			zh.setPayment(Double.valueOf(row[2]+""));
-			zh.setLoan(Double.valueOf(row[3]+""));
+			zh.setQty(Integer.valueOf(row[0] + ""));
+			zh.setPrice(Double.valueOf(row[1] + ""));
+			zh.setPayment(Double.valueOf(row[2] + ""));
+			zh.setLoan(Double.valueOf(row[3] + ""));
 
 		}
 
+		query = em.createNativeQuery(
+				"select if(sum(amount) is null,0,sum(amount)) from EXPENSES where date(EXPENSE_TIME)=curdate()");
+		Object ex = query.getSingleResult();
+		zh.setExpense(Double.valueOf(ex + ""));
 
-		 query = em.createNativeQuery("select if(sum(amount) is null,0,sum(amount)) from EXPENSES where date(EXPENSE_TIME)=curdate()");
-		Object ex=query.getSingleResult();
-		zh.setExpense(Double.valueOf(ex+""));
+		query = em.createNativeQuery(
+				"select if(sum(TOTAL_PAYMENT) is null,0,sum(TOTAL_PAYMENT) ) from CUSTOMER_PAYMENTS where date(PAYMENT_TIME)=curdate()");
 
-		query = em.createNativeQuery("select if(sum(TOTAL_PAYMENT) is null,0,sum(TOTAL_PAYMENT) ) from CUSTOMER_PAYMENTS where date(PAYMENT_TIME)=curdate()");
-
-		zh.setPaid(Double.valueOf(query.getSingleResult()+""));
-
-		//
-		// not1.setNotificationType(NotificationType.DANGER);
-		//
-		// notificationDs.add(not1);
-		//
-		// // Notification-2
-		//
-		// query = em.createNativeQuery(
-		// "SELECT ROUND(IFNULL(SUM(TOTAL_PRICE),0),3) FROM CUSTOMER_ORDERS WHERE
-		// DATE(ORDER_TIME)=CURDATE();");
-		//
-		// Object totalTodayCustomerPriceResult = query.getSingleResult();
-		//
-		// double totalTodayCustomerPrice = 0;
-		//
-		// if (totalTodayCustomerPriceResult != null)
-		// totalTodayCustomerPrice = Double.parseDouble("" +
-		// totalTodayCustomerPriceResult);
-		//
-		// //
-		// NotificationD not2 = new NotificationD();
-		// not2.setTitle("Today Total Customer Price");
-		// not2.setEtc("" + totalTodayCustomerPrice);
-		// not2.setMessage("Total customer price without discount");
-		//
-		// not2.setNotificationType(NotificationType.INFO);
-		//
-		// notificationDs.add(not2);
-		//
-		// // Notification-3
-		//
-		// query = em.createNativeQuery(
-		// "SELECT ROUND(SUM(TOTAL_PRICE)-IFNULL(SUM(TOTAL_PRICE*DISCOUNT_AMOUNT),0),3)
-		// FROM CUSTOMER_ORDERS WHERE DATE(ORDER_TIME)=CURDATE();");
-		//
-		// Object totalTodayCustomerPriceResultWithDiscount = query.getSingleResult();
-		//
-		// double totalTodayCustomerPriceWithDiscount = 0;
-		//
-		// if (totalTodayCustomerPriceResultWithDiscount != null)
-		// totalTodayCustomerPriceWithDiscount = Double.parseDouble("" +
-		// totalTodayCustomerPriceResultWithDiscount);
-		//
-		// NotificationD not3 = new NotificationD();
-		// not3.setTitle("Today Total Customer Order Income ");
-		// not3.setEtc("" + totalTodayCustomerPriceWithDiscount);
-		// not3.setMessage("Total customer price after make discount");
-		//
-		// not3.setNotificationType(NotificationType.INFO);
-		//
-		// notificationDs.add(not3);
-		//
-		// // Notification-4
-		//
-		// query = em.createNativeQuery(
-		// "SELECT ROUND(SUM(TOTAL_PRICE*DISCOUNT_AMOUNT),3) FROM CUSTOMER_ORDERS WHERE
-		// DATE(ORDER_TIME)=CURDATE();");
-		//
-		// Object totalTodayCustomerDiscountResult = query.getSingleResult();
-		//
-		// double totalTodayCustomerDiscount = 0;
-		//
-		// if (totalTodayCustomerDiscountResult != null)
-		// totalTodayCustomerDiscount = Double.parseDouble("" +
-		// totalTodayCustomerDiscountResult);
-		//
-		// NotificationD not4 = new NotificationD();
-		// not4.setTitle("Today Total Customer Discount ");
-		// not4.setEtc("" + totalTodayCustomerDiscount);
-		// not4.setMessage("Total discount made to customer");
-		//
-		// not4.setNotificationType(NotificationType.INFO);
-		//
-		// notificationDs.add(not4);
-		//
-		// // Notification-5
-		//
-		// query = em.createNativeQuery(
-		// "SELECT ROUND(IFNULL(SUM(TOTAL_PAYMENT_AMOUNT),0)) FROM
-		// phms.ORDER_PRODUCT_STEPUPS WHERE DATE(ORDER_TIME)=CURDATE()");
-		//
-		// Object totalProductStepUpPaymentamountResult = query.getSingleResult();
-		//
-		// double totalProductStepUpPaymentamount = 0;
-		//
-		// if (totalProductStepUpPaymentamountResult != null)
-		// totalProductStepUpPaymentamount = Double.parseDouble("" +
-		// totalProductStepUpPaymentamountResult);
-		//
-		// NotificationD not5 = new NotificationD();
-		// not5.setTitle("Today total Stockup Payment Amount");
-		// not5.setEtc("" + totalProductStepUpPaymentamount);
-		// not5.setMessage("The total today order amount payment");
-		//
-		// not5.setNotificationType(NotificationType.INFO);
-		//
-		// notificationDs.add(not5);
+		zh.setPaid(Double.valueOf(query.getSingleResult() + ""));
 
 		return zh;
 
 	}
 
-	public p_Stock findStockP(int I_Product,int I_STOCK) {
+	public p_Stock findStockP(int I_Product, int I_STOCK) {
 
-		Query query = em.createNativeQuery("select s.STOCK_NAME,p.PRODUCT_NAME,p.PRODUCT_CODE,ps.AMOUNT,if(p.PACKET_SIZE is null ,0,p.PACKET_SIZE)\n" +
-				"from PRODUCTS p\n" +
-				"JOIN PRODUCT_STOCKS ps on(p.i_product=ps.I_PRODUCT)\n" +
-				"JOIN STOCKS s on(ps.I_STOCK=s.I_STOCK)\n" +
-				"where p.I_PRODUCT=:I_PRODUCT " +
-				"and s.I_STOCK=:I_STOCK");
-				query.setParameter("I_PRODUCT",I_Product);
-				query.setParameter("I_STOCK",I_STOCK);
-
-
+		Query query = em.createNativeQuery(
+				"select s.STOCK_NAME,p.PRODUCT_NAME,p.PRODUCT_CODE,ps.AMOUNT,if(p.PACKET_SIZE is null ,0,p.PACKET_SIZE)\n"
+						+ "from PRODUCTS p\n" + "JOIN PRODUCT_STOCKS ps on(p.i_product=ps.I_PRODUCT)\n"
+						+ "JOIN STOCKS s on(ps.I_STOCK=s.I_STOCK)\n" + "where p.I_PRODUCT=:I_PRODUCT "
+						+ "and s.I_STOCK=:I_STOCK");
+		query.setParameter("I_PRODUCT", I_Product);
+		query.setParameter("I_STOCK", I_STOCK);
 
 		List<Object[]> dashboard = query.getResultList();
 
-		p_Stock Stock_info=new p_Stock();
-
+		p_Stock Stock_info = new p_Stock();
 
 		for (Object[] row : dashboard) {
-			Stock_info.setStockName(row[0].toString()+"");
-			Stock_info.setProductname(row[1].toString()+"");
-			Stock_info.setProductCode(row[2].toString()+"");
-			Stock_info.setProductamount(Double.valueOf(row[3]+""));
-			Stock_info.setPacketSize(Double.valueOf(row[4]+""));
+			Stock_info.setStockName(row[0].toString() + "");
+			Stock_info.setProductname(row[1].toString() + "");
+			Stock_info.setProductCode(row[2].toString() + "");
+			Stock_info.setProductamount(Double.valueOf(row[3] + ""));
+			Stock_info.setPacketSize(Double.valueOf(row[4] + ""));
 
 		}
-
-
-
 
 		return Stock_info;
 	}
 
-
 	public Object sumproduct(int I_Product) {
 
-		int sum=-1;
+		int sum = -1;
 		Query query = em.createNativeQuery("select sum(amount) from PRODUCT_STOCKS where I_PRODUCT=:I_PRODUCT");
-		query.setParameter("I_PRODUCT",I_Product);
+		query.setParameter("I_PRODUCT", I_Product);
 
 		return query.getSingleResult();
 	}
 
+	public List<CustomerOrderD> customerOrders() {
+
+		Query query = em.createNativeQuery(
+				"SELECT TOTAL_PRICE-DISCOUNT AS AMOUNT,DATE(ORDER_TIME) FROM CUSTOMER_ORDERS WHERE ORDER_TIME BETWEEN CURDATE()-INTERVAL 20 DAY AND CURTIME()");
+
+		List<Object[]> results = query.getResultList();
+
+		List<CustomerOrderD> customerOrderDs = new ArrayList<>();
+
+		for (Object[] row : results) {
+
+			CustomerOrderD customerOrderD = new CustomerOrderD();
+			customerOrderD.setAmount(Double.valueOf(row[0] + ""));
+			customerOrderD.setDate(row[1].toString());
+			customerOrderDs.add(customerOrderD);
+
+		}
+		return customerOrderDs;
 	}
+
+	public SalesReportD salesReport() {
+
+		Query query = em.createNativeQuery("SELECT TOTAL_SALE ,TOTAL_PAYMENT ,TOTAL_SALE-TOTAL_PAYMENT ,ORDER_RETURN\n"
+				+ "FROM (\n"
+				+ "SELECT (SELECT IFNULL(SUM(TOTAL_PRICE-DISCOUNT),0) FROM CUSTOMER_ORDERS) AS TOTAL_SALE,\n"
+				+ "(SELECT IFNULL(SUM(TOTAL_PAYMENT-DISCOUNT),0) FROM CUSTOMER_PAYMENTS) TOTAL_PAYMENT,(SELECT IFNULL(SUM(TOTAL_PRICE - TOTAL_PAID), 0) FROM CUSTOMER_ORDER_RETURNS) ORDER_RETURN\n"
+				+ ") SP");
+
+		SalesReportD salesReportD = new SalesReportD();
+
+		Object[] row = (Object[]) query.getSingleResult();
+
+		salesReportD.setOrder(Double.parseDouble("" + row[0]));
+		salesReportD.setPayment(Double.parseDouble("" + row[1]));
+		salesReportD.setLoan(Double.parseDouble("" + row[2]));
+		salesReportD.setOrderReturn(Double.parseDouble("" + row[3]));
+
+		return salesReportD;
+	}
+
+	public DashboardBalanceD getBalance() {
+		Query query = em.createNativeQuery("SELECT IFNUll(BALANCE,0) FROM ACCOUNTS LIMIT 1");
+
+		DashboardBalanceD dashboardBalanceD = new DashboardBalanceD();
+
+		double account = (double) query.getSingleResult();
+		dashboardBalanceD.setAccount(account);
+
+		query = em.createNativeQuery(
+				"SELECT IFNULL(SUM(AMOUNT),0)  FROM EXPENSES WHERE EXPENSE_TIME BETWEEN MONTH(CURDATE()-INTERVAL 1 MONTH) AND MONTH(CURDATE())");
+
+		double expense = (double) query.getSingleResult();
+		dashboardBalanceD.setExpense(expense);
+
+		query = em.createNativeQuery("SELECT ORD-PAID-RE LOAN_VENDOR\n" + "FROM (\n"
+				+ "SELECT IFNULL((SELECT SUM(TOTAL_PRICE-TOTAL_PAYMENT-DISCOUNT) FROM ORDER_PRODUCT_STEPUPS),0) ORD,\n"
+				+ "IFNULL((SELECT SUM(TOTAL_PAYMENT-DISCOUNT) FROM VENDOR_PAYMENTS),0) PAID,IFNULL((SELECT SUM(AMOUNT) FROM VENDOR_RETURNS),0)RE) T");
+
+		double vendorLoan = (double) query.getSingleResult();
+		dashboardBalanceD.setVendorLoan(vendorLoan);
+
+		query = em.createNativeQuery("SELECT ORD-PAID-RE LOAN_VENDOR\n" + "FROM (\n"
+				+ "SELECT IFNULL((SELECT SUM(TOTAL_PRICE-TOTAL_PAYMENT-DISCOUNT) FROM CUSTOMER_ORDERS),0) ORD,\n"
+				+ "IFNULL((SELECT SUM(TOTAL_PAYMENT-DISCOUNT) FROM CUSTOMER_PAYMENTS),0) PAID,IFNULL((SELECT SUM(TOTAL_PRICE) FROM CUSTOMER_ORDER_RETURNS),0)RE) T");
+
+		double customerLoan = (double) query.getSingleResult();
+		dashboardBalanceD.setCustomerLoan(customerLoan);
+
+		return dashboardBalanceD;
+	}
+
+	public List<MinimumProductStockLevelD> getMinimumStockLevelProducts() {
+
+		Query query = em.createNativeQuery(
+				"SELECT I_PRODUCT,PRODUCT_CODE,PRODUCT_NAME,MINIMUM_STOCK_LEVEL,IFNULL(CURRENT_LEVEL,0)  FROM PRODUCTS\n"
+						+ "LEFT OUTER JOIN (\n"
+						+ "SELECT QUANTITY-SOLD_QUANTITY CURRENT_LEVEL,I_PRODUCT FROM PRODUCT_STEPUPS WHERE EXPIRATION_DATE<CURDATE()) D USING(I_PRODUCT)\n"
+						+ "WHERE IFNULL(CURRENT_LEVEL,0)<=MINIMUM_STOCK_LEVEL");
+
+		List<Object[]> results = query.getResultList();
+
+		List<MinimumProductStockLevelD> minimumProductStockLevelDs = new ArrayList<>();
+
+		for (Object[] row : results) {
+
+			MinimumProductStockLevelD minimumProductStockLevelD = new MinimumProductStockLevelD();
+			minimumProductStockLevelD.setProductId(Integer.valueOf(row[0] + ""));
+			minimumProductStockLevelD.setProductCode(row[1].toString());
+			minimumProductStockLevelD.setProductName(row[2].toString());
+			minimumProductStockLevelD.setMinimumStockLevel(Double.valueOf(row[3] + ""));
+			minimumProductStockLevelD.setCurrentStockLevel(Double.valueOf(row[4] + ""));
+			minimumProductStockLevelDs.add(minimumProductStockLevelD);
+		}
+		return minimumProductStockLevelDs;
+	}
+
+	public List<DashboardExpiredProductD> getExpiredProducts() {
+
+		Query query = em.createNativeQuery(
+				"SELECT I_PRODUCT,PRODUCT_CODE,PRODUCT_NAME,CAST(SUM(QUANTITY-SOLD_QUANTITY) AS SIGNED) AMOUNT FROM PRODUCTS\n" + 
+				"INNER JOIN  PRODUCT_STEPUPS USING(I_PRODUCT)\n" + 
+				"WHERE EXPIRATION_DATE>=CURDATE() AND QUANTITY-SOLD_QUANTITY>0\n" + 
+				"GROUP BY I_PRODUCT");
+
+		List<Object[]> results = query.getResultList();
+
+		List<DashboardExpiredProductD> dashboardExpiredProductDs = new ArrayList<>();
+
+		for (Object[] row : results) {
+
+			DashboardExpiredProductD dashboardExpiredProductD = new DashboardExpiredProductD();
+			dashboardExpiredProductD.setProductId(Integer.valueOf(row[0] + ""));
+			dashboardExpiredProductD.setProductCode(row[1].toString());
+			dashboardExpiredProductD.setProductName(row[2].toString());
+			dashboardExpiredProductD.setAmount(Integer.valueOf(row[3] + ""));
+			dashboardExpiredProductDs.add(dashboardExpiredProductD);
+		}
+		return dashboardExpiredProductDs;
+	}
+
+}

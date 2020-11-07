@@ -33,7 +33,7 @@
 	<c:set var="total" value="${0}" />
 
 	<table class="table table-striped table-bordered dt-responsive nowrap"
-		id="table" width="100%" cellspacing="0">
+		id="dataTable" width="100%" cellspacing="0">
 		<thead>
 			<tr>
 				<td><spring:message code="adminCustomers.fullName" /></td>
