@@ -30,41 +30,11 @@ public class Setting {
 	@Column(name = "address")
 	private String address;
 
-	@NotEmpty()
-	@Column(name = "headerImage")
-	private String headerImage;
-
-	@Column(name = "footerImage")
-	private String footerImage;
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "logo")
-	private String logo;
-
-	@Column(name = "description")
+	@Column(name = "DESCRIPTION")
 	private String description;
-
-	@Column(name = "base_cur")
-	private String base;
-
-	@Column(name = "to_cur")
-	private String to;
-
-	@Column(name = "Cur_Rate")
-	private Double rate;
-
-	@Column(name = "Cur_Reverse_Rate")
-	private Double reverseRate;
 
 	public int getId() {
 		return id;
@@ -98,28 +68,12 @@ public class Setting {
 		this.address = address;
 	}
 
-	public String getHeaderImage() {
-		return headerImage;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setHeaderImage(String headerImage) {
-		this.headerImage = headerImage;
-	}
-
-	public String getFooterImage() {
-		return footerImage;
-	}
-
-	public void setFooterImage(String footerImage) {
-		this.footerImage = footerImage;
-	}
-
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getDescription() {
@@ -130,44 +84,10 @@ public class Setting {
 		this.description = description;
 	}
 
-	public String getBase() {
-		return base;
-	}
-
-	public void setBase(String base) {
-		this.base = base;
-	}
-
-	public String getTo() {
-		return to;
-	}
-
-	public void setTo(String to) {
-		this.to = to;
-	}
-
-	public Double getRate() {
-		return rate;
-	}
-
-	public void setRate(Double rate) {
-		this.rate = rate;
-	}
-
-	public Double getReverseRate() {
-		return reverseRate;
-	}
-
-	public void setReverseRate(Double reverseRate) {
-		this.reverseRate = reverseRate;
-	}
-
 	@Override
 	public String toString() {
-		return "Setting [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", headerImage="
-				+ headerImage + ", footerImage=" + footerImage + ", email=" + email + ", logo=" + logo
-				+ ", description=" + description + ", base=" + base + ", to=" + to + ", rate=" + rate + ", reverseRate="
-				+ reverseRate + "]";
+		return "Setting [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", email=" + email
+				+ ", description=" + description + "]";
 	}
 
 }

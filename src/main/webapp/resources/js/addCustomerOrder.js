@@ -117,9 +117,10 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
 
     // Calculate Discount If Discount Ratio Changed
     $scope.calculateDiscount = function () {
-        if ($scope.selectRatio && $scope.discountRatio < 1) {
+        if ($scope.selectRatio && $scope.discountRatio <= 100) {
+        	var discountPercentage = $scope.discountRatio / 100;
             $scope.customerOrder.discount = parseFloat(($scope
-                .totalPrice() * $scope.discountRatio).toFixed(3));
+                .totalPrice() * discountPercentage).toFixed(3));
             $scope.calculateTotalPayment();
         }
     };
@@ -490,3 +491,12 @@ app.controller('addCustomerOrder', function ($scope, $http, $window) {
 
     }
 });
+function getAddingCustomer() {
+	console.log("getAddingCustomer->fired");
+	$.get($$ContextURL + "/customers/add", function(response) {
+		$("#modal-body").html(response);
+		$("#modal").modal("show");
+	});
+
+}
+

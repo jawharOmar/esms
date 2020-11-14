@@ -26,6 +26,7 @@
 	z-index: 1000;
 	bottom: 0px;
 	overflow: visible;
+	overflow-y: auto;
 }
 
 #content-wrapper {

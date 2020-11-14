@@ -237,28 +237,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-.dt>thead>tr>th[class*="sort"]::after {
-	display: none
-}
-
-.dt>thead>tr>th[class*="sort"]::before {
-	display: none
-}
-
-table>thead>tr>th {
-	padding: 3px;
-}
-
-table.dataTable thead .sorting, table.dataTable thead .sorting_asc,
-	table.dataTable thead .sorting_desc {
-	background: none;
-}
-
-table.dataTable tbody tr td {
-	padding: 1px;
-}
-</style>
-
-

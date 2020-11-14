@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
@@ -94,13 +93,12 @@ public class SpringContextConfiguraror extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public MultipartResolver multipartResolver() {
-        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setDefaultEncoding("utf-8");
-        resolver.setResolveLazily(false);
-        resolver.setMaxUploadSize(200000);
-        return resolver;
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		resolver.setDefaultEncoding("utf-8");
+		resolver.setResolveLazily(false);
+		resolver.setMaxUploadSize(1048576);
+		return resolver;
 	}
-
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

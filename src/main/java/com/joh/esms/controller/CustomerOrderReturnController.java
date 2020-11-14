@@ -28,6 +28,7 @@ import com.joh.esms.model.Stock;
 import com.joh.esms.service.CustomerOrderReturnService;
 import com.joh.esms.service.CustomerService;
 import com.joh.esms.service.ProductService;
+import com.joh.esms.service.SettingService;
 import com.joh.esms.service.StockService;
 import com.joh.esms.validator.OrderProductStepUpValidator;
 
@@ -45,10 +46,12 @@ public class CustomerOrderReturnController {
 
 	@Autowired
 	private ProductService productService;
-	
 
 	@Autowired
 	private StockService stockService;
+
+	@Autowired
+	private SettingService settingService;
 
 	@GetMapping()
 	public String getAllCustomerOrderReturn(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
@@ -89,7 +92,7 @@ public class CustomerOrderReturnController {
 		logger.info("getAddingCustomerOrderReturn->fired");
 
 		ObjectMapper objectMapper = new ObjectMapper();
-		
+
 		Iterable<Stock> stocks = stockService.findAll();
 
 		Iterable<Customer> customers = customerService.findAll();
@@ -155,7 +158,7 @@ public class CustomerOrderReturnController {
 		logger.info("customerOrderReturn=" + customerOrderReturn);
 
 		CustomerOrderReturn customerOrderReturn1 = customerOrderReturnService.update(customerOrderReturn);
-		model.addAttribute("url","customerOrderReturns/edit/"+customerOrderReturn1.getId());
+		model.addAttribute("url", "customerOrderReturns/edit/" + customerOrderReturn1.getId());
 		return "successURL";
 	}
 
@@ -170,6 +173,7 @@ public class CustomerOrderReturnController {
 		model.addAttribute("totalLoan",
 				customerService.getCustomerTotalLoan(customerOrderReturn.getCustomer().getId()));
 
+		model.addAttribute("setting", settingService.findSetting());
 		return "printCustomerOrderReturn";
 	}
 
@@ -180,6 +184,5 @@ public class CustomerOrderReturnController {
 		customerOrderReturnService.delete(id);
 		return "success";
 	}
-	
 
 }

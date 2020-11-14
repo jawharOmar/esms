@@ -62,15 +62,17 @@ public class SettingControler {
 			return "settings";
 		}
 
-		String uploadPath = context.getRealPath("") + File.separator + "/resources/img/logo.png";
+		if (file.getSize() > 0) {
+			String uploadPath = context.getRealPath("") + File.separator + "/resources/img/logo.png";
 
-		try (OutputStream os = new FileOutputStream(uploadPath)) {
-			os.write(file.getBytes());
+			try (OutputStream os = new FileOutputStream(uploadPath)) {
+				os.write(file.getBytes());
+			}
 		}
 
 		settingService.save(setting);
 
-		return "redirect:/settings";
+		return "redirect:/settings/add";
 	}
 
 }

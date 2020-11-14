@@ -15,9 +15,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "PRODUCT_STEPUPS")
@@ -25,13 +25,14 @@ public class ProductStepUp {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "I_PRODUCT_STEPUP")
+	@Column(name = "I_PRODUCT_STEPUP")
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "I_PRODUCT", nullable = false)
 	private Product product;
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "EXPIRATION_DATE")
@@ -53,17 +54,16 @@ public class ProductStepUp {
 	@JoinColumn(name = "I_STOCK", nullable = false)
 	private Stock stock;
 
-    public Double getReturnPrice() {
-        return returnPrice;
-    }
+	public Double getReturnPrice() {
+		return returnPrice;
+	}
 
-    public void setReturnPrice(Double returnPrice) {
-        this.returnPrice = returnPrice;
-    }
+	public void setReturnPrice(Double returnPrice) {
+		this.returnPrice = returnPrice;
+	}
 
-    @Column(name = "ReturnPrice", nullable = true)
-    private Double returnPrice;
-
+	@Column(name = "ReturnPrice", nullable = true)
+	private Double returnPrice;
 
 	@PrePersist
 	public void prePersist() {

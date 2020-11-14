@@ -139,14 +139,20 @@
 							ng-options="item as item.name for item in stocks track by item.id">
 								<option value="{}"></option>
 						</select></th>
-						<th><input ng-disabled="!product.stock.id" tabindex="1"
-							ng-change="searchByProductCodeOrName()"
-							ng-enter="getProduct(product.code)" id="autoselect"
-							class="form-control form-control-sm" ng-model="product.code">
-							<button class="btn btn-info btn-sm" ng-if="product.productId"
-								ng-click="getProductCustomerOrderDetail()">
-								<i class="fa fa-info"></i>
-							</button></th>
+						<th>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<button class="btn btn-info btn-sm" ng-if="product.productId"
+										ng-click="getProductCustomerOrderDetail()">
+										<i class="fa fa-info"></i>
+									</button>
+								</div>
+								<input ng-disabled="!product.stock.id" tabindex="1"
+									ng-change="searchByProductCodeOrName()"
+									ng-enter="getProduct(product.code)" id="autoselect"
+									class="form-control form-control-sm" ng-model="product.code">
+							</div>
+						</th>
 						<th><input required tabindex="2" id="productName"
 							ng-keypress="getKeys($event)"
 							class="form-control form-control-sm" ng-model="product.name"
@@ -162,8 +168,8 @@
 							<small class="text-success" ng-if="showCost">{{product.cost}}
 						</small></th>
 						<th><input tabindex="4" type="number" step="any"
-							class="form-control form-control-sm" ng-model="product.price">
-							<span class="text-info">{{product.lastPrice}} </span></th>
+							class="form-control form-control-sm" ng-model="product.price"
+							title="<spring:message code="addCustomerOrder.lastPrice" /> :{{product.lastPrice}}"></th>
 						<th>
 							<div class="form-row">
 								<div class="col-1 d-inline-flex">
@@ -256,9 +262,9 @@
 								</div>
 								<div class="input-group input-group-sm col-6 float-left mb-1">
 									<div class="input-group-prepend">
-										<span class="input-group-text" id="sizinddg-sm">%(0.1)</span>
+										<span class="input-group-text" id="sizinddg-sm">%</span>
 									</div>
-									<input min="0" type="number" step="any" ng-max="1"
+									<input min="0" type="number" step="1" ng-max="100"
 										ng-change="calculateDiscount()"
 										ng-disabled="!selectRatio || totalPrice()<=0"
 										ng-value="!selectRatio?discountRatio=0:0"

@@ -1,6 +1,10 @@
 <%@page import="java.util.Date"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<c:set var="versionLogo" scope="request"><%=LocalDateTime.now()%></c:set>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
@@ -14,6 +18,9 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <c:set var="tomorrow"
 	value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000)%>" />
+
+
+<fmt:setLocale value="en_US" scope="session" />
 
 <fmt:formatDate var="currentDate" value="${now}" pattern="yyyy-MM-dd" />
 <fmt:formatDate var="tomorrow" value="${tomorrow}" pattern="yyyy-MM-dd" />
@@ -90,7 +97,8 @@ body {
 				<div
 					class="sidebar-brand d-flex align-items-center justify-content-center">
 					<div class="sidebar-brand-icon rotate-n-15">
-						<img src="<c:url value="/resources/img/logo.png?" />${version}"
+						<img style="max-width: 50px;"
+							src="<c:url value="/resources/img/logo.png?" />${versionLogo}"
 							height="30" alt="" />
 					</div>
 					<div class="sidebar-brand-text mx-3">Goran</div>
@@ -104,14 +112,7 @@ body {
 					</a></li>
 				</sec:authorize>
 				<hr class="sidebar-divider" />
-				<div class="sidebar-heading">
-					<spring:message code="layout.customersAndSales" />
-				</div>
-				<li class="nav-item"><a class="nav-link"
-					href="<c:url value="/customers" />"> <i
-						class="fas fa-fw fa-table"></i> <span><spring:message
-								code="layout.customers" /></span>
-				</a></li>
+				<li class="nav-item"></li>
 
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#collapseTwo"
@@ -122,62 +123,62 @@ body {
 					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 						data-parent="#accordionSidebar">
 						<div class="py-2 collapse-inner rounded">
-							<a class="collapse-item"
-								href="<c:url value="/customerOrders/add"/>"><spring:message
-									code="layout.add" /></a> <a class="collapse-item"
-								href="<c:url value="/customerOrders"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.list" /></a> <a class="collapse-item"
-								href="<c:url value="/priceCategories"/>"><spring:message
-									code="layout.priceCategory" /></a>
+							<a class="collapse-item" href="<c:url value="/customers" />">
+								<spring:message code="layout.customers" />
+							</a>
+
+							<sec:authorize url="/customerOrders/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerOrders/add"/>"><spring:message
+										code="layout.add" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerOrders"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.list" /></a>
+							</sec:authorize>
+							<sec:authorize url="/priceCategories">
+								<a class="collapse-item"
+									href="<c:url value="/priceCategories"/>"><spring:message
+										code="layout.priceCategory" /></a>
+							</sec:authorize>
 						</div>
 					</div></li>
 
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c2" aria-expanded="true"
 					aria-controls="c2"> <i class="fas fa-fw fa-cog"></i> <span><spring:message
-								code="layout.customerOrderRetun" /></span>
+								code="layout.customerTransactions" /></span>
 				</a>
 					<div id="c2" class="collapse" aria-labelledby="headingTwo"
 						data-parent="#accordionSidebar">
 						<div class=" py-2 collapse-inner rounded">
-							<a class="collapse-item"
-								href="<c:url value="/customerOrderReturns/add"/>"><spring:message
-									code="layout.add" /></a> <a class="collapse-item"
-								href="<c:url value="/customerOrderReturns"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.list" /></a> <a class="collapse-item"
-								href="<c:url value="/customerReturnWastedProducts/add"/>"><spring:message
-									code="layout.addCustomerOrderReturnWastedProduct" /></a> <a
-								class="collapse-item"
-								href="<c:url value="/customerReturnWastedProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.customerReturnWastedProducts" /></a>
+							<sec:authorize url="/customerPayments/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerPayments/add"/>"><spring:message
+										code="layout.addCustomerPayment" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerPayments"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.listCustomerPayment" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/customerOrderReturns/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerOrderReturns/add"/>"><spring:message
+										code="layout.addCustomerReturn" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerOrderReturns"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.listCustomerReturn" /></a>
+							</sec:authorize>
+							<sec:authorize url="/customerReturnWastedProducts/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerReturnWastedProducts/add"/>"><spring:message
+										code="layout.addCustomerOrderReturnWastedProduct" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerReturnWastedProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.customerReturnWastedProducts" /></a>
+							</sec:authorize>
 						</div>
 					</div></li>
 
-				<li class="nav-item"><a class="nav-link collapsed" href="#"
-					data-toggle="collapse" data-target="#c3" aria-expanded="true"
-					aria-controls="c3"> <i class="fas fa-fw fa-cog"></i> <span><spring:message
-								code="layout.customerPayment" /></span>
-				</a>
-					<div id="c3" class="collapse" aria-labelledby="headingTwo"
-						data-parent="#accordionSidebar">
-						<div class=" py-2 collapse-inner rounded">
-							<a class="collapse-item"
-								href="<c:url value="/customerPayments/add"/>"><spring:message
-									code="layout.add" /></a> <a class="collapse-item"
-								href="<c:url value="/customerPayments"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.list" />
-							</a>
-						</div>
-					</div></li>
-
-
-				<div class="sidebar-heading">
-					<span><spring:message code="layout.stock" />
-				</div>
-				<li class="nav-item"><a class="nav-link"
-					href="<c:url value="/products/stock"/>"><i
-						class="fas fa-fw fa-table"></i> <span><spring:message
-								code="layout.productInStock" /></span> </a></li>
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c4" aria-expanded="true"
 					aria-controls="c4"> <i class="fas fa-fw fa-cog"></i> <span>
@@ -187,24 +188,26 @@ body {
 					<div id="c4" class="collapse" aria-labelledby="headingTwo"
 						data-parent="#accordionSidebar">
 						<div class=" py-2 collapse-inner rounded">
+							<sec:authorize url="/products">
+								<a class="collapse-item" href="<c:url value="/products/stock"/>">
+									<span><spring:message code="layout.productInStock" /></span>
+								</a>
+							</sec:authorize>
 							<a class="collapse-item"
-								href="<c:url value="/stockTransfers"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.stockTransfers" /></a> <a class="collapse-item"
-								href="<c:url value="/stocks"/>"> <spring:message
-									code="layout.list" /></a>
+								href="<c:url value="/productCategories"/>"><span><spring:message
+										code="layout.productCategory" /></span> </a>
+							<sec:authorize url="/stockTransfers">
+								<a class="collapse-item"
+									href="<c:url value="/stockTransfers"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.stockTransfers" /></a>
+							</sec:authorize>
+							<sec:authorize url="/stocks">
+								<a class="collapse-item" href="<c:url value="/stocks"/>"> <spring:message
+										code="layout.list" /></a>
+							</sec:authorize>
 						</div>
 					</div></li>
 
-				<li class="nav-item"><a class="nav-link"
-					href="<c:url value="/productCategories"/>"> <i
-						class="fas fa-fw fa-table"></i> <span><spring:message
-								code="layout.productCategory" /></span>
-				</a></li>
-
-
-				<div class="sidebar-heading">
-					<span><spring:message code="layout.vendorAndOrder" />
-				</div>
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c5" aria-expanded="true"
 					aria-controls="c5"> <i class="fas fa-fw fa-cog"></i> <span>
@@ -214,33 +217,45 @@ body {
 					<div id="c5" class="collapse totop" aria-labelledby="headingTwo"
 						data-parent="#accordionSidebar">
 						<div class=" py-2 collapse-inner rounded">
+							<sec:authorize url="/vendors">
+								<a class="collapse-item" href="<c:url value="/vendors"/>"><spring:message
+										code="layout.vendors" /></a>
+							</sec:authorize>
+							<sec:authorize url="/orderProductStepUps/add">
+								<a class="collapse-item"
+									href="<c:url value="/orderProductStepUps/add"/>"><spring:message
+										code="layout.add" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/orderProductStepUps"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.list" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/vendorPayments/add">
+								<a class="collapse-item"
+									href="<c:url value="/vendorPayments/add"/>"> <spring:message
+										code="layout.addVendorPayment" />
+								</a>
+								<a class="collapse-item"
+									href="<c:url value="/vendorPayments"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.vendorPayments" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/orderPreProducts/add">
+								<a class="collapse-item"
+									href="<c:url value="/orderPreProducts/add"/>"><spring:message
+										code="layout.addOrderPreProduct" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/orderPreProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.orderPreProducts" /></a>
 
-							<a class="collapse-item" href="<c:url value="/vendors"/>"><spring:message
-									code="layout.vendors" /></a> <a class="collapse-item"
-								href="<c:url value="/orderProductStepUps/add"/>"><spring:message
-									code="layout.add" /></a> <a class="collapse-item"
-								href="<c:url value="/orderProductStepUps"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.list" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/vendorPayments/add"/>"> <spring:message
-									code="layout.addVendorPayment" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/vendorPayments"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.vendorPayments" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/orderPreProducts/add"/>"><spring:message
-									code="layout.addOrderPreProduct" /></a> <a class="collapse-item"
-								href="<c:url value="/orderPreProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.orderPreProducts" /></a> <a class="collapse-item"
-								href="<c:url value="/venderReturns/view"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.VednorReturn" /></a>
+							</sec:authorize>
+							<sec:authorize url="/venderReturn">
+								<a class="collapse-item"
+									href="<c:url value="/venderReturns/view"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.VednorReturn" /></a>
+							</sec:authorize>
 						</div>
 					</div></li>
-
-				<div class="sidebar-heading">
-					<span><spring:message code="layout.utility" />
-				</div>
-
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c8" aria-expanded="true"
 					aria-controls="c8"> <i class="fas fa-fw fa-cog"></i> <span>
@@ -250,36 +265,73 @@ body {
 					<div id="c8" class="collapse totop" aria-labelledby="headingTwo"
 						data-parent="#accordionSidebar">
 						<div class=" py-2 collapse-inner rounded">
-							<a class="collapse-item"
-								href="<c:url value="/accounts/main"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-									code="layout.account" /></a> <a class="collapse-item"
-								href="<c:url value="/boxAccounting/main"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.boxAccounting" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/netProfit/main"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.netProfit" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/users/userManager"/>"> <spring:message
-									code="layout.userManager" />
-							</a> <a class="collapse-item" href="<c:url value="/report"/>"> <spring:message
-									code="layout.report" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/report/projectStatement"/>"> <spring:message
-									code="layout.projectStatement" />
-							</a> <a class="collapse-item" href="<c:url value="/profit"/>"> <spring:message
-									code="layout.profit" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/incomes"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.incomes" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/expenses"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.expenses" />
-							</a> <a class="collapse-item"
-								href="<c:url value="/withdraws"/>?from=${currentDate}&to=${tomorrow}">
-								<spring:message code="layout.withdraws" />
-							</a> <a class="collapse-item" href="<c:url value="/settings/add"/>">
-								<spring:message code="layout.setting" />
-							</a>
+
+							<sec:authorize url="/accounts">
+								<a class="collapse-item"
+									href="<c:url value="/accounts/main"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.account" /></a>
+
+							</sec:authorize>
+							<sec:authorize url="/boxAccounting">
+								<a class="collapse-item"
+									href="<c:url value="/boxAccounting/main"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.boxAccounting" />
+								</a>
+
+							</sec:authorize>
+							<sec:authorize url="/netProfit">
+								<a class="collapse-item"
+									href="<c:url value="/netProfit/main"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.netProfit" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/users/userManager">
+								<a class="collapse-item"
+									href="<c:url value="/users/userManager"/>"> <spring:message
+										code="layout.userManager" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/report">
+								<a class="collapse-item" href="<c:url value="/report"/>"> <spring:message
+										code="layout.report" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/projectStatement">
+								<a class="collapse-item"
+									href="<c:url value="/report/projectStatement"/>"> <spring:message
+										code="layout.projectStatement" />
+								</a>
+
+							</sec:authorize>
+
+							<sec:authorize url="/profit">
+								<a class="collapse-item" href="<c:url value="/profit"/>"> <spring:message
+										code="layout.profit" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/incomes">
+								<a class="collapse-item"
+									href="<c:url value="/incomes"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.incomes" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/expenses">
+								<a class="collapse-item"
+									href="<c:url value="/expenses"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.expenses" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/withdraws">
+								<a class="collapse-item"
+									href="<c:url value="/withdraws"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.withdraws" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/setting">
+								<a class="collapse-item" href="<c:url value="/settings/add"/>">
+									<spring:message code="layout.setting" />
+								</a>
+							</sec:authorize>
 
 						</div>
 					</div></li>
@@ -379,27 +431,6 @@ body {
 					<img id="" src="<c:url value="/resources/img/loading.gif" />" />
 				</div>
 
-
-
-
-				<!-- 
-
-
-
-
-    <section id="view-port">
-
-            <header id="header">
-                    <tiles:insertAttribute name="header" />
-            </header>
-
-           
-
-
-
-    </section>
-    
-                    -->
 
 				<tiles:importAttribute name="requiredJSFiles" />
 				<c:if test="${!empty requiredJSFiles}">

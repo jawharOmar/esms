@@ -82,7 +82,8 @@ public class Product implements Serializable {
 	@Column(name = "UNIT", length = 8)
 	private String unit;
 
-
+	@Column(name = "EXPIRE_ALRAM")
+	private Integer expireAlarm;
 
 	public Product() {
 	}
@@ -179,15 +180,20 @@ public class Product implements Serializable {
 		this.unit = unit;
 	}
 
+	public Integer getExpireAlarm() {
+		return expireAlarm;
+	}
 
+	public void setExpireAlarm(Integer expireAlarm) {
+		this.expireAlarm = expireAlarm;
+	}
 
-
-    @Override
+	@Override
 	public String toString() {
 		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", productUnitType=" + productUnitType
 				+ ", productCategory=" + productCategory + ", minimumStockLevel=" + minimumStockLevel
 				+ ", productPriceCategories=" + productPriceCategories + ", price=" + price + ", packetSize="
-				+ packetSize + ", unit=" + unit + "]";
+				+ packetSize + ", unit=" + unit + ", expireAlarm=" + expireAlarm + "]";
 	}
 
 }

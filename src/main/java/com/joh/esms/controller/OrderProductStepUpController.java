@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -120,6 +121,14 @@ public class OrderProductStepUpController {
 		model.addAttribute("jsonStocks", objectMapper.writeValueAsString(stocks));
 
 		return "adminAddOrderProductStepUp";
+	}
+
+	@GetMapping(path = "/productDs")
+	@ResponseBody
+	public Iterable<ProductD> getProductDs() {
+		logger.info("getProductDs->fired");
+		Iterable<ProductD> productDs = productService.findStock();
+		return productDs;
 	}
 
 	@PostMapping(path = "/add")

@@ -42,7 +42,7 @@
     <table class="table table-sm cus-table-borderless">
         <tbody ng-form="orderProductStepUpForm">
         <tr>
-            <td><spring:message code="addOrderProductStepUp.title"/></td>
+            <td><spring:message code="addOrderProductStepUp.vendor"/></td>
             <td><select required class="form-control form-control-sm"
                         ng-model="orderProductStepUp.vendor.id"
                         ng-options="item.id as item.fullName for item in vendors">
@@ -167,7 +167,7 @@
 
     </div>
 
-    <div class="border-top pt-2">
+    <div class="border-top p-3">
         <div>
             <table>
                 <tr>
@@ -200,9 +200,9 @@
                         </div>
                         <div class="input-group input-group-sm col-lg-3 col-md-3 col-sm-4 float-left mb-1">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="sizing-sm">%(0.1)</span>
+                                <span class="input-group-text" id="sizing-sm">%</span>
                             </div>
-                            <input min="0" type="number" step="any" ng-max="1" ng-change="calculateDiscount()"
+                            <input min="0" type="number" step="1" ng-max="100" ng-change="calculateDiscount()"
                                    ng-disabled="!selectRatio || totalPrice()<=0"
                                    ng-value="!selectRatio?discountRatio=0:0"
                                    ng-required="required" ng-model="discountRatio"

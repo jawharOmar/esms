@@ -5,30 +5,22 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<style>
-	@media screen {
-		header,footer {display: none;}
-	}
-
-	@media print {
-		header,footer {display: block;}
-	}
-</style>
-<c:if test="${pageContext.response.locale==\"ar\"||pageContext.response.locale==\"ar_SY\"}">
+<c:if
+	test="${pageContext.response.locale==\"ar\"||pageContext.response.locale==\"ar_SY\"}">
 	<style type="text/css">
-		* {
-			direction: rtl;
-			text-align: right !important;
-		}
-	</style>
+* {
+	direction: rtl;
+	text-align: right !important;
+}
+</style>
 </c:if>
 <c:if test="${pageContext.response.locale==\"en\"}">
 	<style type="text/css">
-		* {
-			direction: ltr;
-			text-align: left !important;
-		}
-	</style>
+* {
+	direction: ltr;
+	text-align: left !important;
+}
+</style>
 </c:if>
 <div id="order">
 

@@ -1,7 +1,10 @@
 package com.joh.esms.controller;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -10,6 +13,7 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -68,13 +72,23 @@ public class AppController {
 	private AccountDAO accountservice;
 
 	@Autowired
+	private Environment environment;
+
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@GetMapping("/login")
-	public String login() {
+	public String login() throws ParseException {
 
 		logger.info("login->fired");
 
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(environment.getProperty("application.expirationDate"));
+
+		Date now = new Date();
+
+		if (date.before(now)) {
+          return "expired";
+		}
 		return "login";
 	}
 

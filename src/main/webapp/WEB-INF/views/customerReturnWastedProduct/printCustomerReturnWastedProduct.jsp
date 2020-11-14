@@ -4,122 +4,91 @@
 <%@ taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<style>
-    @media screen {
-        header,footer {display: none;}
-    }
-
-    @media print {
-        header,footer {display: block;}
-    }
-</style>
-<c:if test="${pageContext.response.locale==\"ar\"||pageContext.response.locale==\"ar_SY\"}">
-    <style type="text/css">
-        * {
-            direction: rtl;
-            text-align: right !important;
-        }
-    </style>
-</c:if>
-<c:if test="${pageContext.response.locale==\"en\"}">
-    <style type="text/css">
-        * {
-            direction: ltr;
-            text-align: left !important;
-        }
-    </style>
-</c:if>
-
 <div id="order">
 
-    <div class="cus-print-container">
+	<div class="cus-print-container">
 
-        <p>
-            <fmt:formatDate pattern="yyyy-MM-dd  hh:mm:ss"
-                            value="${wastedProduct.returnDate}" />
-        </p>
+		<p>
+			<fmt:formatDate pattern="yyyy-MM-dd  hh:mm:ss"
+				value="${wastedProduct.returnDate}" />
+		</p>
 
-        <table style="width: 400px;">
-            <tr>
-                <td><spring:message code="customerWastedProduct.returnId" /></td>
-                <td>${wastedProduct.id}</td>
-            </tr>
+		<table style="width: 400px;">
+			<tr>
+				<td><spring:message code="customerWastedProduct.returnId" /></td>
+				<td>${wastedProduct.id}</td>
+			</tr>
 
-            <tr>
-                <td><spring:message code="addCustomerOrder.customerName" /></td>
-                <td>${wastedProduct.customer.fullName}</td>
-            </tr>
+			<tr>
+				<td><spring:message code="addCustomerOrder.customerName" /></td>
+				<td>${wastedProduct.customer.fullName}</td>
+			</tr>
 
-            <tr>
-                <td><spring:message code="addCustomer.address" /></td>
-                <td>${wastedProduct.customer.address}</td>
-            </tr>
+			<tr>
+				<td><spring:message code="addCustomer.address" /></td>
+				<td>${wastedProduct.customer.address}</td>
+			</tr>
 
-            <tr>
-                <td><spring:message code="printOrderPreProduct.phone" /></td>
-                <td>${wastedProduct.customer.phone}</td>
-            </tr>
+			<tr>
+				<td><spring:message code="printOrderPreProduct.phone" /></td>
+				<td>${wastedProduct.customer.phone}</td>
+			</tr>
 
-            <tr>
-                <td><spring:message code="printOrderPreProduct.reference" /></td>
-                <td>${wastedProduct.reference}</td>
-            </tr>
+			<tr>
+				<td><spring:message code="printOrderPreProduct.reference" /></td>
+				<td>${wastedProduct.reference}</td>
+			</tr>
 
-            <tr>
-                <td><spring:message code="printOrderPreProduct.totalPrice" /></td>
-                <td><fmt:formatNumber type="number" maxFractionDigits="3"
-                                      value="${wastedProduct.totalPrice}" /></td>
-            </tr>
-        </table>
-        <hr>
+			<tr>
+				<td><spring:message code="printOrderPreProduct.totalPrice" /></td>
+				<td><fmt:formatNumber type="number" maxFractionDigits="3"
+						value="${wastedProduct.totalPrice}" /></td>
+			</tr>
+		</table>
+		<hr>
 
-        <table id="products-table" class="cus-center" style="width: 100%">
+		<table id="products-table" class="cus-center" style="width: 100%">
 
-            <thead>
-            <tr>
-                <th>#</th>
-                <th><spring:message code="printOrderPreProduct.pCode" /></th>
-                <th><spring:message code="printOrderPreProduct.pName" /></th>
-                <th><spring:message code="printOrderPreProduct.quantity" /></th>
-                <th><spring:message code="printOrderPreProduct.price" /></th>
-                <th><spring:message code="printOrderPreProduct.unitPrice" /></th>
-                <th><spring:message code="printOrderPreProduct.note" /></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${wastedProduct.customerWastedProducts}" var="item"
-                       varStatus="status">
-                <tr>
-                    <td>${status.index+1}</td>
-                    <td>${item.product.code}</td>
-                    <td>${item.product.name}</td>
-                    <td>${item.quantity}</td>
-                    <td><fmt:formatNumber type="number" maxFractionDigits="3"
-                                          value="${item.price}" /></td>
-                    <td><fmt:formatNumber type="number" maxFractionDigits="3"
-                                          value="${item.price/item.quantity}" /></td>
-                    <td>${item.note}</td>
-                </tr>
-            </c:forEach>
-            </tbody>
+			<thead>
+				<tr>
+					<th>#</th>
+					<th><spring:message code="printOrderPreProduct.pCode" /></th>
+					<th><spring:message code="printOrderPreProduct.pName" /></th>
+					<th><spring:message code="printOrderPreProduct.quantity" /></th>
+					<th><spring:message code="printOrderPreProduct.price" /></th>
+					<th><spring:message code="printOrderPreProduct.unitPrice" /></th>
+					<th><spring:message code="printOrderPreProduct.note" /></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${wastedProduct.customerWastedProducts}"
+					var="item" varStatus="status">
+					<tr>
+						<td>${status.index+1}</td>
+						<td>${item.product.code}</td>
+						<td>${item.product.name}</td>
+						<td>${item.quantity}</td>
+						<td><fmt:formatNumber type="number" maxFractionDigits="3"
+								value="${item.price}" /></td>
+						<td><fmt:formatNumber type="number" maxFractionDigits="3"
+								value="${item.price/item.quantity}" /></td>
+						<td>${item.note}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 
-        </table>
+		</table>
 
-    </div>
-    <hr>
-
-
-<%--</div>--%>
-
-<script type="text/javascript">
-    function printing() {
-        console.log("print fired");
-        window.print();
-    }
-    printing();
-</script>
+	</div>
+	<hr>
 
 
+	<%--</div>--%>
 
-
+	<script type="text/javascript">
+		function printing() {
+			console.log("print fired");
+			window.print();
+		}
+		printing();
+	</script>

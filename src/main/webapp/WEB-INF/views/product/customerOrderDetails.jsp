@@ -9,7 +9,7 @@
 <fmt:formatDate var="currentDate" value="${now}" pattern="yyyy-MM-dd" />
 
 
-<div style="max-height: 400px;">
+<div style="max-height: 400px; overflow: auto;">
 
 	<h2>
 		<spring:message code="customerOrderDetails.title" />

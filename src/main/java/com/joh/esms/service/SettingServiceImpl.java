@@ -31,6 +31,9 @@ public class SettingServiceImpl implements SettingService {
 
 	@Override
 	public Setting save(Setting setting) {
+		Setting findTopByOrderById = settingDAO.findTopByOrderById();
+		if (findTopByOrderById != null)
+			setting.setId(findTopByOrderById.getId());
 		return settingDAO.save(setting);
 	}
 

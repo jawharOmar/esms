@@ -292,6 +292,7 @@
 			<add-attribute value="select2.min" />
 			<add-attribute value="moment.min" />
 			<add-attribute value="app" />
+			<add-attribute value="settings" />
 		</put-list-attribute>
 	</definition>
 
@@ -3257,7 +3258,7 @@
 		<put-attribute name="title"
 			value="Print Customer Wasted Product" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/customerReturnWastedProduct/printCustomerReturnWastedProduct.jsp" />
+	value="/WEB-INF/views/customerReturnWastedProduct/printCustomerReturnWastedProduct.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="fontawesome/css/all.min" />

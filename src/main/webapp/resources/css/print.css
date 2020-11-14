@@ -6,6 +6,23 @@ body {
 	padding-top: 5mm;
 }
 
+#header {
+	padding: 10px;
+	border-bottom: 2px solid black;
+}
+
+#header table {
+	width: 100%;
+}
+
+#header td {
+	text-align: center !important;
+}
+
+tfoot td {
+	background: #E2E2E2;
+}
+
 .cus-avatar {
 	vertical-align: middle;
 	width: 50px;

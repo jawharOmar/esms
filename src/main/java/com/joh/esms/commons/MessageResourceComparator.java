@@ -22,7 +22,7 @@ public class MessageResourceComparator {
 
 		Properties kurdish = new Properties();
 
-		InputStream kInput = classLoader.getResourceAsStream("messages_ar_SY.properties");
+		InputStream kInput = classLoader.getResourceAsStream("messages_ar.properties");
 		kurdish.load(new InputStreamReader(kInput, Charset.forName("UTF-8")));
 
 		@SuppressWarnings("unchecked")
