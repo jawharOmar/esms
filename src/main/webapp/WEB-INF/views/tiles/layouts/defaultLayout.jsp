@@ -123,10 +123,6 @@ body {
 					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 						data-parent="#accordionSidebar">
 						<div class="py-2 collapse-inner rounded">
-							<a class="collapse-item" href="<c:url value="/customers" />">
-								<spring:message code="layout.customers" />
-							</a>
-
 							<sec:authorize url="/customerOrders/add">
 								<a class="collapse-item"
 									href="<c:url value="/customerOrders/add"/>"><spring:message
@@ -135,13 +131,70 @@ body {
 									href="<c:url value="/customerOrders"/>?from=${currentDate}&to=${tomorrow}"><spring:message
 										code="layout.list" /></a>
 							</sec:authorize>
+							
+							<a class="collapse-item" href="<c:url value="/customers" />">
+								<spring:message code="layout.customers" />
+							</a>
+							
 							<sec:authorize url="/priceCategories">
 								<a class="collapse-item"
 									href="<c:url value="/priceCategories"/>"><spring:message
 										code="layout.priceCategory" /></a>
 							</sec:authorize>
 						</div>
-					</div></li>
+					</div>
+				</li>
+				
+				<li class="nav-item"><a class="nav-link collapsed" href="#"
+					data-toggle="collapse" data-target="#c5" aria-expanded="true"
+					aria-controls="c5"> <i class="fas fa-fw fa-cog"></i> <span>
+							<spring:message code="layout.vendorOrder" />
+					</span>
+					</a>
+					<div id="c5" class="collapse totop" aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar">
+						<div class=" py-2 collapse-inner rounded">
+							<sec:authorize url="/orderProductStepUps/add">
+								<a class="collapse-item"
+									href="<c:url value="/orderProductStepUps/add"/>"><spring:message
+										code="layout.add" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/orderProductStepUps"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.list" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/vendors">
+								<a class="collapse-item" href="<c:url value="/vendors"/>"><spring:message
+										code="layout.vendors" /></a>
+							</sec:authorize>
+							
+							<sec:authorize url="/vendorPayments/add">
+								<a class="collapse-item"
+									href="<c:url value="/vendorPayments/add"/>"> <spring:message
+										code="layout.addVendorPayment" />
+								</a>
+								<a class="collapse-item"
+									href="<c:url value="/vendorPayments"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.vendorPayments" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/orderPreProducts/add">
+								<a class="collapse-item"
+									href="<c:url value="/orderPreProducts/add"/>"><spring:message
+										code="layout.addOrderPreProduct" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/orderPreProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.orderPreProducts" /></a>
+
+							</sec:authorize>
+							<sec:authorize url="/venderReturn">
+								<a class="collapse-item"
+									href="<c:url value="/venderReturns/view"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.VednorReturn" /></a>
+							</sec:authorize>
+						</div>
+					</div>
+				</li>
 
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c2" aria-expanded="true"
@@ -208,54 +261,7 @@ body {
 						</div>
 					</div></li>
 
-				<li class="nav-item"><a class="nav-link collapsed" href="#"
-					data-toggle="collapse" data-target="#c5" aria-expanded="true"
-					aria-controls="c5"> <i class="fas fa-fw fa-cog"></i> <span>
-							<spring:message code="layout.vendorOrder" />
-					</span>
-				</a>
-					<div id="c5" class="collapse totop" aria-labelledby="headingTwo"
-						data-parent="#accordionSidebar">
-						<div class=" py-2 collapse-inner rounded">
-							<sec:authorize url="/vendors">
-								<a class="collapse-item" href="<c:url value="/vendors"/>"><spring:message
-										code="layout.vendors" /></a>
-							</sec:authorize>
-							<sec:authorize url="/orderProductStepUps/add">
-								<a class="collapse-item"
-									href="<c:url value="/orderProductStepUps/add"/>"><spring:message
-										code="layout.add" /></a>
-								<a class="collapse-item"
-									href="<c:url value="/orderProductStepUps"/>?from=${currentDate}&to=${tomorrow}">
-									<spring:message code="layout.list" />
-								</a>
-							</sec:authorize>
-							<sec:authorize url="/vendorPayments/add">
-								<a class="collapse-item"
-									href="<c:url value="/vendorPayments/add"/>"> <spring:message
-										code="layout.addVendorPayment" />
-								</a>
-								<a class="collapse-item"
-									href="<c:url value="/vendorPayments"/>?from=${currentDate}&to=${tomorrow}">
-									<spring:message code="layout.vendorPayments" />
-								</a>
-							</sec:authorize>
-							<sec:authorize url="/orderPreProducts/add">
-								<a class="collapse-item"
-									href="<c:url value="/orderPreProducts/add"/>"><spring:message
-										code="layout.addOrderPreProduct" /></a>
-								<a class="collapse-item"
-									href="<c:url value="/orderPreProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-										code="layout.orderPreProducts" /></a>
-
-							</sec:authorize>
-							<sec:authorize url="/venderReturn">
-								<a class="collapse-item"
-									href="<c:url value="/venderReturns/view"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-										code="layout.VednorReturn" /></a>
-							</sec:authorize>
-						</div>
-					</div></li>
+				
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c8" aria-expanded="true"
 					aria-controls="c8"> <i class="fas fa-fw fa-cog"></i> <span>
