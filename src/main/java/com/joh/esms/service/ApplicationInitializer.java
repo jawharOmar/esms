@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.joh.esms.model.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import com.joh.esms.model.Account;
+import com.joh.esms.model.ProductCategory;
+import com.joh.esms.model.ProductUnitType;
+import com.joh.esms.model.Role;
+import com.joh.esms.model.User;
 
 @Component
 public class ApplicationInitializer {

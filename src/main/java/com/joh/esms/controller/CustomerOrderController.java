@@ -28,6 +28,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joh.esms.domain.model.JsonResponse;
 import com.joh.esms.model.CustomerOrder;
 import com.joh.esms.model.CustomerOrderDetail;
+import com.joh.esms.model.Setting;
 import com.joh.esms.model.Stock;
 import com.joh.esms.service.CustomerOrderDetailService;
 import com.joh.esms.service.CustomerOrderService;
@@ -208,9 +209,15 @@ public class CustomerOrderController {
 		customerOrder.getCustomer().setTotalLoan(customerService
 				.getCustomerTotalLoanByTime(customerOrder.getCustomer().getId(), customerOrder.getOrderTime()));
 
-		model.addAttribute("setting", settingService.findSetting());
+		Setting setting = settingService.findSetting();
+		model.addAttribute("setting", setting);
 
-		return "getCustomerOrder";
+		if (setting.getPrintCustomerThermal() != null && setting.getPrintCustomerThermal() == 1)
+
+			return "customerOrder/printCustomerOrderThermal";
+		else
+
+			return "getCustomerOrder";
 
 	}
 

@@ -36,6 +36,9 @@ public class Setting {
 	@Column(name = "DESCRIPTION")
 	private String description;
 
+	@Column(name = "PRINT_CUSTOMER_THERMAL")
+	private Integer printCustomerThermal;
+
 	public int getId() {
 		return id;
 	}
@@ -84,10 +87,19 @@ public class Setting {
 		this.description = description;
 	}
 
+
+	public Integer getPrintCustomerThermal() {
+		return printCustomerThermal;
+	}
+
+	public void setPrintCustomerThermal(Integer printCustomerThermal) {
+		this.printCustomerThermal = printCustomerThermal;
+	}
+
 	@Override
 	public String toString() {
 		return "Setting [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", email=" + email
-				+ ", description=" + description + "]";
+				+ ", description=" + description + ", printCustomerThermal=" + printCustomerThermal + "]";
 	}
 
 }

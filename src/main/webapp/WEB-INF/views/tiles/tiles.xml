@@ -3132,6 +3132,22 @@
 		</put-list-attribute>
 	</definition>
 
+	<definition name="getCustomerOrderThermal"
+		extends="print-layout">
+		<put-attribute name="title" value="Print Customer Order" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/customerOrder/printCustomerOrderThermal.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="fontawesome/css/all.min" />
+			<add-attribute value="print" />
+			<add-attribute value="getCustomerOrder" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+	</definition>
+
 
 	<!-- Print CustomerPayment -->
 	<definition name="customerPaymentPrint"
@@ -3258,7 +3274,7 @@
 		<put-attribute name="title"
 			value="Print Customer Wasted Product" />
 		<put-attribute name="body"
-	value="/WEB-INF/views/customerReturnWastedProduct/printCustomerReturnWastedProduct.jsp" />
+			value="/WEB-INF/views/customerReturnWastedProduct/printCustomerReturnWastedProduct.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="fontawesome/css/all.min" />

@@ -90,15 +90,3 @@
 
 </body>
 </html>
-<style>
-    #printFooter {
-        position: fixed;
-        z-index: 0;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        overflow: auto;
-        z-index: -100;
-        overflow: auto;
-    }
-</style>

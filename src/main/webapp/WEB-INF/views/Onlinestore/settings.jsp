@@ -46,6 +46,13 @@
 						</tr>
 
 						<tr>
+							<td><spring:message code="settings.printCustomerOrderThermal" /></td>
+							<td><sf:checkbox 
+									path="printCustomerThermal" value="1" /></td>
+							<td><sf:errors path="printCustomerThermal" /></td>
+						</tr>
+
+						<tr>
 							<td><spring:message code="settings.logo" /></td>
 							<td><input id="files" type="file" accept=".png"
 								class=" form-control
