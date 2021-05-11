@@ -22,9 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joh.esms.domain.model.JsonResponse;
+import com.joh.esms.model.Setting;
 import com.joh.esms.model.Vendor;
 import com.joh.esms.model.VendorPayment;
 import com.joh.esms.service.OrderProductStepUpService;
+import com.joh.esms.service.SettingService;
 import com.joh.esms.service.VendorPaymentService;
 import com.joh.esms.service.VendorService;
 
@@ -45,6 +47,9 @@ public class VendorPaymentController {
 
 	@Autowired
 	private MessageSource messageSource;
+
+	@Autowired
+	private SettingService settingService;
 
 	@GetMapping()
 	private String getCustomerPaymentsByDate(@RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
@@ -134,6 +139,8 @@ public class VendorPaymentController {
 		model.addAttribute("totalLoan", totalLoan);
 
 		model.addAttribute("vendorPayment", vendorPayment);
+		Setting setting = settingService.findSetting();
+		model.addAttribute("setting", setting);
 
 		return "vendorPaymentPrint";
 	}

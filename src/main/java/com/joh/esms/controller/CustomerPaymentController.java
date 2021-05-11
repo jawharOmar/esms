@@ -24,9 +24,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joh.esms.domain.model.JsonResponse;
 import com.joh.esms.model.Customer;
 import com.joh.esms.model.CustomerPayment;
+import com.joh.esms.model.Setting;
 import com.joh.esms.service.CustomerOrderService;
 import com.joh.esms.service.CustomerPaymentService;
 import com.joh.esms.service.CustomerService;
+import com.joh.esms.service.SettingService;
 
 @Controller()
 @RequestMapping(path = "/customerPayments")
@@ -45,6 +47,9 @@ public class CustomerPaymentController {
 
 	@Autowired
 	private MessageSource messageSource;
+
+	@Autowired
+	private SettingService settingService;
 
 	@GetMapping()
 	private String getCustomerPaymentsByDate(@RequestParam() @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
@@ -166,6 +171,9 @@ public class CustomerPaymentController {
 		model.addAttribute("totalLoan", totalLoan);
 
 		model.addAttribute("customerPayment", customerPayment);
+
+		Setting setting = settingService.findSetting();
+		model.addAttribute("setting", setting);
 
 		return "customerPaymentPrint";
 	}

@@ -1,9 +1,12 @@
 body {
 	padding: 1mm;
+	font-size: 22px;
+	-webkit-print-color-adjust: exact;
 }
 
 #body {
 	padding-top: 5mm;
+	padding-bottom: 10mm;
 }
 
 #header {

@@ -43,6 +43,7 @@ import com.joh.esms.model.Account;
 import com.joh.esms.model.User;
 import com.joh.esms.model.VendorPayment;
 import com.joh.esms.service.AccountTransactionService;
+import com.joh.esms.service.InitializingStockFillingService;
 import com.joh.esms.service.UserService;
 
 @Controller
@@ -75,6 +76,9 @@ public class AppController {
 	private Environment environment;
 
 	@Autowired
+	private InitializingStockFillingService initializingStockFillingService;
+
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@GetMapping("/login")
@@ -87,7 +91,7 @@ public class AppController {
 		Date now = new Date();
 
 		if (date.before(now)) {
-          return "expired";
+			return "expired";
 		}
 		return "login";
 	}
@@ -194,6 +198,14 @@ public class AppController {
 		}
 		return ResponseEntity.badRequest().build();
 
+	}
+
+	@GetMapping("/insert")
+	@ResponseBody
+	public String insert() {
+		logger.info("insert->fired");
+		 initializingStockFillingService.sendToStock();
+		return "success";
 	}
 
 }

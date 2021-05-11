@@ -540,7 +540,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<SearchD> findByProductNameOrCode(String keyword) {
-		return productDAO.findByProductNameOrCode(keyword);
+		List<SearchD> searchDs = productDAO.findByProductNameOrCode(keyword);
+		logger.info("searchDs=" + searchDs);
+		return searchDs;
 	}
 
 	@Override
@@ -598,6 +600,9 @@ public class ProductServiceImpl implements ProductService {
 		List<ProductD> productDs = productDAO.findStockByKeyword(keyword);
 
 		List<Integer> ids = productDs.stream().map(e -> e.getProductId()).collect(Collectors.toList());
+
+		if (ids.size() == 0)
+			return new ArrayList<>();
 
 		List<ProductPriceCategory> productPriceCategories = productPriceCategoryService.findAllByProductIds(ids);
 

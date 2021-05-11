@@ -16,3 +16,15 @@
 	border-bottom: 1px solid black;
 }
 
+#order table th {
+	background: #2978B1;
+	color: white;
+}
+
+#footerOrder td:first-child {
+	background: #D5F1F1;
+}
+
+#footerOrder td:nth-child(2) {
+	background: #BBD7F0;
+}

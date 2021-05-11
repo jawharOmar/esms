@@ -4,31 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<style>
-	@media screen {
-		header,footer {display: none;}
-	}
-
-	@media print {
-		header,footer {display: block;}
-	}
-</style>
-<c:if test="${pageContext.response.locale==\"ar\"||pageContext.response.locale==\"ar_SY\"}">
-	<style type="text/css">
-		* {
-			direction: rtl;
-			text-align: right !important;
-		}
-	</style>
-</c:if>
-<c:if test="${pageContext.response.locale==\"en\"}">
-	<style type="text/css">
-		* {
-			direction: ltr;
-			text-align: left !important;
-		}
-	</style>
-</c:if>
+<fmt:setLocale value="${pageContext.response.locale}" scope="session" />
 
 
 <div id="section-to-print">
@@ -40,7 +16,7 @@
 
 		<tr>
 			<td><spring:message code="customerPaymentPrint.time" /></td>
-			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
+			<td><fmt:formatDate pattern="yyyy-MM-dd / HH:mm"
 					value="${customerPayment.time}" /></td>
 		</tr>
 
@@ -57,12 +33,10 @@
 		</tr>
 		<tr>
 			<td><spring:message code="customerPaymentPrint.discount" /></td>
-			<td>
-				<c:if test="${customerPayment.discount==null}">
+			<td><c:if test="${customerPayment.discount==null}">
 					0
-				</c:if>
-				<fmt:formatNumber maxFractionDigits="3"
-								  value="${customerPayment.discount}" /></td>
+				</c:if> <fmt:formatNumber maxFractionDigits="3"
+					value="${customerPayment.discount}" /></td>
 		</tr>
 		<tr>
 			<td><spring:message code="customerPaymentPrint.totalLoan" /></td>

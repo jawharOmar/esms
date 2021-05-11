@@ -4,32 +4,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<fmt:setLocale value="${pageContext.response.locale}" scope="session" />
 
-<style>
-	@media screen {
-		header,footer {display: none;}
-	}
-
-	@media print {
-		header,footer {display: block;}
-	}
-</style>
-<c:if test="${pageContext.response.locale==\"ar\"||pageContext.response.locale==\"ar_SY\"}">
-	<style type="text/css">
-		* {
-			direction: rtl;
-			text-align: right !important;
-		}
-	</style>
-</c:if>
-<c:if test="${pageContext.response.locale==\"en\"}">
-	<style type="text/css">
-		* {
-			direction: ltr;
-			text-align: left !important;
-		}
-	</style>
-</c:if>
 
 <div id="section-to-print">
 	<table class="table table-bordered">
@@ -40,7 +16,7 @@
 
 		<tr>
 			<td><spring:message code="vendorPaymentPrint.time" /></td>
-			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
+			<td><fmt:formatDate pattern="yyyy-MM-dd / HH:mm"
 					value="${vendorPayment.time}" /></td>
 		</tr>
 

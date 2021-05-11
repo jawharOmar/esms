@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TemporalType;
 
 import org.apache.log4j.Logger;
 
@@ -331,8 +332,7 @@ public class ProductDAOImpl implements ProductDAOExt {
 
 			productDs.add(productD);
 		}
-		
-		
+
 		return productDs;
 	}
 
@@ -602,20 +602,22 @@ public class ProductDAOImpl implements ProductDAOExt {
 	@Override
 	public List<SearchD> findByProductNameOrCode(String keyword) {
 		List<SearchD> searchDS = new ArrayList<>();
-		Query query = em.createNativeQuery(
-				"SELECT I_PRODUCT,PRODUCT_CODE,PRODUCT_NAME FROM PRODUCTS WHERE (PRODUCT_CODE LIKE CONCAT('%',?1,'%') || PRODUCT_NAME LIKE CONCAT('%',?1,'%'))");
-		query.setParameter(1, keyword);
+		keyword = "'%" + keyword.replaceAll(" ", "%") + "%'";
+		logger.info("keyword=" + keyword);
+		Query query = em
+				.createNativeQuery("SELECT I_PRODUCT,PRODUCT_CODE,PRODUCT_NAME FROM PRODUCTS WHERE (PRODUCT_CODE LIKE "
+						+ keyword + " || PRODUCT_NAME LIKE  " + keyword + " )");
 
 		List<Object[]> resultList = query.getResultList();
 
 		for (Object row[] : resultList) {
 			SearchD searchD = new SearchD();
-
 			searchD.setId((Integer) row[0]);
 			searchD.setKeyword((String) row[1]);
 			searchD.setSecondKeyword((String) row[2]);
 			searchDS.add(searchD);
 		}
+		logger.info("searchDS=" + searchDS);
 		return searchDS;
 	}
 

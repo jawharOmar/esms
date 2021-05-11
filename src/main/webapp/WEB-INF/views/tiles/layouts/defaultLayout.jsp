@@ -19,10 +19,12 @@
 <c:set var="tomorrow"
 	value="<%=new Date(new Date().getTime() + 60 * 60 * 24 * 1000)%>" />
 
+<c:set value="${pageContext.response.locale}" var="userLocal" />
 
-
+<fmt:setLocale value="en_US" scope="session" />
 <fmt:formatDate var="currentDate" value="${now}" pattern="yyyy-MM-dd" />
 <fmt:formatDate var="tomorrow" value="${tomorrow}" pattern="yyyy-MM-dd" />
+<fmt:setLocale value="${userLocal}" scope="session" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,17 +93,19 @@ body {
 
 		<!-- Sidebar -->
 		<div id="navbar-div" class="toggled">
+
+
 			<ul
 				class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 				id="accordionSidebar">
 				<div
 					class="sidebar-brand d-flex align-items-center justify-content-center">
-					<div class="sidebar-brand-icon rotate-n-15">
-						<img style="max-width: 50px;"
+					<div class="sidebar-brand-icon">
+						<img style="max-width: 80px; padding: 4px"
 							src="<c:url value="/resources/img/logo.png?" />${versionLogo}"
-							height="30" alt="" />
+							height="80" alt="" />
 					</div>
-					<div class="sidebar-brand-text mx-3">Goran</div>
+					<div class="sidebar-brand-text mx-3">Flexible It</div>
 				</div>
 				<hr class="sidebar-divider my-0">
 				<sec:authorize url="/adminRoot">
@@ -396,9 +400,9 @@ body {
 									<i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
 									Change password
 								</button>
-								<a class="dropdown-item" href="?lang=ar_SY">کوردی</a> <a
-									class="dropdown-item" href="?lang=en">English</a> <a
-									class="dropdown-item" href="?lang=ar">عربی</a>
+								<a class="dropdown-item" href="<c:url value="/?lang=ar_SY" />">کوردی</a>
+								<a class="dropdown-item" href="<c:url value="/?lang=en" />">English</a>
+								<a class="dropdown-item" href="<c:url value="/?lang=ar" />"">عربی</a>
 								<div class="dropdown-divider"></div>
 
 								<form action="<c:url value="/logout" />" method="POST">

@@ -7,17 +7,22 @@
 
 <div class="cus-print-container">
 
+
+
 	<table style="width: 400px;">
 
 		<tr>
 			<td><spring:message code="getCustomerOrder.time" /></td>
-			<td><fmt:formatDate pattern="yyyy-MM-dd  hh:mm:ss"
+			<fmt:setLocale value="en_US" scope="session" />
+			<td><fmt:formatDate pattern="yyyy-MM-dd / hh:mm"
 					value="${customerOrder.orderTime}" /></td>
 		</tr>
 
+		<fmt:setLocale value="${pageContext.response.locale}" scope="session" />
+
 		<tr>
 			<td><spring:message code="getCustomerOrder.invoiceId" /></td>
-			<td>${customerOrder.invoiceId}</td>
+			<td style="color: red">${customerOrder.invoiceId}</td>
 		</tr>
 		<tr>
 			<td><spring:message code="getCustomerOrder.customerName" /></td>
@@ -40,48 +45,32 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th><spring:message code="getCustomerOrder.image" /></th>
 					<th><spring:message code="getCustomerOrder.name" /></th>
+					<th><spring:message code="getCustomerOrder.code" /></th>
 					<th style="text-align: center;"><spring:message
 							code="getCustomerOrder.quantity" /></th>
-					<th style="text-align: center;"><spring:message
-							code="getCustomerOrder.packetQuantity" /></th>
 					<th><spring:message code="getCustomerOrder.price" /></th>
 					<th><spring:message code="getCustomerOrder.total" /></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:set var="packet" value="0" />
 				<c:set var="itemqty" value="0" />
 
 				<c:forEach items="${customerOrder.customerOrderDetails}" var="item"
 					varStatus="status">
 					<tr>
 						<td>${status.index+1}</td>
-						<td><c:if test="${item.product.attachedFile!=null}">
-								<img class="cus-avatar"
-									src="<c:url value="/attachedFiles/1/" />${item.product.attachedFile.id}">
-							</c:if></td>
 						<td>${item.productName}</td>
-						<td style="text-align: center;">${item.quantity}&nbsp;${item.product.unit}
-
-							<c:set var="itemqty" value="${itemqty+item.quantity}" />
-						</td>
-						<td style="text-align: center;"><c:if
-								test="${item.quantity>=item.product.packetSize}">
-								<fmt:formatNumber maxFractionDigits="3">
-                            ${item.quantity/item.product.packetSize}
-                        </fmt:formatNumber>
-								<c:set var="packet"
-									value="${packet+item.quantity/item.product.packetSize}" />
-
-							</c:if></td>
+						<td>${item.productCode}</td>
+						<fmt:setLocale value="ar" scope="session" />
+						<td style="text-align: center;">${user.locale}<fmt:formatNumber
+								type="number" maxFractionDigits="3" groupingUsed="false"
+								value="${item.quantity}" /> <c:set var="itemqty"
+								value="${itemqty+item.quantity}" /></td>
 						<td><fmt:formatNumber type="number" maxFractionDigits="3"
-								value="${item.price}" /></td>
-
+								groupingUsed="false" value="${item.price}" /></td>
 						<td><fmt:formatNumber type="number" maxFractionDigits="3"
-								value="${item.price*item.quantity}" /></td>
-
+								groupingUsed="false" value="${item.price*item.quantity}" /></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -90,14 +79,11 @@
 					<td style="text-align: center" colspan="3"><spring:message
 							code="getCustomerOrder.total" /></td>
 
-					<td style="text-align: center">${itemqty}</td>
-					<td style="text-align: center"><fmt:formatNumber
-							maxFractionDigits="3">
-                    ${packet}
-                </fmt:formatNumber></td>
+					<td style="text-align: center"><fmt:formatNumber type="number"
+							maxFractionDigits="3" value="${itemqty}" /></td>
 					<td></td>
 					<td><fmt:formatNumber type="number" maxFractionDigits="3"
-							value="${customerOrder.totalPrice}" /></td>
+							groupingUsed="false" value="${customerOrder.totalPrice}" /></td>
 				</tr>
 			</tfoot>
 		</table>
@@ -107,60 +93,42 @@
 
 
 	<hr>
-	<table border="1" cellpadding="5"
+	<table id="footerOrder" border="1" cellpadding="5"
 		style="font-weight: bolder; width: 400px;">
 
 		<tr>
 			<td><spring:message code="getCustomerOrder.totalPrice" /></td>
 			<td><fmt:formatNumber type="number" maxFractionDigits="3"
-					value="${customerOrder.totalPrice}" /></td>
-			<td><fmt:formatNumber type="number" maxFractionDigits="3"
-					value="${customerOrder.totalPrice * currencyType.rate}" />
-				${currencyType.to}</td>
+					groupingUsed="false" value="${customerOrder.totalPrice}" /></td>
 		</tr>
 
 		<c:if test="${customerOrder.discount!=null}">
-			<tr>
-				<td><spring:message code="getCustomerOrder.discount" /></td>
-				<td><fmt:formatNumber type="number" maxFractionDigits="3"
-						value="${customerOrder.discount}" /> - ${customerOrder.note}</td>
-
-				<td><fmt:formatNumber type="number" maxFractionDigits="3"
-						value="${customerOrder.discount * currencyType.rate}" />
-					${currencyType.to}</td>
-			</tr>
 		</c:if>
 
 		<tr>
 			<td><spring:message code="getCustomerOrder.totalPayment" /></td>
-			<td><fmt:formatNumber type="number" maxFractionDigits="3"
-					value="${customerOrder.totalPayment}" /></td>
-			<td><fmt:formatNumber type="number" maxFractionDigits="3"
-					value="${customerOrder.totalPayment * currencyType.rate}" />
-				${currencyType.to}</td>
+			<td><fmt:formatNumber type="number" groupingUsed='false'
+					maxFractionDigits="3" value="${customerOrder.totalPayment}" /></td>
 		</tr>
 
 		<tr>
 			<td><spring:message code="getCustomerOrder.remain" /></td>
 			<td><fmt:formatNumber type="number" maxFractionDigits="3"
+					groupingUsed="false"
 					value="${customerOrder.totalPrice-customerOrder.discount-customerOrder.totalPayment}" /></td>
-			<td><fmt:formatNumber type="number" maxFractionDigits="3"
-					value="${(customerOrder.totalPrice-customerOrder.discount-customerOrder.totalPayment) * currencyType.rate}" />
-				${currencyType.to}</td>
 		</tr>
 
 		<c:if test="${showLoan}">
 			<tr>
 				<td><spring:message code="getCustomerOrder.oldLoan" /></td>
 				<td><fmt:formatNumber type="number" maxFractionDigits="3"
+						groupingUsed="false"
 						value="${customerOrder.customer.totalLoan-(customerOrder.totalPrice-customerOrder.discount-customerOrder.totalPayment)}" /></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td><spring:message code="getCustomerOrder.totalLoan" /></td>
 				<td><fmt:formatNumber type="number" maxFractionDigits="3"
-						value="${customerOrder.customer.totalLoan}" /></td>
-				<td></td>
+						groupingUsed="false" value="${customerOrder.customer.totalLoan}" /></td>
 			</tr>
 		</c:if>
 
@@ -168,6 +136,8 @@
 
 
 </div>
+
+<fmt:setLocale value="${pageContext.response.locale}" scope="session" />
 
 <script type="text/javascript">
 	function printing() {
