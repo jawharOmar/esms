@@ -22,32 +22,32 @@
 
 		<tr>
 			<td><spring:message code="customerPaymentPrint.total" /></td>
-			<td><fmt:formatNumber maxFractionDigits="3"
+			<td><fmt:formatNumber groupingUsed="false" maxFractionDigits="3"
 					value="${customerPayment.totalPayment+customerPayment.discount+totalLoan}" /></td>
 		</tr>
 
 		<tr>
 			<td><spring:message code="customerPaymentPrint.totalPayment" /></td>
-			<td><fmt:formatNumber maxFractionDigits="3"
-					value="${customerPayment.totalPayment}" /></td>
+			<td><fmt:formatNumber groupingUsed="false" 
+					maxFractionDigits="3" value="${customerPayment.totalPayment}" /></td>
 		</tr>
 		<tr>
 			<td><spring:message code="customerPaymentPrint.discount" /></td>
 			<td><c:if test="${customerPayment.discount==null}">
 					0
-				</c:if> <fmt:formatNumber maxFractionDigits="3"
-					value="${customerPayment.discount}" /></td>
+				</c:if> <fmt:formatNumber groupingUsed="false" 
+					maxFractionDigits="3" value="${customerPayment.discount}" /></td>
 		</tr>
 		<tr>
 			<td><spring:message code="customerPaymentPrint.totalLoan" /></td>
-			<td><fmt:formatNumber maxFractionDigits="3" value="${totalLoan}" /></td>
+			<td><fmt:formatNumber groupingUsed="false" 
+					maxFractionDigits="3" value="${totalLoan}" /></td>
 		</tr>
 
 		<tr>
 			<td><spring:message code="customerPaymentPrint.note" /></td>
 			<td>${customerPayment.note}</td>
 		</tr>
-
 		<tr>
 			<td><spring:message code="customerPaymentPrint.firstSignature" /></td>
 			<td><spring:message code="customerPaymentPrint.secondSignature" /></td>

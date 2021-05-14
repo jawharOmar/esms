@@ -149,6 +149,42 @@ body {
 					</div></li>
 
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
+					data-toggle="collapse" data-target="#c2" aria-expanded="true"
+					aria-controls="c2"> <i class="fas fa-fw fa-cog"></i> <span><spring:message
+								code="layout.customerTransactions" /></span>
+				</a>
+					<div id="c2" class="collapse" aria-labelledby="headingTwo"
+						data-parent="#accordionSidebar">
+						<div class=" py-2 collapse-inner rounded">
+							<sec:authorize url="/customerPayments/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerPayments/add"/>"><spring:message
+										code="layout.addCustomerPayment" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerPayments"/>?from=${currentDate}&to=${tomorrow}">
+									<spring:message code="layout.listCustomerPayment" />
+								</a>
+							</sec:authorize>
+							<sec:authorize url="/customerOrderReturns/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerOrderReturns/add"/>"><spring:message
+										code="layout.addCustomerReturn" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerOrderReturns"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.listCustomerReturn" /></a>
+							</sec:authorize>
+							<sec:authorize url="/customerReturnWastedProducts/add">
+								<a class="collapse-item"
+									href="<c:url value="/customerReturnWastedProducts/add"/>"><spring:message
+										code="layout.addCustomerOrderReturnWastedProduct" /></a>
+								<a class="collapse-item"
+									href="<c:url value="/customerReturnWastedProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
+										code="layout.customerReturnWastedProducts" /></a>
+							</sec:authorize>
+						</div>
+					</div></li>
+
+				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c5" aria-expanded="true"
 					aria-controls="c5"> <i class="fas fa-fw fa-cog"></i> <span>
 							<spring:message code="layout.vendorOrder" />
@@ -198,41 +234,7 @@ body {
 						</div>
 					</div></li>
 
-				<li class="nav-item"><a class="nav-link collapsed" href="#"
-					data-toggle="collapse" data-target="#c2" aria-expanded="true"
-					aria-controls="c2"> <i class="fas fa-fw fa-cog"></i> <span><spring:message
-								code="layout.customerTransactions" /></span>
-				</a>
-					<div id="c2" class="collapse" aria-labelledby="headingTwo"
-						data-parent="#accordionSidebar">
-						<div class=" py-2 collapse-inner rounded">
-							<sec:authorize url="/customerPayments/add">
-								<a class="collapse-item"
-									href="<c:url value="/customerPayments/add"/>"><spring:message
-										code="layout.addCustomerPayment" /></a>
-								<a class="collapse-item"
-									href="<c:url value="/customerPayments"/>?from=${currentDate}&to=${tomorrow}">
-									<spring:message code="layout.listCustomerPayment" />
-								</a>
-							</sec:authorize>
-							<sec:authorize url="/customerOrderReturns/add">
-								<a class="collapse-item"
-									href="<c:url value="/customerOrderReturns/add"/>"><spring:message
-										code="layout.addCustomerReturn" /></a>
-								<a class="collapse-item"
-									href="<c:url value="/customerOrderReturns"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-										code="layout.listCustomerReturn" /></a>
-							</sec:authorize>
-							<sec:authorize url="/customerReturnWastedProducts/add">
-								<a class="collapse-item"
-									href="<c:url value="/customerReturnWastedProducts/add"/>"><spring:message
-										code="layout.addCustomerOrderReturnWastedProduct" /></a>
-								<a class="collapse-item"
-									href="<c:url value="/customerReturnWastedProducts"/>?from=${currentDate}&to=${tomorrow}"><spring:message
-										code="layout.customerReturnWastedProducts" /></a>
-							</sec:authorize>
-						</div>
-					</div></li>
+
 
 				<li class="nav-item"><a class="nav-link collapsed" href="#"
 					data-toggle="collapse" data-target="#c4" aria-expanded="true"
@@ -553,5 +555,7 @@ body {
 						<spring:message code="layout.failed" />
 					</div>
 				</div>
+				
+				
 </body>
 </html>

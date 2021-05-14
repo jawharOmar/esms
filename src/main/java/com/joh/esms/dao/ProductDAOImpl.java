@@ -602,7 +602,8 @@ public class ProductDAOImpl implements ProductDAOExt {
 	@Override
 	public List<SearchD> findByProductNameOrCode(String keyword) {
 		List<SearchD> searchDS = new ArrayList<>();
-		keyword = "'%" + keyword.replaceAll(" ", "%") + "%'";
+
+		keyword = "'%" + keyword.replaceAll(" ", "% ") + "%'";
 		logger.info("keyword=" + keyword);
 		Query query = em
 				.createNativeQuery("SELECT I_PRODUCT,PRODUCT_CODE,PRODUCT_NAME FROM PRODUCTS WHERE (PRODUCT_CODE LIKE "

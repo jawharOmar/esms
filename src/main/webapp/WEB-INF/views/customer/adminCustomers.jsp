@@ -54,8 +54,8 @@
 					<td>${item.phone}</td>
 					<td>${item.address}</td>
 					<td>${item.priceCategory.name}</td>
-					<td><fmt:formatNumber maxFractionDigits="3"
-							value="${item.totalLoan}" /></td>
+					<td><fmt:formatNumber groupingUsed="false"
+							maxFractionDigits="3" value="${item.totalLoan}" /></td>
 					<c:set var="total" value="${total+item.totalLoan}" />
 
 					<td>${item.note}</td>
@@ -117,8 +117,8 @@
 		<tfoot>
 			<tr>
 				<td colspan="4"><spring:message code="adminCustomers.totalLoan" /></td>
-				<td><fmt:formatNumber maxFractionDigits="3" value="${total}" />
-				</td>
+				<td><fmt:formatNumber groupingUsed="false"
+						maxFractionDigits="3" value="${total}" /></td>
 				<td colspan="2"></td>
 
 			</tr>

@@ -45,7 +45,8 @@
 					<td>${item.fullName}</td>
 					<td>${item.phone}</td>
 					<td>${item.address}</td>
-					<td>${item.totalLoan}</td>
+					<td><fmt:formatNumber groupingUsed="false" type="number"
+							maxFractionDigits="3" value="${item.totalLoan}" /></td>
 					<td>${item.note}</td>
 					<td>
 

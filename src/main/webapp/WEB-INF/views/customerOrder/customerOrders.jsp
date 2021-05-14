@@ -87,16 +87,17 @@
 								value="${item.orderTime}" /></td>
 						<td>${item.customerProject.id }</td>
 						<td>${item.customerProject.name }</td>
-						<td><fmt:formatNumber type="number" maxFractionDigits="3"
-								value="${item.totalPrice}" /> <c:set var="sumTotalPrice"
-								value="${sumTotalPrice+item.totalPrice}" /></td>
-						<td><fmt:formatNumber type="number" maxFractionDigits="3"
-								value="${item.discount}" /></td>
+						<td><fmt:formatNumber groupingUsed="false" type="number"
+								maxFractionDigits="3" value="${item.totalPrice}" /> <c:set
+								var="sumTotalPrice" value="${sumTotalPrice+item.totalPrice}" /></td>
+						<td><fmt:formatNumber groupingUsed="false" type="number"
+								maxFractionDigits="3" value="${item.discount}" /></td>
 						<c:set var="sumTotalDiscount"
 							value="${sumTotalDiscount+item.discount}" />
 
-						<td><fmt:formatNumber type="number" maxFractionDigits="3"
-								value="${item.totalPayment}" /> <c:set var="sumTotalPayment"
+						<td><fmt:formatNumber groupingUsed="false" type="number"
+								maxFractionDigits="3" value="${item.totalPayment}" /> <c:set
+								var="sumTotalPayment"
 								value="${sumTotalPayment+item.totalPayment}" /></td>
 						<td width="20%">
 
@@ -137,12 +138,12 @@
 					<td>&nbsp;</td>
 
 					<td>&nbsp;</td>
-					<td><fmt:formatNumber type="number" maxFractionDigits="3"
-							value="${sumTotalPrice}" /></td>
-					<td><fmt:formatNumber type="number" maxFractionDigits="3"
-							value="${sumTotalDiscount}" /></td>
-					<td><fmt:formatNumber type="number" maxFractionDigits="3"
-							value="${sumTotalPayment}" /></td>
+					<td><fmt:formatNumber groupingUsed="false" type="number"
+							maxFractionDigits="3" value="${sumTotalPrice}" /></td>
+					<td><fmt:formatNumber groupingUsed="false" type="number"
+							maxFractionDigits="3" value="${sumTotalDiscount}" /></td>
+					<td><fmt:formatNumber groupingUsed="false" type="number"
+							maxFractionDigits="3" value="${sumTotalPayment}" /></td>
 					<td>&nbsp;</td>
 				</tr>
 
