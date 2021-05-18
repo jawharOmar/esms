@@ -46,7 +46,7 @@
 								<spring:message code="dashabord.accountBalance" />
 							</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800">
-								<fmt:formatNumber maxFractionDigits="3">
+								<fmt:formatNumber groupingUsed="false" maxFractionDigits="3">
 								${dashboardBalanceD.account}
 								</fmt:formatNumber>
 							</div>
@@ -69,7 +69,7 @@
 								<spring:message code="dashabord.expenseLastMonthBalance" />
 							</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800">
-								<fmt:formatNumber maxFractionDigits="3">
+								<fmt:formatNumber groupingUsed="false" maxFractionDigits="3">
 								${dashboardBalanceD.expense}
 								</fmt:formatNumber>
 							</div>
@@ -92,7 +92,7 @@
 								<spring:message code="dashabord.totalVendorLoanBalance" />
 							</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800">
-								<fmt:formatNumber maxFractionDigits="3">
+								<fmt:formatNumber groupingUsed="false" maxFractionDigits="3">
 								${dashboardBalanceD.vendorLoan}
 								</fmt:formatNumber>
 							</div>
@@ -115,7 +115,7 @@
 								<spring:message code="dashabord.totalCustomerLoanBalance" />
 							</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800">
-								<fmt:formatNumber maxFractionDigits="3">
+								<fmt:formatNumber groupingUsed="false" maxFractionDigits="3">
 								${dashboardBalanceD.customerLoan}
 								</fmt:formatNumber>
 							</div>
@@ -223,10 +223,12 @@
 								<tr>
 									<td>${item.productCode }</td>
 									<td>${item.productName}</td>
-									<td><fmt:formatNumber maxFractionDigits="0">
+									<td><fmt:formatNumber groupingUsed="false"
+											maxFractionDigits="0">
 										${item.minimumStockLevel}
 										</fmt:formatNumber></td>
-									<td><fmt:formatNumber maxFractionDigits="0">
+									<td><fmt:formatNumber groupingUsed="false"
+											maxFractionDigits="0">
 										${item.currentStockLevel}
 										</fmt:formatNumber></td>
 								</tr>
@@ -258,7 +260,8 @@
 								<tr>
 									<td>${item.productCode }</td>
 									<td>${item.productName}</td>
-									<td><fmt:formatNumber maxFractionDigits="0">
+									<td><fmt:formatNumber groupingUsed="false"
+											maxFractionDigits="0">
 										${item.amount}
 										</fmt:formatNumber></td>
 								</tr>
